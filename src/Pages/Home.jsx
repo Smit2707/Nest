@@ -10,7 +10,7 @@ const productsData = [
         id: 1,
         badge: "Hot",
         badgeColor: "bg-red-500",
-        image: "/src/assets/Product Images/1.png",
+        image: "/assets/Product Images/1.png",
         brand: "NestFood",
         title: "Seeds of Change Organic Quinoa",
         rating: 4,
@@ -22,7 +22,7 @@ const productsData = [
         id: 2,
         badge: "Sale",
         badgeColor: "bg-blue-500",
-        image: "/src/assets/Product Images/2.png",
+        image: "/assets/Product Images/2.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -34,7 +34,7 @@ const productsData = [
         id: 3,
         badge: "Hot",
         badgeColor: "bg-red-500",
-        image: "/src/assets/Product Images/3.png",
+        image: "/assets/Product Images/3.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -46,7 +46,7 @@ const productsData = [
         id: 4,
         badge: "New",
         badgeColor: "bg-green-500",
-        image: "/src/assets/Product Images/1.png",
+        image: "/assets/Product Images/1.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -58,7 +58,7 @@ const productsData = [
         id: 5,
         badge: "-14%",
         badgeColor: "bg-orange-500",
-        image: "/src/assets/Product Images/2.png",
+        image: "/assets/Product Images/2.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -70,7 +70,7 @@ const productsData = [
         id: 6,
         badge: "Sale",
         badgeColor: "bg-blue-500",
-        image: "/src/assets/Product Images/3.png",
+        image: "/assets/Product Images/3.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -82,7 +82,7 @@ const productsData = [
         id: 7,
         badge: "Sale",
         badgeColor: "bg-blue-500",
-        image: "/src/assets/Product Images/1.png",
+        image: "/assets/Product Images/1.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -94,7 +94,7 @@ const productsData = [
         id: 8,
         badge: "Sale",
         badgeColor: "bg-blue-500",
-        image: "/src/assets/Product Images/2.png",
+        image: "/assets/Product Images/2.png",
         brand: "Stouffer",
         title: "All Natural Italian-Style Chicken Meatballs",
         rating: 5,
@@ -108,7 +108,7 @@ const productsData = [
 
 const dealsData = [
     {
-        image: "/src/assets/bg2.png",
+        image: "/assets/bg2.png",
         days: "426",
         hours: "08",
         mins: "17",
@@ -120,7 +120,7 @@ const dealsData = [
         originalPrice: "33.8"
     },
     {
-        image: "/src/assets/bg.png",
+        image: "/assets/bg.png",
         days: "822",
         hours: "08",
         mins: "17",
@@ -132,7 +132,7 @@ const dealsData = [
         originalPrice: "26.8"
     },
     {
-        image: "/src/assets/bg3.png",
+        image: "/assets/bg3.png",
         days: "1156",
         hours: "08",
         mins: "17",
@@ -144,7 +144,7 @@ const dealsData = [
         originalPrice: "13.8"
     },
     {
-        image: "/src/assets/bg4.png",
+        image: "/assets/bg4.png",
         days: "398",
         hours: "08",
         mins: "17",
@@ -254,35 +254,35 @@ const tabProductsData = {
 
 const categories = [
     {
-        icon: "/src/assets/figure.png",
+        icon: "/assets/figure.png",
         title: "Milks and Dairies"
     },
     {
-        icon: "/src/assets/figure2.png",
+        icon: "/assets/figure2.png",
         title: "Wines & Alcohol"
     },
     {
-        icon: "/src/assets/figure (1).png",
+        icon: "/assets/figure (1).png",
         title: "Clothing & Beauty"
     },
     {
-        icon: "/src/assets/figure (2).png",
+        icon: "/assets/figure (2).png",
         title: "Pet Foods & Toy"
     },
     {
-        icon: "/src/assets/figure (3).png",
+        icon: "/assets/figure (3).png",
         title: "Packaged fast food"
     },
     {
-        icon: "/src/assets/figure (4).png",
+        icon: "/assets/figure (4).png",
         title: "Baking material"
     },
     {
-        icon: "/src/assets/figure (5).png",
+        icon: "/assets/figure (5).png",
         title: "Vegetables & tubers"
     },
     {
-        icon: "/src/assets/figure (6).png",
+        icon: "/assets/figure (6).png",
         title: "Fresh Seafood"
     }
 ];

@@ -10,7 +10,7 @@ const CategorySidebar = () => {
                 <div className="space-y-1">
                     <div className="flex items-center justify-between hover:text-[#3bb77e] cursor-pointer py-1">
                         <div className="flex items-center gap-2">
-                            <img src="./src/assets/Figure.png" className='h-7 w-7 object-cover' alt="" />
+                            <img src="/assets/Figure.png" className='h-7 w-7 object-cover' alt="" />
                             <span className="text-[13px]">Milks & Dairies</span>
                         </div>
                         <span className="text-xs bg-gray-100 px-1.5 py-0.5 rounded-full">4</span>
@@ -18,7 +18,7 @@ const CategorySidebar = () => {
 
                     <div className="flex items-center justify-between hover:text-[#3bb77e] cursor-pointer py-1">
                         <div className="flex items-center gap-2">
-                            <img src="./src/assets/Figure (1).png" className='h-7 w-7 object-cover' alt="" />
+                            <img src="/assets/Figure (1).png" className='h-7 w-7 object-cover' alt="" />
                             <span className="text-[13px]">Clothing</span>
                         </div>
                         <span className="text-xs bg-gray-100 px-1.5 py-0.5 rounded-full">4</span>
@@ -26,7 +26,7 @@ const CategorySidebar = () => {
 
                     <div className="flex items-center justify-between hover:text-[#3bb77e] cursor-pointer py-1">
                         <div className="flex items-center gap-2">
-                            <img src="./src/assets/Figure (2).png" className='h-7 w-7 object-cover' alt="" />
+                            <img src="/assets/Figure (2).png" className='h-7 w-7 object-cover' alt="" />
                             <span className="text-[13px]">Pet Foods</span>
                         </div>
                         <span className="text-xs bg-gray-100 px-1.5 py-0.5 rounded-full">5</span>
@@ -34,7 +34,7 @@ const CategorySidebar = () => {
 
                     <div className="flex items-center justify-between hover:text-[#3bb77e] cursor-pointer py-1">
                         <div className="flex items-center gap-2">
-                            <img src="./src/assets/Figure2.png" className='h-7 w-7 object-cover' alt="" />
+                            <img src="/assets/Figure2.png" className='h-7 w-7 object-cover' alt="" />
                             <span className="text-[13px]">Baking material</span>
                         </div>
                         <span className="text-xs bg-gray-100 px-1.5 py-0.5 rounded-full">6</span>
@@ -42,7 +42,7 @@ const CategorySidebar = () => {
 
                     <div className="flex items-center justify-between hover:text-[#3bb77e] cursor-pointer py-1">
                         <div className="flex items-center gap-2">
-                            <img src="./src/assets/Figure (5).png" className='h-7 w-7 object-cover' alt="" />
+                            <img src="/assets/Figure (5).png" className='h-7 w-7 object-cover' alt="" />
                             <span className="text-[13px]">Fresh Fruit</span>
                         </div>
                         <span className="text-xs bg-gray-100 px-1.5 py-0.5 rounded-full">10</span>

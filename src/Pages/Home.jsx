@@ -292,7 +292,7 @@ const Home = () => {
         <div className="relative min-h-screen">
             <div className="container mx-auto px-8">
                 <div className=" flex gap-8">
-                    <div className="w-[200px] hidden flex-shrink-0">
+                    <div className="w-[200px] hidden md:block flex-shrink-0">
                         <div className="top-[180px]">
                             <CategorySidebar />
                         </div>

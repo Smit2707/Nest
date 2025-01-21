@@ -167,7 +167,7 @@ const Blog = () => {
                 <div className="col-span-3">
                     <div className="flex items-center justify-between mb-8">
                         <div className="flex items-center gap-2">
-                            <img src="/src/assets/figure.png" alt="Recipe" className="w-10 h-10 object-cover" />
+                            <img src="/assets/figure.png" alt="Recipe" className="w-10 h-10 object-cover" />
                             <h2 className="text-xl font-semibold text-[#253D4E]">Recips Articles</h2>
                         </div>
                         <div className="flex items-center gap-4">

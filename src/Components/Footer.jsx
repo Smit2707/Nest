@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="grid grid-cols-5 gap-4">
                     {/* Company Info */}
                     <div>
-                        <img src="/src/assets/logo.png" alt="Nest" className="h-16 mb-3" />
+                        <img src="/assets/logo.png" alt="Nest" className="h-16 mb-3" />
                         <p className="text-xs text-gray-600 mb-2">
                             Awesome grocery store website template
                         </p>

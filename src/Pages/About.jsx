@@ -87,7 +87,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-100">
               <img
-                src="/src/assets/icon-2.png"
+                src="/assets/icon-2.png"
                 alt="Price Tag"
                 className="w-14 h-14 mx-auto mb-4"
               />
@@ -105,7 +105,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-100">
               <img
-                src="/src/assets/icon-3.png"
+                src="/assets/icon-3.png"
                 alt="Handshake"
                 className="w-14 h-14 mx-auto mb-4"
               />
@@ -123,7 +123,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-100">
               <img
-                src="/src/assets/icon-4.png"
+                src="/assets/icon-4.png"
                 alt="Document"
                 className="w-14 h-14 mx-auto mb-4"
               />
@@ -141,7 +141,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-100">
               <img
-                src="/src/assets/icon-5.png"
+                src="/assets/icon-5.png"
                 alt="Return"
                 className="w-14 h-14 mx-auto mb-4"
               />
@@ -159,7 +159,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-100">
               <img
-                src="/src/assets/icon-6.png"
+                src="/assets/icon-6.png"
                 alt="Satisfaction"
                 className="w-14 h-14 mx-auto mb-4"
               />
@@ -177,7 +177,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-100">
               <img
-                src="/src/assets/icon-1.png"
+                src="/assets/icon-1.png"
                 alt="Daily Deal"
                 className="w-14 h-14 mx-auto mb-4"
               />

@@ -77,7 +77,7 @@ const Navbar = () => {
                         </button>
                         
                         <Link to="/">
-                            <img src="/src/assets/logo.png" alt="Nest" className="h-10" />
+                            <img src="/assets/logo.png" alt="Nest" className="h-10" />
                         </Link>
 
                         <div className="flex items-center gap-4">
@@ -190,7 +190,7 @@ const Navbar = () => {
                     <div className="bg-white py-2">
                         <div className="container mx-auto px-4 flex items-center justify-between">
                             <Link to="/" className="flex items-center">
-                                <img src="/src/assets/logo.png" alt="Nest Mart" className="h-8" />
+                                <img src="/assets/logo.png" alt="Nest Mart" className="h-8" />
                             </Link>
 
                             <div className="flex-1 max-w-3xl mx-12">

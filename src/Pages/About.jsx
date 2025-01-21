@@ -31,10 +31,10 @@ const About = () => {
             Welcome to Nest
           </h1>
           <p className="text-gray-600 mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.
+            At Nest, we believe that food is more than just sustenance - it's a way to bring people together. Our mission is to provide high-quality, locally sourced ingredients to help you create unforgettable dining experiences. Whether you're a seasoned chef or a culinary newbie, we're dedicated to helping you cook with confidence and share your love of food with others.
           </p>
           <p className="text-gray-600 mb-8">
-            Ius ferri velit sanctus cu, sed at soleat accusata. Dictas prompta et Ut placerat legendos interpre.Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante Etiam sit amet orci eget. Quis commodo odio aenean sed adipiscing. Turpis massa tincidunt dui ut ornare lectus. Auctor elit sed vulputate mi sit amet. Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.
+            Our team is passionate about building a community that celebrates the joy of cooking and the importance of sharing meals with others. We're committed to supporting local farmers, reducing our environmental footprint, and making healthy, delicious food accessible to everyone. Join us in our mission to make the world a more flavorful and connected place, one meal at a time.
           </p>
 
 
@@ -95,7 +95,7 @@ const About = () => {
                 Best Prices & Offers
               </h3>
               <p className="text-gray-500 text-center mb-4 text-sm leading-relaxed">
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
+                We offer the best prices and deals on a wide range of products. Our offers are constantly updated to provide you with the best value for your money.
               </p>
               <a href="#" className="text-[#3BB77E] text-sm block text-center">
                 Read more
@@ -215,10 +215,10 @@ const About = () => {
               Your Partner for <br />e-commerce grocery solution
             </h2>
             <p className="text-gray-500 mb-6">
-              Ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              At our company, we understand the importance of providing a seamless e-commerce grocery experience. Our team is dedicated to ensuring that every aspect of our service, from product selection to delivery, is tailored to meet the unique needs of our customers.
             </p>
             <p className="text-gray-500">
-              Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+              At our company, we believe in fostering a culture of innovation and collaboration. Our team is dedicated to delivering exceptional e-commerce grocery experiences, ensuring every interaction with our platform is seamless and enjoyable.
             </p>
           </div>
         </div>
@@ -230,7 +230,7 @@ const About = () => {
               Who we are
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros donec ac odio orci ultrices in, ellus eros donec ac odio orci ultrices in.
+              Our company is built on a foundation of innovation, collaboration, and a passion for delivering exceptional e-commerce grocery experiences. We strive to make every interaction with our platform seamless, enjoyable, and tailored to meet the unique needs of our customers.
             </p>
           </div>
 
@@ -239,7 +239,7 @@ const About = () => {
               Our history
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros donec ac odio orci ultrices in, ellus eros donec ac odio orci ultrices in.
+              Our company was founded with a vision to revolutionize the way people shop for groceries. We started as a small online grocery store, but quickly grew to become a leading provider of e-commerce grocery solutions.
             </p>
           </div>
 
@@ -248,7 +248,7 @@ const About = () => {
               Our mission
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros donec ac odio orci ultrices in, ellus eros donec ac odio orci ultrices in.
+              Our company was founded with a vision to revolutionize the way people shop for groceries. We started as a small online grocery store, but quickly grew to become a leading provider of e-commerce grocery solutions.
             </p>
           </div>
         </div>
@@ -333,10 +333,10 @@ const About = () => {
               Meet Our Expert Team
             </h2>
             <p className="text-gray-500 mb-6">
-              Proin ullamcorper pretium orci. Donec necscele risque leo. Nam massa dolor imperdiet neccon sequata congue idsem. Maecenas malesuada faucibus finibus.
+              Our team is made up of passionate individuals who are dedicated to providing the best possible e-commerce grocery experience. We work together to ensure that every aspect of our service is tailored to meet the unique needs of our customers.
             </p>
             <p className="text-gray-500 mb-8">
-              Proin ullamcorper pretium orci. Donec necscele risque leo. Nam massa dolor imperdiet neccon sequata congue idsem. Maecenas malesuada faucibus finibus.
+              Our team is made up of passionate individuals who are dedicated to providing the best possible e-commerce grocery experience. We work together to ensure that every aspect of our service is tailored to meet the unique needs of our customers.
             </p>
             <button className="bg-[#3BB77E] text-white px-6 py-3 rounded-md hover:bg-[#3BB77E]/90">
               View All Members

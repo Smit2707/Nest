@@ -89,18 +89,18 @@ const BlogDetail = () => {
                             </div>
 
                             <p className="text-gray-600 mb-8">
-                                Tortor, lobortis semper viverra ac, molestie tortor laoreet amet euismod et diam quis aliquam consequat porttitor integer a nisl, in faucibus nunc et senean turpis dui dignissim nec scelerisque ullamcorper eu neque, augue quam quis lacus pretium eros est amet turpis nunc in turpis massa et eget facilisis ante molestie nenatibus dolor volutpat, porta pellentesque scelerisque at ornare dui tincidunt cras feugiat tempor lectus
+                                The culinary world is constantly evolving, and staying on top of the latest trends can be a challenge. From innovative cooking techniques to the latest ingredient discoveries, there's always something new to explore. In this article, we'll delve into the world of modern cuisine, highlighting the most exciting developments and must-try dishes of the season. Whether you're a seasoned chef or a curious foodie, you'll find inspiration in the pages that follow.
                             </p>
 
                             {/* Highlighted Text Box */}
                             <div className="bg-[#F6F6F8] p-8 rounded-xl mb-8">
                                 <p className="text-gray-600">
-                                    Integer eu faucibus dolor<sup>[5]</sup>. Ut venenatis tincidunt diam elementum imperdiet. Etiam accumsan semper nisl eu congue. Sed aliquam magna erat, ac eleifend lacus rhoncus in.
+                                    Unlocking the Secrets of Flavorful Cooking<sup>[5]</sup>. Explore the art of balancing flavors with our expert guide to culinary mastery. Discover how to elevate your dishes with harmonious pairings and bold seasoning.
                                 </p>
                             </div>
 
                             <p className="text-gray-600 mb-8">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet id enim, libero sit. Est donec lobortis cursus amet, cras elementum libero convallis feugiat. Nulla faucibus facilisi tincidunt a arcu, sem donec sed sed. Tincidunt morbi scelerisque lectus non. At leo mauris, vel augue. Facilisi diam consequat amet, commodo lorem nisl, odio malesuada cras. Tempus lectus sed libero viverra ut. Facilisi rhoncus elit sit sit.
+                                The culinary world is constantly evolving, and staying on top of the latest trends can be a challenge. From innovative cooking techniques to the latest ingredient discoveries, there's always something new to explore. In this article, we'll delve into the world of modern cuisine, highlighting the most exciting developments and must-try dishes of the season. Whether you're a seasoned chef or a curious foodie, you'll find inspiration in the pages that follow.
                             </p>
 
                             {/* Tags and Share Section */}
@@ -207,10 +207,7 @@ const BlogDetail = () => {
                                                 <span className="text-yellow-400">★</span>
                                             </div>
                                             <p className="text-gray-600">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus,
-                                                suscipit exercitationem accusantium obcaecati quos voluptate nesciunt
-                                                facilis itaque modi commodi dignissimos sequi repudiandae minus ab
-                                                deleniti totam officia id incidunt?
+                                                This blog post truly stood out to me. The author's distinctive approach to the subject matter struck a chord with me. The seamless integration of personal stories and expert knowledge crafted a captivating story that held my attention throughout. The writing was lucid, to the point, and devoid of technical terms, making it relatable to a broad audience. In summary, I found this post to be both enlightening and enjoyable, and I'm eager to explore more works from this gifted writer in the future.
                                             </p>
                                         </div>
                                     </div>
@@ -229,10 +226,7 @@ const BlogDetail = () => {
                                                 <span className="text-yellow-400">★</span>
                                             </div>
                                             <p className="text-gray-600">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus,
-                                                suscipit exercitationem accusantium obcaecati quos voluptate
-                                                nesciunt facilis itaque modi commodi dignissimos sequi repudiandae
-                                                minus ab deleniti totam officia id incidunt?
+                                                I must say, I thoroughly enjoyed this blog post. The author's unique perspective on the topic really resonated with me. The way they wove together personal anecdotes and expert insights created a compelling narrative that kept me engaged from start to finish. The writing style was clear, concise, and free of jargon, making it accessible to a wide range of readers. Overall, I found this post to be both informative and entertaining, and I look forward to reading more from this talented writer in the future.
                                             </p>
                                         </div>
                                     </div>
@@ -251,10 +245,7 @@ const BlogDetail = () => {
                                                 <span className="text-yellow-400">★</span>
                                             </div>
                                             <p className="text-gray-600">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus,
-                                                suscipit exercitationem accusantium obcaecati quos voluptate nesciunt
-                                                facilis itaque modi commodi dignissimos sequi repudiandae minus ab
-                                                deleniti totam officia id incidunt?
+                                                I found this blog post to be a refreshing take on the topic. The author's use of personal anecdotes and expert insights created a compelling narrative that kept me engaged from start to finish. The writing style was clear and concise, making it easy to follow along. I particularly appreciated the way the author broke down complex concepts into easily digestible pieces. Overall, I would highly recommend this post to anyone looking for a thought-provoking read.
                                             </p>
                                         </div>
                                     </div>

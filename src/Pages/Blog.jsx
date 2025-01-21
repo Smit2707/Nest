@@ -118,11 +118,11 @@ const Blog = () => {
     ];
 
     const categories = [
-        { name: "Milk & Dairies", count: 5, image: "./src/assets/Figure (4).png" },
-        { name: "Cooking", count: 8, image: "./src/assets/Figure.png" },
-        { name: "Pet Foods", count: 3, image: "./src/assets/Figure (2).png" },
-        { name: "Baking material", count: 5, image: "./src/assets/Figure2.png" },
-        { name: "Fresh Fruit", count: 6, image: "./src/assets/Figure (5).png" }
+        { name: "Milk & Dairies", count: 5, image: "/assets/Figure (4).png" },
+        { name: "Cooking", count: 8, image: "/assets/Figure.png" },
+        { name: "Pet Foods", count: 3, image: "/assets/Figure (2).png" },
+        { name: "Baking material", count: 5, image: "/assets/Figure2.png" },
+        { name: "Fresh Fruit", count: 6, image: "/assets/Figure (5).png" }
     ];
 
     return (
@@ -167,7 +167,7 @@ const Blog = () => {
                 <div className="col-span-3">
                     <div className="flex items-center justify-between mb-8">
                         <div className="flex items-center gap-2">
-                            <img src="/assets/figure.png" alt="Recipe" className="w-10 h-10 object-cover" />
+                            <img src="/assets/Figure.png" alt="Recipe" className="w-10 h-10 object-cover" />
                             <h2 className="text-xl font-semibold text-[#253D4E]">Recips Articles</h2>
                         </div>
                         <div className="flex items-center gap-4">

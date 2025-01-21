@@ -25,10 +25,10 @@ const Contact = () => {
                             Let us know how <br />we can help you
                         </h1>
                         <p className="text-gray-500 mt-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            At Evara, we value your feedback and strive to provide the best possible experience for our customers. If you have any questions, concerns, or suggestions, please don't hesitate to reach out to us. Our dedicated team is always ready to assist you and ensure your satisfaction.
                         </p>
                         <p className="text-gray-500 mt-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            If you have any questions or concerns, please don't hesitate to reach out to us. We're always here to help and look forward to hearing from you.
                         </p>
                     </div>
 
@@ -39,7 +39,7 @@ const Contact = () => {
                             <div>
                                 <h3 className="text-[#3BB77E] font-semibold mb-3">01. Visit Feedback</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                    For visit feedback, please contact our dedicated team at feedback@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
                                 </p>
                             </div>
 
@@ -47,7 +47,7 @@ const Contact = () => {
                             <div>
                                 <h3 className="text-[#3BB77E] font-semibold mb-3">02. Employer Services</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                    For employer services inquiries, please contact our dedicated team at hr@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
                                 </p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ const Contact = () => {
                             <div>
                                 <h3 className="text-[#3BB77E] font-semibold mb-3">03. Billing Inquiries</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                    For billing inquiries, please contact our dedicated team at billing@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
                                 </p>
                             </div>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                             <div>
                                 <h3 className="text-[#3BB77E] font-semibold mb-3">04. General Inquiries</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                    We are here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.
                                 </p>
                             </div>
                         </div>

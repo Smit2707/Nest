@@ -7,11 +7,11 @@ import Section from '../Components/Section';
 const BlogDetail = () => {
     // Categories data (same as Blog page)
     const categories = [
-        { name: "Milk & Dairies", count: 5 },
-        { name: "Cooking", count: 8 },
-        { name: "Pet Foods", count: 3 },
-        { name: "Baking material", count: 5 },
-        { name: "Fresh Fruit", count: 6 }
+        { name: "Milk & Dairies", count: 5, image: "/assets/Figure.png" },
+        { name: "Cooking", count: 8, image: "/assets/Figure2.png" },
+        { name: "Pet Foods", count: 3, image: "/assets/Figure (1).png" },
+        { name: "Baking material", count: 5, image: "/assets/Figure (2).png" },
+        { name: "Fresh Fruit", count: 6, image: "/assets/Figure (3).png" }
     ];
 
     return (

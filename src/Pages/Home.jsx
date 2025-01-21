@@ -254,35 +254,35 @@ const tabProductsData = {
 
 const categories = [
     {
-        icon: "/assets/figure.png",
+        icon: "/assets/Figure.png",
         title: "Milks and Dairies"
     },
     {
-        icon: "/assets/figure2.png",
+        icon: "/assets/Figure2.png",
         title: "Wines & Alcohol"
     },
     {
-        icon: "/assets/figure (1).png",
+        icon: "/assets/Figure (1).png",
         title: "Clothing & Beauty"
     },
     {
-        icon: "/assets/figure (2).png",
+        icon: "/assets/Figure (2).png",
         title: "Pet Foods & Toy"
     },
     {
-        icon: "/assets/figure (3).png",
+        icon: "/assets/Figure (3).png",
         title: "Packaged fast food"
     },
     {
-        icon: "/assets/figure (4).png",
+        icon: "/assets/Figure (4).png",
         title: "Baking material"
     },
     {
-        icon: "/assets/figure (5).png",
+        icon: "/assets/Figure (5).png",
         title: "Vegetables & tubers"
     },
     {
-        icon: "/assets/figure (6).png",
+        icon: "/assets/Figure (6).png",
         title: "Fresh Seafood"
     }
 ];

@@ -150,7 +150,7 @@ const Shop = () => {
 
     const dealsData = [
         {
-            image: "/src/assets/bg2.png",
+            image: "/assets/bg2.png",
             days: "426",
             hours: "08",
             mins: "17",
@@ -162,7 +162,7 @@ const Shop = () => {
             originalPrice: "33.8"
         },
         {
-            image: "/src/assets/bg.png",
+            image: "/assets/bg.png",
             days: "822",
             hours: "08",
             mins: "17",
@@ -174,7 +174,7 @@ const Shop = () => {
             originalPrice: "26.8"
         },
         {
-            image: "/src/assets/bg3.png",
+            image: "/assets/bg3.png",
             days: "1156",
             hours: "08",
             mins: "17",
@@ -186,7 +186,7 @@ const Shop = () => {
             originalPrice: "13.8"
         },
         {
-            image: "/src/assets/bg4.png",
+            image: "/assets/bg4.png",
             days: "398",
             hours: "08",
             mins: "17",

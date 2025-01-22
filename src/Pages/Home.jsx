@@ -4,6 +4,7 @@ import ProductCard from '../Components/ProductCard';
 import DealCard from '../Components/DealCard';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Footer from '../Components/Footer';
+import Section from '../Components/Section';
 
 const productsData = [
     {
@@ -307,9 +308,9 @@ const Home = () => {
                                 <input
                                     type="email"
                                     placeholder="Your email address"
-                                    className="flex-1 px-6 py-3 text-sm rounded-md border border-gray-200 focus:outline-none"
+                                    className="flex-1 md:px-6 md:py-3 px-6 py-1 text-sm rounded-md border border-gray-200 focus:outline-none"
                                 />
-                                <button className="bg-[#3bb77e] text-white px-8 py-3 rounded-md hover:bg-green-600 font-medium">
+                                <button className="bg-[#3bb77e] text-white md:px-8 px-4 md:py-3 py-2 rounded-md hover:bg-green-600 font-medium text-xs md:text-sm">
                                     Subscribe
                                 </button>
                             </div>
@@ -413,8 +414,8 @@ const Home = () => {
                 <div className="mt-12">
                     <div className="flex justify-between items-center mb-6">
                         <div className="flex items-center gap-3">
-                            <h2 className="text-xl font-bold text-[#253D4E]">Shop by Categories</h2>
-                            <span className="text-gray-500 text-sm hover:text-[#3BB77E] cursor-pointer">
+                            <h2 className="text-sm md:text-xl font-bold text-[#253D4E]">Shop by Categories</h2>
+                            <span className="text-gray-500 hidden md:block text-sm hover:text-[#3BB77E] cursor-pointer">
                                 All Categories →
                             </span>
                         </div>
@@ -428,16 +429,16 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-8 gap-4">
+                    <div className="grid md:grid-cols-8 grid-cols-4 gap-4">
                         {categories.map((category, index) => (
-                            <div key={index} className="bg-[#F4F6FA] rounded-xl p-6 hover:shadow-md cursor-pointer group">
+                            <div key={index} className="bg-[#F4F6FA] rounded-xl md:p-6 p-2 hover:shadow-md cursor-pointer group">
                                 <div className="flex flex-col items-center text-center gap-3">
                                     <img
                                         src={category.icon}
                                         alt={category.title}
-                                        className="w-12 h-12 text-[#3BB77E]"
+                                        className="md:w-12 md:h-12 w-8 h-8 text-[#3BB77E] object-cover"
                                     />
-                                    <span className="text-sm text-[#253D4E] group-hover:text-[#3BB77E] transition-colors">
+                                    <span className="text-[10px] md:text-sm text-[#253D4E] group-hover:text-[#3BB77E] transition-colors">
                                         {category.title}
                                     </span>
                                 </div>
@@ -445,44 +446,199 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* Tabbed Products Section */}
-                <div className="grid grid-cols-4 gap-6 mt-12">
-                    {Object.entries(tabProductsData).map(([title, products]) => (
-                        <div key={title} className="bg-white rounded-xl p-6">
-                            <h3 className="text-lg font-semibold text-[#253D4E] pb-4 border-b">
-                                {title}
+                {/* Tabbed Products Section - Mobile Only */}
+                <div className="lg:hidden mt-8">
+                    {/* Two Column Layout */}
+                    <div className="grid grid-cols-2 gap-4">
+                        {/* Left Column - Top Selling */}
+                        <div>
+                            <h3 className="text-[15px] font-medium text-[#253D4E] border-b border-[#3BB77E] pb-2 mb-4">
+                                Top Selling
                             </h3>
-                            <div className="space-y-4 mt-4">
-                                {products.map((product, idx) => (
-                                    <div key={idx} className="flex gap-3 group">
+                            <div className="space-y-4">
+                                {/* Product Item */}
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src={product.image}
-                                            alt={product.title}
-                                            className="w-[75px] h-[75px] object-cover rounded-lg"
+                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__"
+                                            alt="Product"
+                                            className="w-12 h-12 object-cover"
                                         />
-                                        <div>
-                                            <h4 className="text-sm text-gray-600 group-hover:text-[#3BB77E] cursor-pointer line-clamp-2">
-                                                {product.title}
-                                            </h4>
-                                            <div className="flex items-center mt-1">
-                                                <span className="text-yellow-400 text-xs">★</span>
-                                                <span className="text-xs text-gray-400 ml-1">({product.rating})</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 mt-1">
-                                                <span className="text-[#3BB77E] font-medium">${product.price}</span>
-                                                <span className="text-gray-400 line-through text-xs">${product.originalPrice}</span>
-                                            </div>
-                                        </div>
+                                        <h4 className="text-[11px] text-[#253D4E]">
+                                            Nestle Original Coffee-Mate Coffee Creamer
+                                        </h4>
                                     </div>
-                                ))}
+                                    <div className="flex items-center gap-1 ml-14">
+                                        <span className="text-yellow-400 text-[10px]">★</span>
+                                        <span className="text-gray-400 text-[10px]">(4.0)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-14">
+                                        <span className="text-[#3BB77E] text-[13px]">$32.85</span>
+                                        <span className="text-gray-400 line-through text-[11px]">$33.8</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <img
+                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__"
+                                            alt="Product"
+                                            className="w-12 h-12 object-cover"
+                                        />
+                                        <h4 className="text-[11px] text-[#253D4E]">
+                                            Nestle Original Coffee-Mate Coffee Creamer
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center gap-1 ml-14">
+                                        <span className="text-yellow-400 text-[10px]">★</span>
+                                        <span className="text-gray-400 text-[10px]">(4.0)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-14">
+                                        <span className="text-[#3BB77E] text-[13px]">$32.85</span>
+                                        <span className="text-gray-400 line-through text-[11px]">$33.8</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <img
+                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__"
+                                            alt="Product"
+                                            className="w-12 h-12 object-cover"
+                                        />
+                                        <h4 className="text-[11px] text-[#253D4E]">
+                                            Nestle Original Coffee-Mate Coffee Creamer
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center gap-1 ml-14">
+                                        <span className="text-yellow-400 text-[10px]">★</span>
+                                        <span className="text-gray-400 text-[10px]">(4.0)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-14">
+                                        <span className="text-[#3BB77E] text-[13px]">$32.85</span>
+                                        <span className="text-gray-400 line-through text-[11px]">$33.8</span>
+                                    </div>
+                                </div>
+
+                                {/* Repeat for other products in Top Selling */}
                             </div>
                         </div>
-                    ))}
+
+                        {/* Right Column - Trending Products */}
+                        <div>
+                            <h3 className="text-[15px] font-medium text-[#253D4E] border-b pb-2 mb-4">
+                                Trending Products
+                            </h3>
+                            <div className="space-y-4">
+                                {/* Product Item */}
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <img
+                                            src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AKnINjAl3xpSHOQb51fa3vVCz2pNpFkx0bGxor9GaAABOsaicDLMJXQgHyfk4EQCf2DY~IWS6xxPXp1dwxfEBn0Q1LNfq1wB4p9yrz5IKMakBdFkaGKaMmwkkttOqjdMC69d56zQRldVQVLHc9SqGRRrVLvVr9ffkWevppQ3X5PEyxIdHSiypWw1s5TJQcVJwcNjd4xiUwGWbxxaXJDrBUU8C8MiNJSyajrpRZ4J4O6MhZ-16V6QCOIGRnh3d656Z8Gvv6TT609cQlgGZkFARjlsro3TkruGDcRUTaZ8M0xWcQ~LXXyB5AhKeiulzcNcPjt-n6UnLyJDqQe5NNZodw__"
+                                            alt="Product"
+                                            className="w-12 h-12 object-cover"
+                                        />
+                                        <h4 className="text-[11px] text-[#253D4E]">
+                                            Organic Cage-Free Grade A Large Brown Eggs
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center gap-1 ml-14">
+                                        <span className="text-yellow-400 text-[10px]">★</span>
+                                        <span className="text-gray-400 text-[10px]">(4.0)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-14">
+                                        <span className="text-[#3BB77E] text-[13px]">$32.85</span>
+                                        <span className="text-gray-400 line-through text-[11px]">$33.8</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <img
+                                            src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AKnINjAl3xpSHOQb51fa3vVCz2pNpFkx0bGxor9GaAABOsaicDLMJXQgHyfk4EQCf2DY~IWS6xxPXp1dwxfEBn0Q1LNfq1wB4p9yrz5IKMakBdFkaGKaMmwkkttOqjdMC69d56zQRldVQVLHc9SqGRRrVLvVr9ffkWevppQ3X5PEyxIdHSiypWw1s5TJQcVJwcNjd4xiUwGWbxxaXJDrBUU8C8MiNJSyajrpRZ4J4O6MhZ-16V6QCOIGRnh3d656Z8Gvv6TT609cQlgGZkFARjlsro3TkruGDcRUTaZ8M0xWcQ~LXXyB5AhKeiulzcNcPjt-n6UnLyJDqQe5NNZodw__"
+                                            alt="Product"
+                                            className="w-12 h-12 object-cover"
+                                        />
+                                        <h4 className="text-[11px] text-[#253D4E]">
+                                            Organic Cage-Free Grade A Large Brown Eggs
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center gap-1 ml-14">
+                                        <span className="text-yellow-400 text-[10px]">★</span>
+                                        <span className="text-gray-400 text-[10px]">(4.0)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-14">
+                                        <span className="text-[#3BB77E] text-[13px]">$32.85</span>
+                                        <span className="text-gray-400 line-through text-[11px]">$33.8</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <img
+                                            src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AKnINjAl3xpSHOQb51fa3vVCz2pNpFkx0bGxor9GaAABOsaicDLMJXQgHyfk4EQCf2DY~IWS6xxPXp1dwxfEBn0Q1LNfq1wB4p9yrz5IKMakBdFkaGKaMmwkkttOqjdMC69d56zQRldVQVLHc9SqGRRrVLvVr9ffkWevppQ3X5PEyxIdHSiypWw1s5TJQcVJwcNjd4xiUwGWbxxaXJDrBUU8C8MiNJSyajrpRZ4J4O6MhZ-16V6QCOIGRnh3d656Z8Gvv6TT609cQlgGZkFARjlsro3TkruGDcRUTaZ8M0xWcQ~LXXyB5AhKeiulzcNcPjt-n6UnLyJDqQe5NNZodw__"
+                                            alt="Product"
+                                            className="w-12 h-12 object-cover"
+                                        />
+                                        <h4 className="text-[11px] text-[#253D4E]">
+                                            Organic Cage-Free Grade A Large Brown Eggs
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center gap-1 ml-14">
+                                        <span className="text-yellow-400 text-[10px]">★</span>
+                                        <span className="text-gray-400 text-[10px]">(4.0)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-14">
+                                        <span className="text-[#3BB77E] text-[13px]">$32.85</span>
+                                        <span className="text-gray-400 line-through text-[11px]">$33.8</span>
+                                    </div>
+                                </div>
+
+                                {/* Repeat for other products in Trending Products */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Desktop Version - Hidden on mobile */}
+                <div className="hidden lg:block">
+                    {/* Original desktop layout code */}
+                </div>
+                {/* Tabbed Products Section */}
+                <div className='hidden sm:block'>
+                    <div className="grid grid-cols-4 gap-6 mt-12">
+                        {Object.entries(tabProductsData).map(([title, products]) => (
+                            <div key={title} className="bg-white rounded-xl p-6">
+                                <h3 className="text-lg font-semibold text-[#253D4E] pb-4 border-b">
+                                    {title}
+                                </h3>
+                                <div className="space-y-4 mt-4">
+                                    {products.map((product, idx) => (
+                                        <div key={idx} className="flex gap-3 group">
+                                            <img
+                                                src={product.image}
+                                                alt={product.title}
+                                                className="w-[75px] h-[75px] object-cover rounded-lg"
+                                            />
+                                            <div>
+                                                <h4 className="text-sm text-gray-600 group-hover:text-[#3BB77E] cursor-pointer line-clamp-2">
+                                                    {product.title}
+                                                </h4>
+                                                <div className="flex items-center mt-1">
+                                                    <span className="text-yellow-400 text-xs">★</span>
+                                                    <span className="text-xs text-gray-400 ml-1">({product.rating})</span>
+                                                </div>
+                                                <div className="flex items-center gap-2 mt-1">
+                                                    <span className="text-[#3BB77E] font-medium">${product.price}</span>
+                                                    <span className="text-gray-400 line-through text-xs">${product.originalPrice}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Newsletter Subscription Section */}
-                <div className="mt-12 bg-[url('https://s3-alpha-sig.figma.com/img/873d/c368/ab905c42ffa13dd8cdae0c7a05e4deec?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mGZgOiIWaE5uoJTom6xozNS7w6TrDAfNJK6BrUf9XQdQD5URtyJtb00jbnIctaxQFpwE~SbyF3DZza09w-D7VEu8bNaZXxf4fOv6ibFNJKcxxR0NySx3YGidLynQYwfHJKeSbEU8zqceXsgRZZJ4F9ARPpLLy9bvA1PsGrcpSfKflTz~FZIljt-bxxolBao5wkpE~TLv9o4jHlqoQTWKa4hlGNJ66l3nWHYK1OTEz~unXsvoTPU6ASanhggK3vWzFoELSMGFZ8Ebw0OSYlFBAxK52acJWn5N3bXeC887c6gNXRlTfc~SZRSjYQcg0kngQWtKMTWmYHyFDUCtrgZK4g__')] bg-cover rounded-2xl p-8 relative overflow-hidden">
+                {/* <div className="mt-12 bg-[url('https://s3-alpha-sig.figma.com/img/873d/c368/ab905c42ffa13dd8cdae0c7a05e4deec?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mGZgOiIWaE5uoJTom6xozNS7w6TrDAfNJK6BrUf9XQdQD5URtyJtb00jbnIctaxQFpwE~SbyF3DZza09w-D7VEu8bNaZXxf4fOv6ibFNJKcxxR0NySx3YGidLynQYwfHJKeSbEU8zqceXsgRZZJ4F9ARPpLLy9bvA1PsGrcpSfKflTz~FZIljt-bxxolBao5wkpE~TLv9o4jHlqoQTWKa4hlGNJ66l3nWHYK1OTEz~unXsvoTPU6ASanhggK3vWzFoELSMGFZ8Ebw0OSYlFBAxK52acJWn5N3bXeC887c6gNXRlTfc~SZRSjYQcg0kngQWtKMTWmYHyFDUCtrgZK4g__')] bg-cover rounded-2xl p-8 relative overflow-hidden">
                     <div className="flex justify-between items-center">
                         <div className="max-w-lg">
                             <h2 className="text-2xl font-bold text-[#253D4E] mb-2">
@@ -518,7 +674,9 @@ const Home = () => {
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
+
+                <Section />
 
                 {/* Newsletter Section */}
 

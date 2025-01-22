@@ -299,7 +299,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex-col w-full">
-                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-start bg-[55%] rounded-xl p-12 h-[250px] md:h-[400px]">
+                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-start bg-[55%] rounded-xl pt-12 px-8 h-[250px] md:h-[400px]">
                             <h1 className="text-xl md:text-[42px] font-bold text-[#253D4E] leading-tight">
                                 Don't miss amazing<br />grocery deals.
                             </h1>
@@ -360,7 +360,7 @@ const Home = () => {
                         {/* First Banner */}
                         <div className="bg-[#F0F1F7] rounded-lg p-4 md:p-6 relative overflow-hidden h-[200px] md:h-[220px]">
                             <div className="relative z-10 max-w-[160px]">
-                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] leading-tight">
+                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] mb-4 leading-tight">
                                     Everyday Fresh & Clean with Our Products
                                 </h3>
                                 <button className="mt-3 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-[12px] md:text-sm hover:bg-[#3BB77E]/90">
@@ -377,7 +377,7 @@ const Home = () => {
                         {/* Second Banner */}
                         <div className="bg-[#FFF3F1] rounded-lg p-4 md:p-6 relative overflow-hidden h-[200px] md:h-[220px]">
                             <div className="relative z-10 max-w-[160px]">
-                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] leading-tight">
+                                <h3 className="text-[16px] md:text-[18px] font-bold mb-4 text-[#253D4E] leading-tight">
                                     Make your Breakfast Healthy and Easy
                                 </h3>
                                 <button className="mt-3 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-[12px] md:text-sm hover:bg-[#3BB77E]/90">
@@ -394,7 +394,7 @@ const Home = () => {
                         {/* Third Banner */}
                         <div className="bg-[#F2FCE4] rounded-lg p-4 md:p-6 relative overflow-hidden h-[200px] md:h-[220px]">
                             <div className="relative z-10 max-w-[160px]">
-                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] leading-tight">
+                                <h3 className="text-[16px] md:text-[18px] font-bold mb-4 text-[#253D4E] leading-tight">
                                     The best Organic Products Online
                                 </h3>
                                 <button className="mt-3 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-[12px] md:text-sm hover:bg-[#3BB77E]/90">

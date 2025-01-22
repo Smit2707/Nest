@@ -289,7 +289,7 @@ const categories = [
 ];
 
 const Home = () => {
-    return (
+  return (
         <div className="relative min-h-screen">
             <div className="container mx-auto px-8">
                 <div className=" flex gap-8">

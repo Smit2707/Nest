@@ -39,7 +39,7 @@ const Navbar = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-    return (
+  return (
         <>
             <header className="fixed top-0 w-full z-[1000] bg-white shadow-sm">
                 {/* Top Bar - Hidden on Mobile */}

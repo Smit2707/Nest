@@ -60,10 +60,10 @@ const BlogDetail_mobile = () => {
                                     alt="Sugar Route" 
                                     className="w-8 h-8 rounded-full"
                                 />
-                                <span>By Sugar Route</span>
+                                <span className='text-sm'>By Sugar Route</span>
                             </div>
-                            <span>2 hours ago</span>
-                            <span>8 mins read</span>
+                            <span className='text-xs'>2 hours ago</span>
+                            <span className='text-xs'>8 mins read</span>
                         </div>
 
                         {/* Blog Content */}
@@ -156,7 +156,7 @@ const BlogDetail_mobile = () => {
                                     <div>
                                         <div className="flex items-center gap-2 mb-2">
                                             <h4 className="font-semibold text-[#253D4E]">{comment.author}</h4>
-                                            <span className="text-sm text-gray-500">{comment.date}</span>
+                                            <span className="text-xs text-gray-500">{comment.date}</span>
                                         </div>
                                         <p className="text-gray-600 text-sm">{comment.content}</p>
                                     </div>

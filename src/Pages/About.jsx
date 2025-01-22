@@ -13,7 +13,7 @@ const About = () => {
 
       {/* Desktop Version */}
       <div className="hidden lg:block">
-        <div className="mt-[80px] container mx-auto px-4">
+        <div className=" container mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-6">
             <Link to="/" className="text-gray-500 hover:text-[#3BB77E]">Home</Link>

@@ -7,7 +7,7 @@ const About_mobile = () => {
     return (
         <div className="lg:hidden text-center">
             {/* Breadcrumb */}
-            <div className="px-4 py-3">
+            <div className="px-4 py-2">
                 <div className="flex items-center justify-center gap-2 text-xs">
                     <Link to="/" className="text-gray-500 hover:text-[#3BB77E]">Home</Link>
                     <span className="text-gray-500">•</span>
@@ -18,7 +18,7 @@ const About_mobile = () => {
             </div>
 
             {/* Hero Section */}
-            <div className="px-4 mb-8">
+            <div className="px-4 mb-2">
                 <div className="relative">
                     <img 
                         src="https://s3-alpha-sig.figma.com/img/5fb3/a611/e7fddfa36d124cb4c39db6b371966089?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WgmDhsy7wJEkO0aEM~N48r10od2BSrpl1G13RoLj93A4Od7qKDS2VXQFrKl-gJG3m0TBK0l0jDxBTZ0ER9vcLJEguX7qFjjxcqtCs0No25W0weN--r~M8PVETaN8y-LhaY~FEZeuHNr6qk5V1kAlA-obaVeqCl4vO6sN7cNYJ2-PuV3eksBIlixILJ2wSipzn~O4RuO5yVfwokZhpeDyhj3lKT2fvHYhG876KVvNiro0CzXfv4eMV-MDb7BY898FEs2hpqT~Z9E10OLM04YpwPxnMkNE43iodaW0W5kWn0Dup0SrvMPArpmOLAditwpFCN9QooRt2c8pTVCzg2rDFw__"
@@ -127,25 +127,27 @@ const About_mobile = () => {
             {/* Our Team Section */}
             <div className="px-4 py-8">
                 <h2 className="text-2xl font-bold text-[#253D4E] mb-6">Our Team</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div className="text-center">
-                        <img 
-                            src="https://s3-alpha-sig.figma.com/img/affd/58bf/571556910fe6ef9c4f85379e59ba267e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MFxFN77UlfyOo0viIaVzfCVDsWiA0KLdmrcgb35mCaYbaI5waPqlA6hyqtbGuEiGLAVV70d22aZ2w3nYJ4AIJ5VgzpqibuPUSTYr2WLgrfwVUu~OP-IpuyHlNsm0PFGc~cEFsDlkICmBVE-I0M~5iuyziuqeBBhmJ3im9R0wWN2SnXzZ-6Pub7ooQHBlkgCOUaWkVkx0eTgg68NGO~a-v4EGU9bsByUlHjR8kIvb6Wkqfrx~T7~IOP4EdMzSTG6YW85H9aLZCkABjIULYsHhlk~Y0eswvzRoW6aqZF05OgeUCgVatqAPnl~HClNhbmxvFBbfyjiW4M1AOgoHjMgPow__" 
-                            alt="Team Member"
-                            className="w-full h-auto rounded-lg mb-3"
-                        />
-                        <h3 className="text-base font-semibold text-[#253D4E]">H. Merinda</h3>
-                        <p className="text-sm text-gray-500">CEO & Co-Founder</p>
-                    </div>
+                <div className="flex justify-center">
+                    <div className="grid grid-cols-2 gap-4 max-w-[500px]">
+                        <div className="text-center">
+                            <img 
+                                src="https://s3-alpha-sig.figma.com/img/affd/58bf/571556910fe6ef9c4f85379e59ba267e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MFxFN77UlfyOo0viIaVzfCVDsWiA0KLdmrcgb35mCaYbaI5waPqlA6hyqtbGuEiGLAVV70d22aZ2w3nYJ4AIJ5VgzpqibuPUSTYr2WLgrfwVUu~OP-IpuyHlNsm0PFGc~cEFsDlkICmBVE-I0M~5iuyziuqeBBhmJ3im9R0wWN2SnXzZ-6Pub7ooQHBlkgCOUaWkVkx0eTgg68NGO~a-v4EGU9bsByUlHjR8kIvb6Wkqfrx~T7~IOP4EdMzSTG6YW85H9aLZCkABjIULYsHhlk~Y0eswvzRoW6aqZF05OgeUCgVatqAPnl~HClNhbmxvFBbfyjiW4M1AOgoHjMgPow__" 
+                                alt="Team Member"
+                                className="w-full h-auto rounded-lg mb-3"
+                            />
+                            <h3 className="text-base font-semibold text-[#253D4E]">H. Merinda</h3>
+                            <p className="text-sm text-gray-500">CEO & Co-Founder</p>
+                        </div>
 
-                    <div className="text-center">
-                        <img 
-                            src="https://s3-alpha-sig.figma.com/img/4ed7/432b/829fdf9e093f0e99b4ae2277883a9017?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aU8t93~w2MhT3RyYfd-HkjyV0f88S65v82-bNWMaenmttDCYmDIUbwdT1kO~kzkxNvPgt1sX1NemU5D22hJLIHpKofbc8W5K2TXrDmM15E-G1v9Xc3S1yjUFAwNLCRsLApZPeYBitQrvuuM4waH8Y1EGTkh1fLGycQIXWrd95kbKL4v25vezUfE6qEKWbbVDzt7RLhWzYcuY6tmx3aoAQXmEzCmxScTzL8q0A6tDXwMz0nNkKI325Pyqr5IbfAYDUqcDkLBOulzQv4149jUOOwzKzcoMirxsXXqDkCbPtUozTHnV5PL0R9XevZnCAKg3joNVoiLPH8HKLJ5BhPl10g__" 
-                            alt="Team Member"
-                            className="w-full h-auto rounded-lg mb-3"
-                        />
-                        <h3 className="text-base font-semibold text-[#253D4E]">Dilan Specter</h3>
-                        <p className="text-sm text-gray-500">Head Engineer</p>
+                        <div className="text-center">
+                            <img 
+                                src="https://s3-alpha-sig.figma.com/img/4ed7/432b/829fdf9e093f0e99b4ae2277883a9017?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aU8t93~w2MhT3RyYfd-HkjyV0f88S65v82-bNWMaenmttDCYmDIUbwdT1kO~kzkxNvPgt1sX1NemU5D22hJLIHpKofbc8W5K2TXrDmM15E-G1v9Xc3S1yjUFAwNLCRsLApZPeYBitQrvuuM4waH8Y1EGTkh1fLGycQIXWrd95kbKL4v25vezUfE6qEKWbbVDzt7RLhWzYcuY6tmx3aoAQXmEzCmxScTzL8q0A6tDXwMz0nNkKI325Pyqr5IbfAYDUqcDkLBOulzQv4149jUOOwzKzcoMirxsXXqDkCbPtUozTHnV5PL0R9XevZnCAKg3joNVoiLPH8HKLJ5BhPl10g__" 
+                                alt="Team Member"
+                                className="w-full h-auto rounded-lg mb-3"
+                            />
+                            <h3 className="text-base font-semibold text-[#253D4E]">Dilan Specter</h3>
+                            <p className="text-sm text-gray-500">Head Engineer</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,8 +204,27 @@ const About_mobile = () => {
             </div>
 
             {/* Newsletter Section */}
-            <div className="mt-8">
-                <Section />
+            <div className="mt-4 mb-4">
+                <div className="bg-[url('https://s3-alpha-sig.figma.com/img/873d/c368/ab905c42ffa13dd8cdae0c7a05e4deec?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mGZgOiIWaE5uoJTom6xozNS7w6TrDAfNJK6BrUf9XQdQD5URtyJtb00jbnIctaxQFpwE~SbyF3DZza09w-D7VEu8bNaZXxf4fOv6ibFNJKcxxR0NySx3YGidLynQYwfHJKeSbEU8zqceXsgRZZJ4F9ARPpLLy9bvA1PsGrcpSfKflTz~FZIljt-bxxolBao5wkpE~TLv9o4jHlqoQTWKa4hlGNJ66l3nWHYK1OTEz~unXsvoTPU6ASanhggK3vWzFoELSMGFZ8Ebw0OSYlFBAxK52acJWn5N3bXeC887c6gNXRlTfc~SZRSjYQcg0kngQWtKMTWmYHyFDUCtrgZK4g__')] 
+                    bg-cover rounded-2xl p-4 relative overflow-hidden h-[150px]">
+                    <div className="flex flex-col justify-center h-full">
+                        <div className="text-center">
+                            <h2 className="text-lg font-bold text-[#253D4E] mb-2">
+                                Don't miss amazing grocery deals
+                            </h2>
+                            <div className="flex flex-col gap-2">
+                                <input
+                                    type="email"
+                                    placeholder="Your email address"
+                                    className="w-full px-4 py-2 rounded-md border border-gray-200 focus:outline-none focus:border-[#3BB77E] text-sm"
+                                />
+                                <button className="bg-[#3BB77E] text-white px-6 py-2 rounded-md hover:bg-[#3BB77E]/90 transition-colors text-sm">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Footer */}

@@ -290,7 +290,7 @@ const categories = [
 
 const Home = () => {
   return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen mt-24">
             <div className="container mx-auto px-8">
                 <div className=" flex gap-8">
                     <div className="w-[200px] hidden md:block flex-shrink-0">
@@ -299,12 +299,12 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex-col w-full">
-                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-[55%] rounded-xl p-12 h-[400px]">
+                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-start bg-[55%] rounded-xl p-12 h-[250px] md:h-[400px]">
                             <h1 className="text-xl md:text-[42px] font-bold text-[#253D4E] leading-tight">
                                 Don't miss amazing<br />grocery deals.
                             </h1>
                             <p className="text-gray-800 mt-4 text-sm md:text-lg">Sign up for the daily newsletter</p>
-                            <div className="flex-col md:flex justify-center items-center gap-2 max-w-xl mt-6">
+                            <div className="flex flex-col md:flex justify-center items-center gap-2 max-w-xl mt-6">
                                 <input
                                     type="email"
                                     placeholder="Your email address"
@@ -637,44 +637,6 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Newsletter Subscription Section */}
-                {/* <div className="mt-12 bg-[url('https://s3-alpha-sig.figma.com/img/873d/c368/ab905c42ffa13dd8cdae0c7a05e4deec?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mGZgOiIWaE5uoJTom6xozNS7w6TrDAfNJK6BrUf9XQdQD5URtyJtb00jbnIctaxQFpwE~SbyF3DZza09w-D7VEu8bNaZXxf4fOv6ibFNJKcxxR0NySx3YGidLynQYwfHJKeSbEU8zqceXsgRZZJ4F9ARPpLLy9bvA1PsGrcpSfKflTz~FZIljt-bxxolBao5wkpE~TLv9o4jHlqoQTWKa4hlGNJ66l3nWHYK1OTEz~unXsvoTPU6ASanhggK3vWzFoELSMGFZ8Ebw0OSYlFBAxK52acJWn5N3bXeC887c6gNXRlTfc~SZRSjYQcg0kngQWtKMTWmYHyFDUCtrgZK4g__')] bg-cover rounded-2xl p-8 relative overflow-hidden">
-                    <div className="flex justify-between items-center">
-                        <div className="max-w-lg">
-                            <h2 className="text-2xl font-bold text-[#253D4E] mb-2">
-                                Stay home & get your daily needs from our shop
-                            </h2>
-                            <p className="text-gray-600 text-sm mb-4">
-                                Start Your Daily Shopping with <span className="text-[#3BB77E]">Nest Mart</span>
-                            </p>
-                            <div className="flex gap-2">
-                                <div className="flex-1 relative">
-                                    <input
-                                        type="email"
-                                        placeholder="Your email address"
-                                        className="w-full px-4 py-2.5 rounded-md border border-gray-200 focus:outline-none focus:border-[#3BB77E] text-sm"
-                                    />
-                                    <span className="absolute left-3 top-1/2 -translate-y-1/2">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-400">
-                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                            <polyline points="22,6 12,13 2,6"></polyline>
-                                        </svg>
-                                    </span>
-                                </div>
-                                <button className="bg-[#3BB77E] text-white px-6 py-2.5 rounded-md hover:bg-[#3BB77E]/90 transition-colors text-sm">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </div>
-                        <div className="relative bottom-0">
-                            <img
-                                src="https://s3-alpha-sig.figma.com/img/b06a/a76c/aea0aafc7295884eb673f8d492252f50?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=H-sSmmIUu1LZ3hK0GK3Kp-UhArbnClnN6BO~0bx~VaeIlCwNAXNrgDpm0yaEh2ZAgO5G~Sel-VakEoJGwTUBog7in~WfQ39LdPxm2K9YBOZ8J7vE2J7xsph1CMMv9F17spNYg3m2GLHPDNCVtucOkbgvLI0Oe-RgIYWqoM9qEZkXBRa1YamEuZyV51I0C0jIqbJ~wNJLOWSUyfvGrawUDWiQk4crk52VoVB-oigaKGzJvCSghaWIQz7FIfDQYfA8B-yD57yETbnxv67Cdi5nqwS0T-Mf6f-Ul-u0bnHAOIZi0~e8xY91TDUw7Bp413jUKjTOcdsKbjqK8ct7-XCJJw__"
-                                alt="Delivery Man"
-                                className="h-[200px]"
-                            />
-                        </div>
-                    </div>
-                </div> */}
 
                 <Section />
 

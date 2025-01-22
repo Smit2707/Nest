@@ -298,16 +298,16 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex-col w-full">
-                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-center rounded-xl p-12 h-[400px]">
+                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-[55%] rounded-xl p-12 h-[400px]">
                             <h1 className="text-xl md:text-[42px] font-bold text-[#253D4E] leading-tight">
                                 Don't miss amazing<br />grocery deals.
                             </h1>
-                            <p className="text-gray-600 mt-4 text-sm md:text-lg">Sign up for the daily newsletter</p>
-                            <div className="flex gap-2 max-w-xl mt-6">
+                            <p className="text-gray-800 mt-4 text-sm md:text-lg">Sign up for the daily newsletter</p>
+                            <div className="flex-col md:flex justify-center items-center gap-2 max-w-xl mt-6">
                                 <input
                                     type="email"
                                     placeholder="Your email address"
-                                    className="flex-1 px-6 py-3 rounded-md border border-gray-200 focus:outline-none"
+                                    className="flex-1 px-6 py-3 text-sm rounded-md border border-gray-200 focus:outline-none"
                                 />
                                 <button className="bg-[#3bb77e] text-white px-8 py-3 rounded-md hover:bg-green-600 font-medium">
                                     Subscribe
@@ -354,52 +354,56 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-6 mt-8">
-                        <div className="bg-[#F5F5F7] rounded-3xl p-8 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <h3 className="text-[#253D4E] text-xl font-bold leading-tight max-w-[160px]">
+                    {/* Banner Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                        {/* First Banner */}
+                        <div className="bg-[#F0F1F7] rounded-lg p-4 md:p-6 relative overflow-hidden h-[200px] md:h-[220px]">
+                            <div className="relative z-10 max-w-[160px]">
+                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] leading-tight">
                                     Everyday Fresh & Clean with Our Products
                                 </h3>
-                                <button className="mt-4 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90">
+                                <button className="mt-3 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-[12px] md:text-sm hover:bg-[#3BB77E]/90">
                                     Shop Now
                                 </button>
                             </div>
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/04f7/16d9/9245eacb0ea40bec876d1f6fef0f7a37?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cknoqB9ViiEGmyZy2fFP8xpkoaLV-jX4pI49txUrcLSpZrw1lcoknx9SVfozNanGsQkwDwzj1~2u9Qx9Ch2g-uMi7Vb1bCuJV0QA4To6cCnThSvfJudm-A95DBgaWUUR-4s8gwOcSod7k3GMDyGG1nx2YjCu0dHXeIPxBy5ld~TPsN8cYc6p~IiXnRTkUS3uHgM6e6cUxhDgmtusSPTzoHKfeCnpXUR7hQ~vDJg9KWr2HhPtPxtP95Z3jWSyDn28bbK0aBJMOfezKeEqT46IDAIp2WNUMpvsnPy55~-DCUXP~YDlbHyaF903ZMLfcF9RRImx5SP3et2RUkdOfvXqAQ__"
+                                src="https://s3-alpha-sig.figma.com/img/04f7/16d9/9245eacb0ea40bec876d1f6fef0f7a37?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U9u-mBdSuEz9x8PnBQhb5ItOT-1VDA3XHtmSxeSgH19kZyJLenWxfJ02nPzewEjzcQqjYvyeupU-3HiT2y6P4P~lDF5s1Qce1rfz1p-p3aEIKKAMaRkjnD~CsOJByKp0Dfc9ml-vBGK4xNJIO-6nKhgkR39fmMH1Glolt4ppv9xORmKXLRmYNHfWQHtCkLZULQTfbzUUDC8Ozvtp~Xz-ge9XpCpgKVORBqhNNVY6dcBH-eOD5caWCz-Nu-NcbpoLAxFwAqefWd3GfcLz~ZNxO-1WCxKtn2znm8pk7lkcCZ2vvvadr2tF~9WsTjod2HqATMlOo-zJdzdjiv-aNXwcmg__"
                                 alt="Fresh Products"
-                                className="absolute right-0 bottom-0 w-full object-cover h-full"
+                                className="absolute right-0 bottom-0 h-full w-full object-cover"
                             />
                         </div>
 
-                        <div className="bg-[#FFF3F1] rounded-3xl p-8 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <h3 className="text-[#253D4E] text-xl font-bold leading-tight max-w-[160px]">
+                        {/* Second Banner */}
+                        <div className="bg-[#FFF3F1] rounded-lg p-4 md:p-6 relative overflow-hidden h-[200px] md:h-[220px]">
+                            <div className="relative z-10 max-w-[160px]">
+                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] leading-tight">
                                     Make your Breakfast Healthy and Easy
                                 </h3>
-                                <button className="mt-4 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90">
+                                <button className="mt-3 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-[12px] md:text-sm hover:bg-[#3BB77E]/90">
                                     Shop Now
                                 </button>
                             </div>
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/81e2/d2da/b3a741ea7f4d7cecc6d5315cb77be123?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S8hcM2xBN2iPuwcZFUf0JCNdQnEunNV8CavrfauYkEkR13sM4DCg3wCURZYTqtS8QiQxXBEQb3pzYe~Ygp6YD7nW2odtjuw2myVdRWo0JsCABhU1Z8f3c8-7ZVvfQY3YsUaOp3rPG-tc-G9TZDrws-yM2boenYQqIl~KgSCdshAkcy6CP5QgLzJSWEPU6wb5MsoI6670GNGwmXzSgls0cQHs5o5vpo8kb3PGOzCSOdEZf0ASVOnOSSmODj8KGPkEXGLQj8lOskKbNWKQjJPWz7GTS3~2adkqW8YaWQaw0CMUpb2VP3R4QnsytQJr7K4jmIzLYbSEEmVAYaoVeRHoUA__"
+                                src="https://s3-alpha-sig.figma.com/img/81e2/d2da/b3a741ea7f4d7cecc6d5315cb77be123?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UFIsekokKwFX-IGDQd5YgP3U1~zNqq4WtjeQtZshV8o1bsFFMvzWQP0eJxSrWdaNqkfzxtnFdFwrSgGFPu11kQ03VF1~WWp1JF-1kwGqBPSjCb-W~Bjh777BexQYvPfV2FGxU5Iv28JtOtGzmdS~ybcm9trShsBj54G7G69N~xR~Z5fdQoMFFwTx53BnYKt7EURyzxQuZW09Q9~-peQ~vxys7qs7Xjj52QRFG7-2TUU4qBsrhfdE5jd0CO9fYgAvBESmElB9HGsTG86t2AncqMpJmTZt6N6Dwg-l9LUfflrs2m6VV5L3c167OlHCO-~Odh03I6GC5zzVQKB7idK0Rw__"
                                 alt="Breakfast Products"
-                                className="absolute right-0 bottom-0 w-full object-cover h-full"
+                                className="absolute right-0 bottom-0 h-full w-full object-cover"
                             />
                         </div>
 
-                        <div className="bg-[#F2FCE4] rounded-3xl p-8 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <h3 className="text-[#253D4E] text-xl font-bold leading-tight max-w-[160px]">
+                        {/* Third Banner */}
+                        <div className="bg-[#F2FCE4] rounded-lg p-4 md:p-6 relative overflow-hidden h-[200px] md:h-[220px]">
+                            <div className="relative z-10 max-w-[160px]">
+                                <h3 className="text-[16px] md:text-[18px] font-bold text-[#253D4E] leading-tight">
                                     The best Organic Products Online
                                 </h3>
-                                <button className="mt-4 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90">
+                                <button className="mt-3 bg-[#3BB77E] text-white px-4 py-2 rounded-md text-[12px] md:text-sm hover:bg-[#3BB77E]/90">
                                     Shop Now
                                 </button>
                             </div>
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/61b4/9bd5/b7fa6aea055c1b1a720c6a697bd7298a?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YdtTJCtyHk3~TSNvc6zle5Pf98tDNAPABCuGxXBDmXXnk7v~3FF38uyda38I8uVD6bGCes~MRCH3WPHoKQP50dyTULO4V~fm7mDJ5fUqOFvddGvcSrU9i7ooWyiipkAoibTZ7sQUIosk-UA3ZEOzMA1yGstwA1n7NqoF0q39tZ11U-DCQKnmW8Tn5YcjjrB~ulKOY47bHsLwekyj-yAdHNEyZ-JLD8U54WSoCnpT7aNOblcvam8NCSoyC41AqKhVOc0pLKNEjMIrblvtxF1BTHbq6ALjshSqC-Y4wX1YnZJHNf0DQ41Ki0czWHYsDrhDb0PmZCGFIAPMSBJq8ZBk4g__"
+                                src="https://s3-alpha-sig.figma.com/img/61b4/9bd5/b7fa6aea055c1b1a720c6a697bd7298a?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mzSwNblt9WcvA0hbmcADytfzSPQ4KdGu0ENyo5ciyXUMUsxcyzFsX0TYE0uIzHisb6jGo8faEiD6xm0K0G2~Vh-b2fHTrl9mBgfT8WI3mGmC7D~RJ7UOZX6eOw6R4n5W32sqGnm0raVOXRBNeWa34exvLftZE9U~g28rqya0RkP9sWD~yvAavd9I7DBBms8ySicN9R3L4BH5zzDFIJln-b1fDt-H4wJ6cli5q7jyrdBgEufjqONqnmbba-OVSNZMRxU~XsnK65Uo7yx5kWMESK6AEqHv0FA4AzPF60gS2HMsm3rH-1JBxCu5mKZQHmSR20eduTYkhBOSYF9ION9n9g__"
                                 alt="Organic Products"
-                                className="absolute right-0 bottom-0 w-full object-cover h-full"
+                                className="absolute right-0 bottom-0 h-full w-full object-cover"
                             />
                         </div>
                     </div>

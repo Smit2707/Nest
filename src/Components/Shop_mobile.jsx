@@ -90,7 +90,7 @@ const Shop_mobile = () => {
     ];
 
     return (
-        <div className="lg:hidden pb-20">
+        <div className="lg:hidden pb-2">
             {/* Breadcrumb */}
             <div className="px-4 py-2 bg-white">
                 <div className="flex items-center gap-2 text-xs">

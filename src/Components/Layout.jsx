@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     const location = useLocation();
-    const isAboutOrShop = location.pathname === '/about' || location.pathname === '/shop';
+    const isAboutOrShop = location.pathname === '/about' || location.pathname === '/shop' || location.pathname === '/blog' || location.pathname === '/contact';
 
     return (
         <div className="w-full overflow-x-hidden">

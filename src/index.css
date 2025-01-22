@@ -14,3 +14,7 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+.roll::-webkit-scrollbar{
+  display: none;
+}

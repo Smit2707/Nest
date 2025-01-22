@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import Footer from '../Components/Footer';
 import Section from '../Components/Section';
+import Layout from '../Components/Layout';
+import Blog_mobile from '../Components/Blog_mobile';
 
 const Blog = () => {
     const blogPosts = [
@@ -126,215 +128,145 @@ const Blog = () => {
     ];
 
     return (
-        <div className="mt-[180px] container mx-auto px-4">
-            {/* Blog Header Section */}
-            <div className="bg-[url('https://s3-alpha-sig.figma.com/img/cc7c/6762/31a2809acc0f48bbfcff69c0705291d5?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RDmsOG2ISj1RBXQU1rINyqJ8EzX3errc0LM8J-E5UuRV7nKn0K4lAUhddXENJ-2~t0-Pn9ySOWqA6JC4ivwUJJZkOlC9UXVpiop2r6XTpQmywc33A1MLQEcDnU7GHviAI186MaRxl6EeDVB1Luq1yhdQpO43iK3EdQMipfIyN~Qj1WpNUcHKMi4raq04E0xpsV-XlzMtmdNEpmLJr6PsrDFz6IC8sImiHtVD98KTYjHSPnGFMJ3uKoKPtOtNI4qOAHmLqSTr~pQ-CroQ5rYr7bzLbDzzaS4A80Nzmk7PTf6rolV1CxJ8MmWU6rtszO9VJ2EGD-skfsPcuNOilzgV5Q__')] rounded-xl p-8 mb-8 bg-cover">
-                {/* Top Row - Breadcrumb */}
-                <div className="flex justify-between items-center">
-                    <h1 className="text-[40px] font-bold text-[#253D4E]">Blog & News</h1>
-                    
-                    {/* Filter Buttons */}
-                    <div className="flex gap-2">
-                        <button className="flex items-center gap-1 bg-white px-4 py-1.5 rounded-full text-sm hover:text-green-700">
-                            Shopping
-                        </button>
-                        <button className="flex items-center gap-1 bg-white px-4 py-1.5 rounded-full text-sm hover:text-green-700">
-                            Recipe
-                        </button>
-                        <button className="flex items-center gap-1 bg-white px-4 py-1.5 rounded-full text-sm hover:text-green-700">
-                            Kitchen
-                        </button>
-                        <button className="flex items-center gap-1 bg-white px-4 py-1.5 rounded-full text-sm hover:text-green-700">
-                            News
-                        </button>
-                        <button className="flex items-center gap-1 bg-white px-4 py-1.5 rounded-full text-sm hover:text-green-700">
-                            Food
-                        </button>
-                    </div>
-                </div>
-
-                {/* Bottom Row - Title and Filter Buttons */}
-                <div className="flex items-center gap-2 text-sm mb-2">
-                    <Link to="/" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Home</Link>
-                    <span className="text-gray-500">•</span>
-                    <span className="text-gray-500">Blog & News</span>
-                </div>
+        <Layout>
+            {/* Mobile Version */}
+            <div className="lg:hidden">
+                <Blog_mobile />
             </div>
 
-            {/* Main Content */}
-            <div className="grid grid-cols-4 gap-8">
-                {/* Left Content */}
-                <div className="col-span-3">
-                    <div className="flex items-center justify-between mb-8">
-                        <div className="flex items-center gap-2">
-                            <img src="/assets/Figure.png" alt="Recipe" className="w-10 h-10 object-cover" />
-                            <h2 className="text-xl font-semibold text-[#253D4E]">Recips Articles</h2>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-500">Show:</span>
-                                <select className="border rounded px-2 py-1 text-sm">
-                                    <option>50</option>
-                                </select>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-500">Sort:</span>
-                                <select className="border rounded px-2 py-1 text-sm">
-                                    <option>Featured</option>
-                                </select>
+            {/* Desktop Version */}
+            <div className="hidden lg:block">
+                <div className="container mx-auto px-4 xl:px-8">
+                    {/* Blog Header Section */}
+                    <div className="bg-[#F2FCF6] rounded-xl p-4 lg:p-6 xl:p-8 mb-8">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+                            <h1 className="text-3xl lg:text-[40px] font-bold text-[#253D4E]">Blog & News</h1>
+                            {/* Filter Buttons */}
+                            <div className="flex flex-wrap gap-2">
+                                {['Shopping', 'Recipe', 'Kitchen', 'News', 'Food'].map((filter) => (
+                                    <button 
+                                        key={filter}
+                                        className="flex items-center gap-1 bg-white px-4 py-1.5 rounded-full text-sm hover:text-green-700"
+                                    >
+                                        {filter}
+                                    </button>
+                                ))}
                             </div>
                         </div>
+
+                        {/* Bottom Row - Breadcrumb */}
+                        <div className="flex items-center gap-2 text-sm mt-4">
+                            <Link to="/" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Home</Link>
+                            <span className="text-gray-500">•</span>
+                            <span className="text-gray-500">Blog & News</span>
+                        </div>
                     </div>
 
-                    {/* Blog Posts Grid */}
-                    <div className="grid grid-cols-3 gap-6">
-                        {/* {blogPosts.map(post => (
-                                <div className="bg-white rounded-xl overflow-hidden shadow-sm">
-                                    <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
-                                    <div className="p-4">
-                                        <span className="text-[#3BB77E] text-sm">{post.category}</span>
-                                        <h3 className="text-lg font-semibold text-[#253D4E] mt-2 hover:text-[#3BB77E]">
-                                            {post.title}
-                                        </h3>
-                                        <div className="flex items-center gap-4 mt-4 text-sm text-gray-500">
-                                            <span>{post.date}</span>
-                                            <span>{post.views}</span>
-                                            <span>{post.readTime}</span>
-                                        </div>
-                                    </div>
+                    {/* Main Content */}
+                    <div className="grid lg:grid-cols-12 gap-8">
+                        {/* Left Content */}
+                        <div className="lg:col-span-9">
+                            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 gap-4">
+                                <div className="flex items-center gap-2">
+                                    <img src="/assets/Figure.png" alt="Recipe" className="w-8 lg:w-10 h-8 lg:h-10 object-cover" />
+                                    <h2 className="text-lg lg:text-xl font-semibold text-[#253D4E]">Recips Articles</h2>
                                 </div>
-                        ))} */}
-                        {blogPosts.map(post => (
-                            <Link to={`/blog/${post.id}`} key={post.id}>
-                                <div className="bg-white rounded-xl overflow-hidden shadow-sm">
-                                    <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
-                                    <div className="p-4">
-                                        <span className="text-[#3BB77E] text-sm">{post.category}</span>
-                                        <h3 className="text-lg font-semibold text-[#253D4E] mt-2 hover:text-[#3BB77E]">
-                                            {post.title}
-                                        </h3>
-                                        <div className="flex items-center gap-4 mt-4 text-sm text-gray-500">
-                                            <span>{post.date}</span>
-                                            <span>{post.views}</span>
-                                            <span>{post.readTime}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Right Sidebar */}
-                <div className="col-span-1">
-                    {/* Search */}
-                    <div className="relative mb-8">
-                        <input 
-                            type="text" 
-                            placeholder="Search..." 
-                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-                        />
-                        <FiSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                    </div>
-
-                    {/* Categories */}
-                    <div className="bg-white rounded-xl p-6 mb-8">
-                        <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Category</h3>
-                        <div className="space-y-4">
-                            {categories.map((category, index) => (
-                                <div key={index} className="flex items-center justify-between">
+                                <div className="flex items-center gap-4">
                                     <div className="flex items-center gap-2">
-                                        <img src={category.image} alt="Category" className="w-8 h-8 object-cover" />
-                                        <span className="text-gray-600 text-sm hover:text-[#3BB77E] cursor-pointer">
-                                            {category.name}
-                                        </span>
+                                        <span className="text-sm text-gray-500">Show:</span>
+                                        <select className="border rounded px-2 py-1 text-sm">
+                                            <option>50</option>
+                                        </select>
                                     </div>
-                                    <span className="text-[#3BB77E] bg-[#DEF9EC] px-2 py-1 rounded-full text-xs">
-                                        {category.count}
-                                    </span>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-sm text-gray-500">Sort:</span>
+                                        <select className="border rounded px-2 py-1 text-sm">
+                                            <option>Featured</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            ))}
+                            </div>
+
+                            {/* Blog Posts Grid */}
+                            <div className="grid lg:grid-cols-3 gap-6">
+                                {blogPosts.map(post => (
+                                    <Link to={`/blog/${post.id}`} key={post.id}>
+                                        <div className="bg-white rounded-xl overflow-hidden shadow-sm">
+                                            <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
+                                            <div className="p-4">
+                                                <span className="text-[#3BB77E] text-sm">{post.category}</span>
+                                                <h3 className="text-base lg:text-lg font-semibold text-[#253D4E] mt-2 hover:text-[#3BB77E] line-clamp-2">
+                                                    {post.title}
+                                                </h3>
+                                                <div className="flex flex-wrap items-center gap-2 lg:gap-4 mt-4 text-xs lg:text-sm text-gray-500">
+                                                    <span>{post.date}</span>
+                                                    <span>{post.views}</span>
+                                                    <span>{post.readTime}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right Sidebar */}
+                        <div className="lg:col-span-3 space-y-6">
+                            {/* Search */}
+                            <div className="relative">
+                                <input 
+                                    type="text" 
+                                    placeholder="Search..." 
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                                />
+                                <FiSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            </div>
+
+                            {/* Categories */}
+                            <div className="bg-white rounded-xl p-6">
+                                <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Category</h3>
+                                <div className="space-y-4">
+                                    {categories.map((category, index) => (
+                                        <div key={index} className="flex items-center justify-between">
+                                            <div className="flex items-center gap-2">
+                                                <img src={category.image} alt="Category" className="w-8 h-8 object-cover" />
+                                                <span className="text-gray-600 text-sm hover:text-[#3BB77E] cursor-pointer">
+                                                    {category.name}
+                                                </span>
+                                            </div>
+                                            <span className="text-[#3BB77E] bg-[#DEF9EC] px-2 py-1 rounded-full text-xs">
+                                                {category.count}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Popular Tags */}
+                            <div className="bg-white rounded-xl p-6">
+                                <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Popular Tags</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {['Cabbage', 'Broccoli', 'Smoothie', 'Fruit', 'Salad', 'Appetizer'].map((tag) => (
+                                        <span 
+                                            key={tag}
+                                            className="px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Trending Now */}
-                    <div className="bg-white rounded-xl p-6 mb-8">
-                        <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Trending Now</h3>
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-3">
-                                <img src="https://s3-alpha-sig.figma.com/img/c6e0/0d2a/20467838df1c528af63bb228455b48f6?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BqV~rmS6ELTH-KQ01ripPUo1gHfh3Y-OuQWwasPvcrzVdJ1lYGFyRLqltK27oDt41eI2stWHFwHlfaDWv~ZSXjYQOdJz09S6Ajs6flLuWRvWdJprjGABx4gBkTVfbR7m8S0g5sYSChTIDdF6FnhGmrTscJYyMQil22CMhzLHti4iorhMgvZjPdWfTiGLjFVD1sXRWQGHe-oYB0Rmo7WUnt49ybyTj53gtj0viB2aEzjSq0MwMIJeCYFQNj9zaCdqS0sGPwpJ75XI0ZK1FmDEGjlOh9lkofs1sTcuciOnRcF0vSUjKNzRlrW9Zv~V4eNNGDuvSfZQ17CNVBc1~TUvow__" alt="Chen Cardigan" className="w-12 h-12 rounded-lg object-cover" />
-                                <div>
-                                    <h4 className="text-sm font-medium text-[#253D4E] hover:text-[#3BB77E] cursor-pointer">Chen Cardigan</h4>
-                                    <span className="text-[#3BB77E] text-sm">$99.50</span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <img src="https://s3-alpha-sig.figma.com/img/0a45/78eb/a585fad4345109bba4bb7965b34bb93d?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rz1Axkxk34BL8V1cL0k~2hFSkxmvs1KXMfuHFjKtjESDFzdWT-~6NItAOgV7X0KTgDIKsvMyFWWZZy4FlYCLaJx-OXaTrTHS0~uJPEP5jyeO9-2hDfUDOsTIk~z44S0rQn7R5YgVjYhJ0KnCJYMkqCb~D8uB7DANTn2uS8M1sOaIKlRbY2ODLQ0xBJyvvPC5n3YCMbLpWiTVTZ3g9WbLilz83fxr~-JhySNsD14pTGcaB9BBxyFDUJWJcT9KblnomrikWJDUTXTFHp4ORvyOWk5u2V-S6xNxYvVhz1M2WAQuDOysogWWEi995FrzeZVUHBHD3ws8-fQN4H1kITfhIQ__" alt="Chen Sweater" className="w-12 h-12 rounded-lg object-cover" />
-                                <div>
-                                    <h4 className="text-sm font-medium text-[#253D4E] hover:text-[#3BB77E] cursor-pointer">Chen Sweater</h4>
-                                    <span className="text-[#3BB77E] text-sm">$89.50</span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <img src="https://s3-alpha-sig.figma.com/img/db2e/e4d1/431152f37b8be8e26e7020df85c82e5b?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MyT50V8dYZqeI7ebeyOezjHq-6JE82Agr68D4Pn51m8bFwVrvK4keC8TtqaWTOiCPkffBmmhmT5MSLx8loLe9WP7bi4pkVrbfQ2A6uvKy~9mHM7DpPZn9BledudM8jdHLuqZ4mVbEUfIQyFgL0Ld2lzWmVwOI1z0JdcXPo8U5bS1HkqAhZLA~Cg3EAZbv-a0zhl3sSSBip-yBXJ59t2-uMEkS7q9HP5vu0VEcAs-GU2MSOIjWAtNnlAkDiq4Um82wxMXck8QJpU07YOxth9S8yqBLWF0ZlDhTMS9zcu2fPrH-DHB4jQzh60ZzbBEYbcWAEtwwjzFyz~U68NXPkx9cg__" alt="Colorful Jacket" className="w-12 h-12 rounded-lg object-cover" />
-                                <div>
-                                    <h4 className="text-sm font-medium text-[#253D4E] hover:text-[#3BB77E] cursor-pointer">Colorful Jacket</h4>
-                                    <span className="text-[#3BB77E] text-sm">$25</span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <img src="https://s3-alpha-sig.figma.com/img/08aa/84c6/43e52b6e90cb14a936e3dc2e4e4a6e9e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nVicDFlkHwq~MYOEUxw2eWxG8IrofSM9A~ncGpZz2k64BcW8LYkJOGlSIPZhGSxCdXULqljrnQDdIYA2aQ0m4~~3TmxEtEeiYTdPrn-VC3uF5eOlZR8Xk8rq~89fPCm8ROinvpgzguPqf7EexH5hHKy0bsQVbYNvDKT4lb6hinH~imzVEba8erZxpiM7yDuMhNPymhlGkfaLzAuwj~EK2IvtdS7Dv808DPhRJLsdvlfOsnDPllOUC8dDSQMuNXJSXv1hBLJMe3Io23QVMppDPN3Tp~JogT4k9gUU0kc04MI4RE-h~vGAr~vnxuHVcoQ~z2QOnw8Zmxp5sD~SztoMIg__" alt="Lorem Ipsum" className="w-12 h-12 rounded-lg object-cover" />
-                                <div>
-                                    <h4 className="text-sm font-medium text-[#253D4E] hover:text-[#3BB77E] cursor-pointer">Lorem Ipsum</h4>
-                                    <span className="text-[#3BB77E] text-sm">$25</span>
-                                </div>
-                            </div>
-                        </div>
+                    {/* Newsletter and Footer */}
+                    <div className="mt-12">
+                        <Section />
                     </div>
-
-                    {/* Gallery */}
-                    <div className="bg-white rounded-xl p-6 mb-8">
-                        <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Gallery</h3>
-                        <div className="grid grid-cols-3 gap-2">
-                            <img src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__" alt="Gallery 1" className="w-full h-20 rounded-lg object-cover" />
-                            <img src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AKnINjAl3xpSHOQb51fa3vVCz2pNpFkx0bGxor9GaAABOsaicDLMJXQgHyfk4EQCf2DY~IWS6xxPXp1dwxfEBn0Q1LNfq1wB4p9yrz5IKMakBdFkaGKaMmwkkttOqjdMC69d56zQRldVQVLHc9SqGRRrVLvVr9ffkWevppQ3X5PEyxIdHSiypWw1s5TJQcVJwcNjd4xiUwGWbxxaXJDrBUU8C8MiNJSyajrpRZ4J4O6MhZ-16V6QCOIGRnh3d656Z8Gvv6TT609cQlgGZkFARjlsro3TkruGDcRUTaZ8M0xWcQ~LXXyB5AhKeiulzcNcPjt-n6UnLyJDqQe5NNZodw__" alt="Gallery 2" className="w-full h-20 rounded-lg object-cover" />
-                            <img src="https://s3-alpha-sig.figma.com/img/c6e0/0d2a/20467838df1c528af63bb228455b48f6?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BqV~rmS6ELTH-KQ01ripPUo1gHfh3Y-OuQWwasPvcrzVdJ1lYGFyRLqltK27oDt41eI2stWHFwHlfaDWv~ZSXjYQOdJz09S6Ajs6flLuWRvWdJprjGABx4gBkTVfbR7m8S0g5sYSChTIDdF6FnhGmrTscJYyMQil22CMhzLHti4iorhMgvZjPdWfTiGLjFVD1sXRWQGHe-oYB0Rmo7WUnt49ybyTj53gtj0viB2aEzjSq0MwMIJeCYFQNj9zaCdqS0sGPwpJ75XI0ZK1FmDEGjlOh9lkofs1sTcuciOnRcF0vSUjKNzRlrW9Zv~V4eNNGDuvSfZQ17CNVBc1~TUvow__" alt="Gallery 3" className="w-full h-20 rounded-lg object-cover" />
-                            <img src="https://s3-alpha-sig.figma.com/img/0a45/78eb/a585fad4345109bba4bb7965b34bb93d?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rz1Axkxk34BL8V1cL0k~2hFSkxmvs1KXMfuHFjKtjESDFzdWT-~6NItAOgV7X0KTgDIKsvMyFWWZZy4FlYCLaJx-OXaTrTHS0~uJPEP5jyeO9-2hDfUDOsTIk~z44S0rQn7R5YgVjYhJ0KnCJYMkqCb~D8uB7DANTn2uS8M1sOaIKlRbY2ODLQ0xBJyvvPC5n3YCMbLpWiTVTZ3g9WbLilz83fxr~-JhySNsD14pTGcaB9BBxyFDUJWJcT9KblnomrikWJDUTXTFHp4ORvyOWk5u2V-S6xNxYvVhz1M2WAQuDOysogWWEi995FrzeZVUHBHD3ws8-fQN4H1kITfhIQ__" alt="Gallery 4" className="w-full h-20 rounded-lg object-cover" />
-                            <img src="https://s3-alpha-sig.figma.com/img/db2e/e4d1/431152f37b8be8e26e7020df85c82e5b?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MyT50V8dYZqeI7ebeyOezjHq-6JE82Agr68D4Pn51m8bFwVrvK4keC8TtqaWTOiCPkffBmmhmT5MSLx8loLe9WP7bi4pkVrbfQ2A6uvKy~9mHM7DpPZn9BledudM8jdHLuqZ4mVbEUfIQyFgL0Ld2lzWmVwOI1z0JdcXPo8U5bS1HkqAhZLA~Cg3EAZbv-a0zhl3sSSBip-yBXJ59t2-uMEkS7q9HP5vu0VEcAs-GU2MSOIjWAtNnlAkDiq4Um82wxMXck8QJpU07YOxth9S8yqBLWF0ZlDhTMS9zcu2fPrH-DHB4jQzh60ZzbBEYbcWAEtwwjzFyz~U68NXPkx9cg__" alt="Gallery 5" className="w-full h-20 rounded-lg object-cover" />
-                            <img src="https://s3-alpha-sig.figma.com/img/08aa/84c6/43e52b6e90cb14a936e3dc2e4e4a6e9e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nVicDFlkHwq~MYOEUxw2eWxG8IrofSM9A~ncGpZz2k64BcW8LYkJOGlSIPZhGSxCdXULqljrnQDdIYA2aQ0m4~~3TmxEtEeiYTdPrn-VC3uF5eOlZR8Xk8rq~89fPCm8ROinvpgzguPqf7EexH5hHKy0bsQVbYNvDKT4lb6hinH~imzVEba8erZxpiM7yDuMhNPymhlGkfaLzAuwj~EK2IvtdS7Dv808DPhRJLsdvlfOsnDPllOUC8dDSQMuNXJSXv1hBLJMe3Io23QVMppDPN3Tp~JogT4k9gUU0kc04MI4RE-h~vGAr~vnxuHVcoQ~z2QOnw8Zmxp5sD~SztoMIg__" alt="Gallery 6" className="w-full h-20 rounded-lg object-cover" />
-                        </div>
-                    </div>
-
-                    {/* Popular Tags */}
-                    <div className="bg-white rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Popular Tags</h3>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer">
-                                Cabbage
-                            </span>
-                            <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer">
-                                Broccoli
-                            </span>
-                            <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer">
-                                Smoothie
-                            </span>
-                            <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer">
-                                Fruit
-                            </span>
-                            <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer">
-                                Salad
-                            </span>
-                            <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#3BB77E] hover:text-white cursor-pointer">
-                                Appetizer
-                            </span>
-                        </div>
-                    </div>
+                    <Footer />
                 </div>
             </div>
-            <Section />
-            <Footer />
-            
-        </div>
+        </Layout>
     );
 };
 

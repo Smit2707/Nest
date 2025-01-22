@@ -209,7 +209,7 @@ const Shop = () => {
                         {/* Title and Filter Tags */}
                         <div className="flex justify-between items-center">
                             <h1 className="text-[40px] font-bold text-[#253D4E]">Snack</h1>
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 rol">
                                 {['Cabbage', 'Broccoli', 'Artichoke', 'Celery', 'Spinach'].map((tag) => (
                                     <button key={tag} className="bg-white px-4 py-1.5 rounded-full text-sm flex items-center gap-1">
                                         <span className="text-[#3BB77E]">•</span>

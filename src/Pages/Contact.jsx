@@ -3,185 +3,204 @@ import Footer from '../Components/Footer';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Section from '../Components/Section';
+import Layout from '../Components/Layout';
+import Contact_mobile from '../Components/Contact_mobile';
+import { FiMail, FiPhone, FiMapPin, FiClock } from 'react-icons/fi';
 
 const Contact = () => {
   return (
-        <div className="mt-[180px] container mx-auto px-4">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm mb-8">
-                <Link to="/" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Home</Link>
-                <span className="text-gray-500">•</span>
-                <span className="text-gray-500">Contact</span>
-            </div>
+    <Layout>
+        {/* Mobile Version */}
+        <Contact_mobile />
 
-            {/* Contact Section */}
-            <div className="max-w-[1200px] mx-auto">
-                {/* Header and Content Grid */}
-                <div className="grid grid-cols-2 gap-12 mb-12">
-                    {/* Left Side - Main Content */}
-                    <div className="">
-                        <span className="text-[#3BB77E] text-sm">How can help you ?</span>
-                        <h1 className="text-[40px] font-bold text-[#253D4E] mt-2">
-                            Let us know how <br />we can help you
-                        </h1>
-                        <p className="text-gray-500 mt-4">
-                            At Evara, we value your feedback and strive to provide the best possible experience for our customers. If you have any questions, concerns, or suggestions, please don't hesitate to reach out to us. Our dedicated team is always ready to assist you and ensure your satisfaction.
-                        </p>
-                        <p className="text-gray-500 mt-4">
-                            If you have any questions or concerns, please don't hesitate to reach out to us. We're always here to help and look forward to hearing from you.
-                        </p>
-                    </div>
+        {/* Desktop Version */}
+        <div className="hidden lg:block">
+            <div className="container mx-auto px-4">
+                {/* Breadcrumb */}
+                <div className="flex items-center gap-2 text-sm mb-8">
+                    <Link to="/" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Home</Link>
+                    <span className="text-gray-500">•</span>
+                    <span className="text-gray-500">Contact</span>
+                </div>
 
-                    {/* Right Side - Contact Points */}
-                    <div className="space-y-8">
-                        <div className="grid grid-cols-2 gap-8">
-                            {/* Visit Feedback */}
-                            <div>
-                                <h3 className="text-[#3BB77E] font-semibold mb-3">01. Visit Feedback</h3>
-                                <p className="text-gray-500 text-sm">
-                                    For visit feedback, please contact our dedicated team at feedback@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
-                                </p>
-                            </div>
-
-                            {/* Employer Services */}
-                            <div>
-                                <h3 className="text-[#3BB77E] font-semibold mb-3">02. Employer Services</h3>
-                                <p className="text-gray-500 text-sm">
-                                    For employer services inquiries, please contact our dedicated team at hr@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
-                                </p>
-                            </div>
+                {/* Contact Section */}
+                <div className="max-w-[1200px] mx-auto">
+                    {/* Header and Content Grid */}
+                    <div className="grid grid-cols-2 gap-12 mb-12">
+                        {/* Left Side - Main Content */}
+                        <div className="">
+                            <span className="text-[#3BB77E] text-sm">How can help you ?</span>
+                            <h1 className="text-[40px] font-bold text-[#253D4E] mt-2">
+                                Let us know how <br />we can help you
+                            </h1>
+                            <p className="text-gray-500 mt-4">
+                                At Evara, we value your feedback and strive to provide the best possible experience for our customers. If you have any questions, concerns, or suggestions, please don't hesitate to reach out to us. Our dedicated team is always ready to assist you and ensure your satisfaction.
+                            </p>
+                            <p className="text-gray-500 mt-4">
+                                If you have any questions or concerns, please don't hesitate to reach out to us. We're always here to help and look forward to hearing from you.
+                            </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-8">
-                            {/* Billing Inquiries */}
-                            <div>
-                                <h3 className="text-[#3BB77E] font-semibold mb-3">03. Billing Inquiries</h3>
-                                <p className="text-gray-500 text-sm">
-                                    For billing inquiries, please contact our dedicated team at billing@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
-                                </p>
+                        {/* Right Side - Contact Points */}
+                        <div className="space-y-8">
+                            <div className="grid grid-cols-2 gap-8">
+                                {/* Visit Feedback */}
+                                <div>
+                                    <h3 className="text-[#3BB77E] font-semibold mb-3">01. Visit Feedback</h3>
+                                    <p className="text-gray-500 text-sm">
+                                        For visit feedback, please contact our dedicated team at feedback@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
+                                    </p>
+                                </div>
+
+                                {/* Employer Services */}
+                                <div>
+                                    <h3 className="text-[#3BB77E] font-semibold mb-3">02. Employer Services</h3>
+                                    <p className="text-gray-500 text-sm">
+                                        For employer services inquiries, please contact our dedicated team at hr@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
+                                    </p>
+                                </div>
                             </div>
 
-                            {/* General Inquiries */}
-                            <div>
-                                <h3 className="text-[#3BB77E] font-semibold mb-3">04. General Inquiries</h3>
-                                <p className="text-gray-500 text-sm">
-                                    We are here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.
-                                </p>
+                            <div className="grid grid-cols-2 gap-8">
+                                {/* Billing Inquiries */}
+                                <div>
+                                    <h3 className="text-[#3BB77E] font-semibold mb-3">03. Billing Inquiries</h3>
+                                    <p className="text-gray-500 text-sm">
+                                        For billing inquiries, please contact our dedicated team at billing@evara.com or call us at (123) 456-7890. We are available to assist you Monday through Friday from 9am to 5pm EST.
+                                    </p>
+                                </div>
+
+                                {/* General Inquiries */}
+                                <div>
+                                    <h3 className="text-[#3BB77E] font-semibold mb-3">04. General Inquiries</h3>
+                                    <p className="text-gray-500 text-sm">
+                                        We are here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Map Section */}
-                <div className="w-full h-[400px] rounded-xl overflow-hidden mb-12">
-                    <iframe 
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik" 
-                        className="w-full h-full border-0"
-                        title="Location Map"
-                    />
-                </div>
-
-                {/* Office Locations */}
-                <div className="grid grid-cols-3 gap-8 mb-16">
-                    {/* Office */}
-                    <div>
-                        <h3 className="text-[#3BB77E] font-semibold text-lg mb-4">Office</h3>
-                        <p className="text-gray-600 text-sm mb-2">205 North Michigan Avenue, Suite 810</p>
-                        <p className="text-gray-600 text-sm mb-2">Chicago, 60601, USA</p>
-                        <p className="text-gray-600 text-sm mb-2">Phone: (123) 456-7890</p>
-                        <p className="text-gray-600 text-sm mb-4">Email: contact@Evara.com</p>
-                        <button className="text-white bg-[#3BB77E] px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90 flex items-center gap-2">
-                            <FaMapMarkerAlt /> View map
-                        </button>
+                    {/* Map Section */}
+                    <div className="w-full h-[400px] rounded-xl overflow-hidden mb-12">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.7126976327277!2d-122.41941708468212!3d37.77492897975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter+HQ!5e0!3m2!1sen!2sus!4v1565838081665!5m2!1sen!2sus"
+                            width="100%" 
+                            height="100%" 
+                            style={{ border: 0 }} 
+                            allowFullScreen={true}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Location Map"
+                            className="w-full h-full"
+                            aria-hidden="false"
+                            tabIndex="0"
+                        ></iframe>
                     </div>
 
-                    {/* Studio */}
-                    <div>
-                        <h3 className="text-[#3BB77E] font-semibold text-lg mb-4">Studio</h3>
-                        <p className="text-gray-600 text-sm mb-2">205 North Michigan Avenue, Suite 810</p>
-                        <p className="text-gray-600 text-sm mb-2">Chicago, 60601, USA</p>
-                        <p className="text-gray-600 text-sm mb-2">Phone: (123) 456-7890</p>
-                        <p className="text-gray-600 text-sm mb-4">Email: contact@Evara.com</p>
-                        <button className="text-white bg-[#3BB77E] px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90 flex items-center gap-2">
-                            <FaMapMarkerAlt /> View map
-                        </button>
-                    </div>
-
-                    {/* Shop */}
-                    <div>
-                        <h3 className="text-[#3BB77E] font-semibold text-lg mb-4">Shop</h3>
-                        <p className="text-gray-600 text-sm mb-2">205 North Michigan Avenue, Suite 810</p>
-                        <p className="text-gray-600 text-sm mb-2">Chicago, 60601, USA</p>
-                        <p className="text-gray-600 text-sm mb-2">Phone: (123) 456-7890</p>
-                        <p className="text-gray-600 text-sm mb-4">Email: contact@Evara.com</p>
-                        <button className="text-white bg-[#3BB77E] px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90 flex items-center gap-2">
-                            <FaMapMarkerAlt /> View map
-                        </button>
-                    </div>
-                </div>
-
-                {/* Contact Form */}
-                <div className="grid grid-cols-2 gap-12 mb-16">
-                    {/* Form Section */}
-                    <div>
-                        <h3 className="text-[#3BB77E] text-sm mb-2">Contact form</h3>
-                        <h2 className="text-[32px] font-bold text-[#253D4E] mb-4">Drop Us a Line</h2>
-                        <p className="text-gray-500 text-sm mb-8">Your email address will not be published. Required fields are marked *</p>
-                        
-                        <form className="space-y-4">
-                            <div className="grid grid-cols-2 gap-4">
-                                <input 
-                                    type="text" 
-                                    placeholder="First Name" 
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-                                />
-                                <input 
-                                    type="email" 
-                                    placeholder="Your Email" 
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-                                />
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                                <input 
-                                    type="tel" 
-                                    placeholder="Your Phone" 
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-                                />
-                                <input 
-                                    type="text" 
-                                    placeholder="Subject" 
-                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-                                />
-                            </div>
-                            <textarea 
-                                rows="6" 
-                                placeholder="Message" 
-                                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-                            ></textarea>
-                            <button 
-                                type="submit" 
-                                className="bg-[#253D4E] text-white px-8 py-4 rounded-lg hover:bg-[#253D4E]/90 transition-colors"
-                            >
-                                Send message
+                    {/* Office Locations */}
+                    <div className="grid grid-cols-3 gap-8 mb-16">
+                        {/* Office */}
+                        <div>
+                            <h3 className="text-[#3BB77E] font-semibold text-lg mb-4">Office</h3>
+                            <p className="text-gray-600 text-sm mb-2">205 North Michigan Avenue, Suite 810</p>
+                            <p className="text-gray-600 text-sm mb-2">Chicago, 60601, USA</p>
+                            <p className="text-gray-600 text-sm mb-2">Phone: (123) 456-7890</p>
+                            <p className="text-gray-600 text-sm mb-4">Email: contact@Evara.com</p>
+                            <button className="text-white bg-[#3BB77E] px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90 flex items-center gap-2">
+                                <FaMapMarkerAlt /> View map
                             </button>
-                        </form>
+                        </div>
+
+                        {/* Studio */}
+                        <div>
+                            <h3 className="text-[#3BB77E] font-semibold text-lg mb-4">Studio</h3>
+                            <p className="text-gray-600 text-sm mb-2">205 North Michigan Avenue, Suite 810</p>
+                            <p className="text-gray-600 text-sm mb-2">Chicago, 60601, USA</p>
+                            <p className="text-gray-600 text-sm mb-2">Phone: (123) 456-7890</p>
+                            <p className="text-gray-600 text-sm mb-4">Email: contact@Evara.com</p>
+                            <button className="text-white bg-[#3BB77E] px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90 flex items-center gap-2">
+                                <FaMapMarkerAlt /> View map
+                            </button>
+                        </div>
+
+                        {/* Shop */}
+                        <div>
+                            <h3 className="text-[#3BB77E] font-semibold text-lg mb-4">Shop</h3>
+                            <p className="text-gray-600 text-sm mb-2">205 North Michigan Avenue, Suite 810</p>
+                            <p className="text-gray-600 text-sm mb-2">Chicago, 60601, USA</p>
+                            <p className="text-gray-600 text-sm mb-2">Phone: (123) 456-7890</p>
+                            <p className="text-gray-600 text-sm mb-4">Email: contact@Evara.com</p>
+                            <button className="text-white bg-[#3BB77E] px-4 py-2 rounded-md text-sm hover:bg-[#3BB77E]/90 flex items-center gap-2">
+                                <FaMapMarkerAlt /> View map
+                            </button>
+                        </div>
                     </div>
 
-                    {/* Image Section */}
-                    <div>
-                        <img 
-                            src="https://s3-alpha-sig.figma.com/img/4027/36d2/6308ccf0f42597b84434ecec3cb4995f?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oKoT3BimVfdzoIxkc50cS9kujXZDx2qyvAdr1lqJeugwzznF1PZeqZh8H278P9JR4xoce49HntIL8xr-Tm9sydtk~pKThfKKRfO-3BcUm3OqXzB5hPfVoxs4Qax2K1yi7MO7xVzCtJzvE9ebvKL3Mj7hM1XrkyVKmyj4gOLsFVNTrCHHVnCWHsUSxeb1w9nlHo7L0FYfTKFcykPMuh8sPxnwLesU3Dp5I4cssjqrci7sKNr3woc5Sz~UoseWAuLj41CDVv7iagvXDKbAvr~7rrsTZ2PuOkaySEwVybD7qauOdfefqnlXE-uPiJxA7ni1KXvQ1dn~Z0EgHGdeZ7NH2A__" 
-                            alt="Contact Support" 
-                            className="w-full h-full object-cover rounded-xl"
-                        />
+                    {/* Contact Form */}
+                    <div className="grid grid-cols-2 gap-12 mb-16">
+                        {/* Form Section */}
+                        <div>
+                            <h3 className="text-[#3BB77E] text-sm mb-2">Contact form</h3>
+                            <h2 className="text-[32px] font-bold text-[#253D4E] mb-4">Drop Us a Line</h2>
+                            <p className="text-gray-500 text-sm mb-8">Your email address will not be published. Required fields are marked *</p>
+                            
+                            <form className="space-y-4">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <input 
+                                        type="text" 
+                                        placeholder="First Name" 
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                                    />
+                                    <input 
+                                        type="email" 
+                                        placeholder="Your Email" 
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <input 
+                                        type="tel" 
+                                        placeholder="Your Phone" 
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                                    />
+                                    <input 
+                                        type="text" 
+                                        placeholder="Subject" 
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                                    />
+                                </div>
+                                <textarea 
+                                    rows="6" 
+                                    placeholder="Message" 
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                                ></textarea>
+                                <button 
+                                    type="submit" 
+                                    className="bg-[#253D4E] text-white px-8 py-4 rounded-lg hover:bg-[#253D4E]/90 transition-colors"
+                                >
+                                    Send message
+                                </button>
+                            </form>
+                        </div>
+
+                        {/* Image Section */}
+                        <div>
+                            <img 
+                                src="https://s3-alpha-sig.figma.com/img/4027/36d2/6308ccf0f42597b84434ecec3cb4995f?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oKoT3BimVfdzoIxkc50cS9kujXZDx2qyvAdr1lqJeugwzznF1PZeqZh8H278P9JR4xoce49HntIL8xr-Tm9sydtk~pKThfKKRfO-3BcUm3OqXzB5hPfVoxs4Qax2K1yi7MO7xVzCtJzvE9ebvKL3Mj7hM1XrkyVKmyj4gOLsFVNTrCHHVnCWHsUSxeb1w9nlHo7L0FYfTKFcykPMuh8sPxnwLesU3Dp5I4cssjqrci7sKNr3woc5Sz~UoseWAuLj41CDVv7iagvXDKbAvr~7rrsTZ2PuOkaySEwVybD7qauOdfefqnlXE-uPiJxA7ni1KXvQ1dn~Z0EgHGdeZ7NH2A__" 
+                                alt="Contact Support" 
+                                className="w-full h-full object-cover rounded-xl"
+                            />
+                        </div>
                     </div>
+                    <Section />
                 </div>
-                <Section />
-            </div>
 
-            <Footer />
+                <Footer />
+            </div>
         </div>
-    );
+    </Layout>
+  );
 };
 
 export default Contact;

@@ -84,7 +84,7 @@ const Contact = () => {
                     {/* Map Section */}
                     <div className="w-full h-[400px] rounded-xl overflow-hidden mb-12">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.7126976327277!2d-122.41941708468212!3d37.77492897975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter+HQ!5e0!3m2!1sen!2sus!4v1565838081665!5m2!1sen!2sus"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.543763040803!2d72.62590417564311!3d23.11379151291736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84604595e899%3A0x3e7418c1b4e56140!2sWebEarl%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sus!4v1737614177966!5m2!1sen!2sus"
                             width="100%" 
                             height="100%" 
                             style={{ border: 0 }} 
@@ -96,6 +96,14 @@ const Contact = () => {
                             aria-hidden="false"
                             tabIndex="0"
                         ></iframe>
+                        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.543763040803!2d72.62590417564311!3d23.11379151291736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84604595e899%3A0x3e7418c1b4e56140!2sWebEarl%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sus!4v1737614177966!5m2!1sen!2sus" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe> */}
                     </div>
 
                     {/* Office Locations */}

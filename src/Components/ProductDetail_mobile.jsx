@@ -21,21 +21,21 @@ const ProductDetail_mobile = () => {
         discount: "26% Off",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
         images: [
-            "/assets/Product Images/1.png",
-            "/assets/Product Images/2.png",
-            "/assets/Product Images/3.png",
-            "/assets/Product Images/4.png"
+            "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1484980972926-edee96e0960d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?q=80&w=1910&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ]
     };
 
     return (
-        <div className="lg:hidden mt-[60px]">
+        <div className="lg:hidden mt-[80px]">
             {/* Main Product Image */}
             <div className="w-full h-[400px] bg-[#F4F6FA]">
                 <img 
                     src={product.images[selectedImage]}
                     alt={product.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover object-center"
                 />
             </div>
 
@@ -45,7 +45,7 @@ const ProductDetail_mobile = () => {
                     <div 
                         key={index}
                         onClick={() => setSelectedImage(index)}
-                        className={`w-[70px] h-[70px] bg-[#F4F6FA] rounded-lg cursor-pointer ${
+                        className={`w-[70px] h-[70px] bg-[#F4F6FA] rounded-lg cursor-pointer object-cover object-center ${
                             selectedImage === index ? 'border-2 border-[#3BB77E]' : ''
                         }`}
                     >

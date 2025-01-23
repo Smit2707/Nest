@@ -229,30 +229,30 @@ const Navbar = () => {
                                             >
                                                 Shop
                                             </Link>
-                                            <Link 
+                                            {/* <Link 
                                                 to="/vendors" 
                                                 className={`text-[15px] ${isActive('/vendors') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Vendors
-                                            </Link>
-                                            <Link 
+                                            </Link> */}
+                                            {/* <Link 
                                                 to="/mega-menu" 
                                                 className={`text-[15px] ${isActive('/mega-menu') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Mega menu
-                                            </Link>
+                                            </Link> */}
                                             <Link 
                                                 to="/blog" 
                                                 className={`text-[15px] ${isActive('/blog') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Blog
                                             </Link>
-                                            <Link 
+                                            {/* <Link 
                                                 to="/pages" 
                                                 className={`text-[15px] ${isActive('/pages') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Pages
-                                            </Link>
+                                            </Link> */}
                                             <Link 
                                                 to="/contact" 
                                                 className={`text-[15px] ${isActive('/contact') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}

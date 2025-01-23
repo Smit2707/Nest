@@ -304,11 +304,11 @@ const Home = () => {
                                 Don't miss amazing<br />grocery deals.
                             </h1>
                             <p className="text-gray-800 mt-4 text-sm md:text-lg">Sign up for the daily newsletter</p>
-                            <div className="flex flex-col md:flex justify-center items-center gap-2 max-w-xl mt-6">
+                            <div className="flex flex-col md:flex justify-center items-start gap-2 max-w-xl mt-6">
                                 <input
                                     type="email"
                                     placeholder="Your email address"
-                                    className="flex-1 md:px-6 md:py-3 px-6 py-1 text-sm rounded-md border border-gray-200 focus:outline-none"
+                                    className="flex-1 md:px-6 md:w-[25vw] md:py-3 px-6 py-1 text-sm rounded-md border border-gray-200 focus:outline-none"
                                 />
                                 <button className="bg-[#3bb77e] text-white md:px-8 px-4 md:py-3 py-2 rounded-md hover:bg-green-600 font-medium text-xs md:text-sm">
                                     Subscribe

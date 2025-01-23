@@ -25,15 +25,15 @@ const MobileMenu = ({ isOpen, onClose }) => {
                     <button onClick={onClose} className="text-gray-500">✕</button>
                 </div>
 
-                <div className="overflow-y-auto h-full">
-                    <Link 
+                <div className="overflow-y-auto h-full mt-4">
+                    {/* <Link 
                         to="/deals" 
                         className="flex items-center gap-2 px-4 py-3 text-[#3BB77E] border-b"
                         onClick={handleLinkClick}
                     >
                         <IoLeafOutline className="text-xl" />
                         <span className="text-sm font-medium">Deals</span>
-                    </Link>
+                    </Link> */}
 
                     <Link 
                         to="/" 
@@ -53,7 +53,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
                         <span className="text-xs">→</span>
                     </Link>
 
-                    <Link to="/vendors" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
+                    {/* <Link to="/vendors" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
                         <span className="text-sm font-medium">Vendors</span>
                         <span className="text-xs">→</span>
                     </Link>
@@ -61,17 +61,17 @@ const MobileMenu = ({ isOpen, onClose }) => {
                     <Link to="/mega-menu" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
                         <span className="text-sm font-medium">Mega menu</span>
                         <span className="text-xs">→</span>
-                    </Link>
+                    </Link> */}
 
                     <Link to="/blog" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
                         <span className="text-sm font-medium">Blog</span>
                         <span className="text-xs">→</span>
                     </Link>
 
-                    <Link to="/pages" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
+                    {/* <Link to="/pages" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
                         <span className="text-sm font-medium">Pages</span>
                         <span className="text-xs">→</span>
-                    </Link>
+                    </Link> */}
 
                     <Link to="/contact" className="flex items-center justify-between px-4 py-3 text-[#253D4E] hover:text-[#3BB77E] border-b" onClick={handleLinkClick}>
                         <span className="text-sm font-medium">Contact</span>

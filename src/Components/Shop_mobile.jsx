@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import { IoFilterOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
@@ -8,6 +8,7 @@ import Footer_mobile from './Footer_mobile';
 import DealCard from './DealCard';
 
 const Shop_mobile = () => {
+    const navigate = useNavigate();
     const [showFilters, setShowFilters] = useState(false);
     const [selectedSort, setSelectedSort] = useState('Featured');
 
@@ -89,6 +90,10 @@ const Shop_mobile = () => {
         }
     ];
 
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
+
     return (
         <div className="lg:hidden pb-2">
             {/* Breadcrumb */}
@@ -152,7 +157,13 @@ const Shop_mobile = () => {
             <div className="px-4 py-4">
                 <div className="grid grid-cols-2 gap-3">
                     {products.map((product) => (
-                        <ProductCard key={product.id} product={product} />
+                        <div 
+                            key={product.id}
+                            onClick={() => handleProductClick(product.id)}
+                            className="cursor-pointer"
+                        >
+                            <ProductCard product={product} />
+                        </div>
                     ))}
                 </div>
             </div>

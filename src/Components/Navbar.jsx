@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaPhoneAlt, FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
 import { IoLocationOutline } from 'react-icons/io5';
 import { BiSearch } from 'react-icons/bi';
 import { HiOutlineSquares2X2 } from 'react-icons/hi2';
 import { GrPowerCycle } from "react-icons/gr";
 import { FcLike } from "react-icons/fc";
-import { FiSearch, FiShoppingCart, FiMenu, FiX } from 'react-icons/fi';
+import { FiSearch, FiShoppingCart, FiMenu, FiX, FiUser } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import MobileMenu from './MobileMenu';
 
@@ -14,6 +14,7 @@ const Navbar = () => {
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchVisible, setIsSearchVisible] = useState(false);
+    const navigate = useNavigate();
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -191,8 +192,13 @@ const Navbar = () => {
                                         <span>Cart</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-gray-500 text-sm">
-                                        <FaUser size={20} />
-                                        <span>Account</span>
+                                        <button 
+                                            onClick={() => navigate('/signup')}
+                                            className="flex items-center gap-2 text-sm hover:text-[#3BB77E] transition-colors"
+                                        >
+                                            <FiUser />
+                                            <span>Login/Signup</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -208,9 +214,9 @@ const Navbar = () => {
                                             Browse All Categories
                                         </button>
                                         <div className="flex items-center justify-between gap-12 text-gray-600 text-sm">
-                                            <Link to="/deals" className="flex items-center gap-1 font-[600] text-sm">
+                                            {/* <Link to="/deals" className="flex items-center gap-1 font-[600] text-sm">
                                                 <span>Deals</span>
-                                            </Link>
+                                            </Link> */}
                                             <Link 
                                                 to="/" 
                                                 className={`text-[15px] ${isActive('/') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}

@@ -1,318 +1,195 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    password: '',
-    address: '',
-    pincode: '',
-    city: '',
-    state: '',
-    country: '',
-    gender: '',
-    dob: '',
-  });
-
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    console.log('SignUp component mounted');
-  }, []);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        mobile: '',
+        password: '',
+        confirmPassword: '',
+        gender: ''
     });
-    setError('');
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    console.log('Submitting form data:', formData);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    try {
-      const response = await axios.post(
-        'https://interview-task-bmcl.onrender.com/api/user/add_user',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+        setError('');
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        if (formData.password !== formData.confirmPassword) {
+            setError("Passwords don't match");
+            setLoading(false);
+            return;
         }
-      );
 
-      console.log('Registration Response:', response.data);
+        const dataToSend = {
+            name: formData.name,
+            email: formData.email,
+            mobile: formData.mobile,
+            password: formData.password,
+            gender: formData.gender
+        };
 
-      if (response.data.success) {
-        alert('Registration successful!');
-        navigate('/login');
-      } else {
-        setError(response.data.message || 'Registration failed');
-      }
-    } catch (error) {
-      console.error('Registration error:', error);
-      setError(
-        error.response?.data?.message ||
-        'Registration failed. Please check your input and try again.'
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+        try {
+            const response = await axios({
+                method: 'post',
+                url: 'https://ecommerce-shop-qg3y.onrender.com/api/user/register',
+                data: dataToSend,
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
 
-  const inputStyle = "w-full px-4 py-2.5 rounded border border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 placeholder:text-gray-400 text-gray-600";
-  const labelStyle = "block text-sm font-medium text-[#555] mb-2";
+            if (response.data.success) {
+                alert('Registration successful!');
+                navigate('/login');
+            } else {
+                setError(response.data.message || 'Registration failed');
+            }
+        } catch (error) {
+            console.error('Registration error:', error);
+            if (error.response) {
+                setError(error.response.data.message || 'Registration failed');
+            } else if (error.request) {
+                setError('No response from server. Please try again.');
+            } else {
+                setError('An error occurred. Please try again.');
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-3 bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-center bg-blur">
-      <div className="max-w-xl w-full bg-[#F4EBCE] rounded-xl shadow-sm p-6">
-        <h2 className="text-2xl font-semibold text-center text-[#333] mb-6">
-          Create your account
-        </h2>
+    return (
+        <div className="min-h-screen relative flex items-center justify-center bg-[#fff5e5]">
+            <div className="absolute inset-0 bg-[url('https://s3-alpha-sig.figma.com/img/7f7d/5c4f/7cf727a1d919b3a2000dc17aa3892559?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3AEpjBKL46xV7cskNTtWe2qoT~FKj-XF8NxxaRUDTnMUHmjl3YsYMnPVx9E1yQzbUg5A-Z~poFHzMk8Kj0NOUBzlk1yYjhk6WDLug-QZtX45JTk8XA4ku0bQ4MG7WPlrVn83BKyRHZE5SlCvJlFYnpb1IYK7balgB4bsD1lKW8fmRdzLPZOA3Ttfmt28zUhWm35dAIzJYi94C83rSjWfytpK0-HMjeAc~t5VdnuhbHaymjq~U8qhULbWtsA6aww4ySUlz2NBDA0ekrnEgjPak~u54hEm69PSPkmY4UQc3FJMSabWODC0zKv4Dy6NxV4wq5xlYolgP5ZcBarYtjV5g__')] bg-cover bg-center backdrop-blur-md"></div>
+            
+            <div className="relative bg-white/80 backdrop-blur-lg p-8 rounded-lg shadow-sm w-full max-w-md">
+                <h2 className="text-2xl font-semibold text-center mb-6">Create your account</h2>
+                
+                {error && (
+                    <div className="mb-4 p-3 bg-red-50 text-red-500 rounded-md text-sm">
+                        {error}
+                    </div>
+                )}
 
-        {error && (
-          <div className="mb-4 p-2.5 bg-red-50 text-red-500 rounded-md text-sm">
-            {error}
-          </div>
-        )}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                        <label className="block text-gray-600 mb-2">Full Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E] bg-white/50"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-            <div>
-              <label htmlFor="name" className={labelStyle}>Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="Your Name"
-                className={inputStyle}
-                value={formData.name}
-                onChange={handleChange}
-                disabled={loading}
-              />
+                    <div>
+                        <label className="block text-gray-600 mb-2">Email address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E] bg-white/50"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-600 mb-2">Mobile Number</label>
+                        <input
+                            type="tel"
+                            name="mobile"
+                            placeholder="10-digit mobile number"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E] bg-white/50"
+                            value={formData.mobile}
+                            onChange={handleChange}
+                            required
+                            pattern="[0-9]{10}"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-600 mb-2">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="********"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E] bg-white/50"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                            minLength="6"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-600 mb-2">Confirm Password</label>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="********"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E] bg-white/50"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            required
+                            minLength="6"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-600 mb-2">Gender</label>
+                        <select
+                            name="gender"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E] bg-white/50"
+                            value={formData.gender}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className={`w-full bg-[#3BB77E] text-white py-3 rounded-lg font-medium hover:bg-[#3BB77E]/90 ${
+                            loading ? 'opacity-70 cursor-not-allowed' : ''
+                        }`}
+                        disabled={loading}
+                    >
+                        {loading ? 'Signing up...' : 'Sign up'}
+                    </button>
+                </form>
+
+                <p className="text-center mt-4 text-gray-600">
+                    Already have an account? {' '}
+                    <Link to="/login" className="text-[#3BB77E] hover:underline">
+                        Sign in
+                    </Link>
+                </p>
             </div>
-
-            <div>
-              <label htmlFor="email" className={labelStyle}>Email address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="example@email.com"
-                className={inputStyle}
-                value={formData.email}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="gender" className={labelStyle}>Gender</label>
-              <select
-                id="gender"
-                name="gender"
-                required
-                className={inputStyle}
-                value={formData.gender}
-                onChange={handleChange}
-                disabled={loading}
-              >
-                <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="mobile" className={labelStyle}>Mobile Number</label>
-              <input
-                type="tel"
-                id="mobile"
-                name="mobile"
-                required
-                pattern="[0-9]{10}"
-                placeholder="10-digit mobile number"
-                className={inputStyle}
-                value={formData.mobile}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className={labelStyle}>Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                minLength="6"
-                placeholder="********"
-                className={inputStyle}
-                value={formData.password}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-            <div>
-              <label htmlFor="confirm_password" className={labelStyle}>Confirm Password</label>
-              <input
-                type="password"
-                id="confirm_password"
-                name="confirm_password"
-                required
-                minLength="6"
-                placeholder="********"
-                className={inputStyle}
-                value={formData.confirm_password}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-          </div>
-
-          {/* <div>
-            <label htmlFor="address" className={labelStyle}>Address</label>
-            <textarea
-              id="address"
-              name="address"
-              required
-              rows="2"
-              placeholder="Enter your full address"
-              className={inputStyle}
-              value={formData.address}
-              onChange={handleChange}
-              disabled={loading}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="pincode" className={labelStyle}>Pincode</label>
-              <input
-                type="text"
-                id="pincode"
-                name="pincode"
-                required
-                pattern="[0-9]{6}"
-                placeholder="6-digit pincode"
-                className={inputStyle}
-                value={formData.pincode}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="gender" className={labelStyle}>Gender</label>
-              <select
-                id="gender"
-                name="gender"
-                required
-                className={inputStyle}
-                value={formData.gender}
-                onChange={handleChange}
-                disabled={loading}
-              >
-                <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="city" className={labelStyle}>City</label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                required
-                placeholder="Your City"
-                className={inputStyle}
-                value={formData.city}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="state" className={labelStyle}>State</label>
-              <input
-                type="text"
-                id="state"
-                name="state"
-                required
-                placeholder="Your State"
-                className={inputStyle}
-                value={formData.state}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="country" className={labelStyle}>Country</label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                required
-                placeholder="Your Country"
-                className={inputStyle}
-                value={formData.country}
-                onChange={handleChange}
-                disabled={loading}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="dob" className={labelStyle}>Date of Birth</label>
-              <input
-                type="date"
-                id="dob"
-                name="dob"
-                required
-                className={inputStyle}
-                value={formData.dob}
-                onChange={handleChange}
-                max={new Date().toISOString().split('T')[0]}
-                disabled={loading}
-              />
-            </div> */}
-          {/* </div> */}
-
-          <button
-            type="submit"
-            className={`w-full py-2.5 px-4 bg-[#3BB77E] text-white hover:bg-[#3BB77E]/90 font-medium rounded-md transition-colors duration-200 ${loading ? 'opacity-70 cursor-not-allowed' : ''
-              }`}
-            disabled={loading}
-          >
-            {loading ? 'Signing up...' : 'Sign up'}
-          </button>
-
-          <p className="text-center text-sm text-gray-600">
-            Already have an account?{' '}
-            <Link to="/login" className="text-[#3BB77E] font-medium">
-              Sign in
-            </Link>
-          </p>
-        </form>
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default SignUp;

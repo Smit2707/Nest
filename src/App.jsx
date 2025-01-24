@@ -10,6 +10,11 @@ import Shop from './Pages/Shop';
 import ProductDetail from './Components/ProductDetail';
 import SignUp from './Pages/SignUp';
 import Login from './Pages/Login';
+import ForgotPassword from './Pages/ForgotPassword';
+import Profile from './Pages/Profile';
+import ChangePassword from './Pages/ChangePassword';
+import AddProduct from './Pages/AddProduct';
+import ResetPassword from './Pages/ResetPassword';
 
 function App() {
     return (
@@ -18,6 +23,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/change-password" element={<ChangePassword />} />
+                <Route path="/add-product" element={<AddProduct />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/account" element={<div>Account Page</div>} />
                 <Route path="/wishlist" element={<div>Wishlist Page</div>} />

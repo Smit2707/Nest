@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import { IoFilterOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoMdAdd } from "react-icons/io";
 import Section from './Section';
 import Footer_mobile from './Footer_mobile';
 import DealCard from './DealCard';
@@ -11,6 +12,7 @@ const Shop_mobile = () => {
     const navigate = useNavigate();
     const [showFilters, setShowFilters] = useState(false);
     const [selectedSort, setSelectedSort] = useState('Featured');
+    const token = localStorage.getItem('token');
 
     const products = [
         {
@@ -94,6 +96,14 @@ const Shop_mobile = () => {
         navigate(`/product/${productId}`);
     };
 
+    const handleAddProduct = () => {
+        if (!token) {
+            navigate('/login');
+            return;
+        }
+        navigate('/add-product');
+    };
+
     return (
         <div className="lg:hidden pb-2">
             {/* Breadcrumb */}
@@ -107,7 +117,18 @@ const Shop_mobile = () => {
 
             {/* Title and Count */}
             <div className="px-4 py-3">
-                <h1 className="text-xl font-bold text-[#253D4E] mb-2">Snack</h1>
+                <div className="flex items-center justify-between mb-2">
+                    <h1 className="text-xl font-bold text-[#253D4E]">Snack</h1>
+                    {token && (
+                        <button
+                            onClick={handleAddProduct}
+                            className="flex items-center gap-1 px-3 py-1.5 bg-[#3BB77E] text-white rounded-lg hover:bg-[#3BB77E]/90 transition-colors text-sm"
+                        >
+                            <IoMdAdd className="text-lg" />
+                            Add Product
+                        </button>
+                    )}
+                </div>
                 <p className="text-sm text-gray-500">We found <span className="text-[#3BB77E] font-medium">29</span> items for you!</p>
             </div>
 

@@ -7,12 +7,22 @@ import ProductCard from '../Components/ProductCard';
 import Footer from '../Components/Footer';
 import Section from '../Components/Section';
 import DealCard from '../Components/DealCard';
+import { IoMdAdd } from "react-icons/io";
 
 const Shop = () => {
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
+    };
+
+    const handleAddProduct = () => {
+        if (!token) {
+            navigate('/login');
+            return;
+        }
+        navigate('/add-product');
     };
 
     const products = [
@@ -196,20 +206,30 @@ const Shop = () => {
 
             {/* Desktop Version */}
             <div className="hidden lg:block">
-                <div className="container mx-auto px-8">
-                    {/* Header Section */}
-                    <div className="bg-[url('https://s3-alpha-sig.figma.com/img/cc7c/6762/31a2809acc0f48bbfcff69c0705291d5?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RDmsOG2ISj1RBXQU1rINyqJ8EzX3errc0LM8J-E5UuRV7nKn0K4lAUhddXENJ-2~t0-Pn9ySOWqA6JC4ivwUJJZkOlC9UXVpiop2r6XTpQmywc33A1MLQEcDnU7GHviAI186MaRxl6EeDVB1Luq1yhdQpO43iK3EdQMipfIyN~Qj1WpNUcHKMi4raq04E0xpsV-XlzMtmdNEpmLJr6PsrDFz6IC8sImiHtVD98KTYjHSPnGFMJ3uKoKPtOtNI4qOAHmLqSTr~pQ-CroQ5rYr7bzLbDzzaS4A80Nzmk7PTf6rolV1CxJ8MmWU6rtszO9VJ2EGD-skfsPcuNOilzgV5Q__')] bg-cover rounded-xl p-8 mb-8">
-                        {/* Breadcrumb */}
-                        <div className="flex items-center gap-2 text-sm mb-2">
-                            <Link to="/" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Home</Link>
+                <div className="container mx-auto px-4 py-8">
+                    {/* Breadcrumb */}
+                    <div className="mb-8">
+                        <div className="flex items-center gap-2 text-sm">
+                            <Link to="/" className="text-gray-500 hover:text-[#3BB77E]">Home</Link>
                             <span className="text-gray-500">•</span>
-                            <span className="text-gray-500">Snack</span>
+                            <span className="text-[#3BB77E]">Shop</span>
                         </div>
 
                         {/* Title and Filter Tags */}
-                        <div className="flex justify-between items-center">
-                            <h1 className="text-[40px] font-bold text-[#253D4E]">Snack</h1>
-                            <div className="flex gap-2 rol">
+                        <div className="flex justify-between items-center mt-4">
+                            <div className="flex items-center gap-4">
+                                <h1 className="text-[40px] font-bold text-[#253D4E]">Snack</h1>
+                                {token && (
+                                    <button
+                                        onClick={handleAddProduct}
+                                        className="flex items-center gap-2 px-4 py-2 bg-[#3BB77E] text-white rounded-lg hover:bg-[#3BB77E]/90 transition-colors"
+                                    >
+                                        <IoMdAdd className="text-xl" />
+                                        Add Product
+                                    </button>
+                                )}
+                            </div>
+                            <div className="flex gap-2">
                                 {['Cabbage', 'Broccoli', 'Artichoke', 'Celery', 'Spinach'].map((tag) => (
                                     <button key={tag} className="bg-white px-4 py-1.5 rounded-full text-sm flex items-center gap-1">
                                         <span className="text-[#3BB77E]">•</span>

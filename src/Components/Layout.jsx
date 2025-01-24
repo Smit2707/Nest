@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     const location = useLocation();
-    const isAboutOrShop = location.pathname === '/about' || location.pathname === '/shop' || location.pathname === '/blog' || location.pathname === '/contact';
+    const isAboutOrShop = location.pathname === '/about' || location.pathname === '/shop' || location.pathname === '/blog' || location.pathname === '/contact' || location.pathname === '/add-product';
     
     // Add check for login and signup pages
     const hideNavbar = location.pathname === '/login' || location.pathname === '/signup';
@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
     return (
         <div className="w-full overflow-x-hidden">
             {/* Only show Navbar if not on login/signup pages */}
+            
             {!hideNavbar && <Navbar />}
             
             {/* Remove all margins for login/signup pages */}

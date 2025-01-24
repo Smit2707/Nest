@@ -15,11 +15,18 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchVisible, setIsSearchVisible] = useState(false);
     const navigate = useNavigate();
+    const [userName, setUserName] = useState('');
+    const token = localStorage.getItem('token');
 
     // Close mobile menu when route changes
     useEffect(() => {
         setIsMobileMenuOpen(false);
     }, [location]);
+
+    useEffect(() => {
+        const name = localStorage.getItem('userName');
+        setUserName(name);
+    }, []);
 
     const isActive = (path) => {
         if (path === '/' && location.pathname === '/') return true;
@@ -40,7 +47,12 @@ const Navbar = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-  return (
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/login');
+    };
+
+    return (
         <>
             <header className="fixed top-0 w-full z-[1000] bg-white shadow-sm">
                 {/* Top Bar - Hidden on Mobile */}
@@ -141,9 +153,10 @@ const Navbar = () => {
                                     <div className="flex border-green-400 border-[1px] rounded-sm">
                                         <select className="px-4 py-2 border border-r-0  rounded-l-md bg-white text-gray-600 focus:outline-none">
                                             <option>All Categories</option>
-                                            <option>All Categories</option>
-                                            <option>All Categories</option>
-                                            <option>All Categories</option>
+                                            <option>Fruits</option>
+                                            <option>Veg</option>
+                                            <option>Non-Veg</option>
+                                            <option>Snacks</option>
                                         </select>
                                         <div className="flex-1 relative border-none">
                                             <input
@@ -191,15 +204,29 @@ const Navbar = () => {
                                         </div>
                                         <span>Cart</span>
                                     </div>
-                                    <div className="flex items-center gap-2 text-gray-500 text-sm">
-                                        <button 
-                                            onClick={() => navigate('/signup')}
-                                            className="flex items-center gap-2 text-sm hover:text-[#3BB77E] transition-colors"
+                                    {token ? (
+                                        <div className="flex items-center space-x-4">
+                                            <Link 
+                                                to="/profile" 
+                                                className="text-gray-600 hover:text-[#3BB77E]"
+                                            >
+                                                Profile
+                                            </Link>
+                                            <button
+                                                onClick={handleLogout}
+                                                className="text-gray-600 hover:text-[#3BB77E]"
+                                            >
+                                                Logout
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <Link 
+                                            to="/login" 
+                                            className="text-gray-600 hover:text-[#3BB77E]"
                                         >
-                                            <FiUser />
-                                            <span>Login/Signup</span>
-                                        </button>
-                                    </div>
+                                            Login/Signup
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </div>

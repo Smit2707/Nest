@@ -212,7 +212,7 @@ const Profile = () => {
     return (
         <div className="h-[60vh] bg-[url('https://s3-alpha-sig.figma.com/img/7f7d/5c4f/7cf727a1d919b3a2000dc17aa3892559?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3AEpjBKL46xV7cskNTtWe2qoT~FKj-XF8NxxaRUDTnMUHmjl3YsYMnPVx9E1yQzbUg5A-Z~poFHzMk8Kj0NOUBzlk1yYjhk6WDLug-QZtX45JTk8XA4ku0bQ4MG7WPlrVn83BKyRHZE5SlCvJlFYnpb1IYK7balgB4bsD1lKW8fmRdzLPZOA3Ttfmt28zUhWm35dAIzJYi94C83rSjWfytpK0-HMjeAc~t5VdnuhbHaymjq~U8qhULbWtsA6aww4ySUlz2NBDA0ekrnEgjPak~u54hEm69PSPkmY4UQc3FJMSabWODC0zKv4Dy6NxV4wq5xlYolgP5ZcBarYtjV5g__')] bg-cover py-8 flex items-center justify-center">
             <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-between gap-28 items-center mb-8">
                     <h1 className="text-2xl font-semibold">My Profile</h1>
                     <div className="space-x-4">
                         <button
@@ -254,7 +254,7 @@ const Profile = () => {
                                             name="currentPassword"
                                             value={passwordData.currentPassword}
                                             onChange={handlePasswordInputChange}
-                                            className="w-full p-3 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border rounded outline-none"
                                             required
                                             placeholder="Enter your current password"
                                         />
@@ -276,7 +276,7 @@ const Profile = () => {
                                             name="newPassword"
                                             value={passwordData.newPassword}
                                             onChange={handlePasswordInputChange}
-                                            className="w-full p-3 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border rounded outline-none"
                                             required
                                             placeholder="Enter your new password"
                                         />
@@ -298,7 +298,7 @@ const Profile = () => {
                                             name="confirmPassword"
                                             value={passwordData.confirmPassword}
                                             onChange={handlePasswordInputChange}
-                                            className="w-full p-3 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border outline-none rounded "
                                             required
                                             placeholder="Confirm your new password"
                                         />
@@ -316,8 +316,9 @@ const Profile = () => {
                             <div className="flex justify-end">
                                 <button
                                     type="submit"
-                                    className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                                    className="px-6 py-2 bg-[#C5EAD9] text-white rounded hover:bg-[#BFE3CE] transition-colors"
                                     disabled={loading}
+                                    
                                 >
                                     {loading ? 'Changing Password...' : 'Change Password'}
                                 </button>

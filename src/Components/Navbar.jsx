@@ -9,6 +9,7 @@ import { FcLike } from "react-icons/fc";
 import { FiSearch, FiShoppingCart, FiMenu, FiX, FiUser } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import MobileMenu from './MobileMenu';
+import axios from 'axios';
 
 const Navbar = () => {
     const location = useLocation();
@@ -17,6 +18,10 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('');
     const token = localStorage.getItem('token');
+    const [categories, setCategories] = useState([]);   
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+    const dropdownRef = React.useRef(null);
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -28,20 +33,27 @@ const Navbar = () => {
         setUserName(name);
     }, []);
 
+    // Fetch categories from API
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get('https://ecommerce-shop-qg3y.onrender.com/api/category/displayAllCategory');
+                if (response.data.success) {
+                    setCategories(response.data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        };
+
+        fetchCategories();
+    }, []);
+
     const isActive = (path) => {
         if (path === '/' && location.pathname === '/') return true;
         if (path !== '/' && location.pathname.startsWith(path)) return true;
         return false;
     };
-
-    // Categories data for mobile menu
-    const categories = [
-        { name: "Milks & Dairies", count: 4, icon: "/src/assets/Figure.png" },
-        { name: "Clothing", count: 4, icon: "/src/assets/Figure (1).png" },
-        { name: "Pet Foods", count: 5, icon: "/src/assets/Figure (2).png" },
-        { name: "Baking material", count: 6, icon: "/src/assets/Figure2.png" },
-        { name: "Fresh Fruit", count: 10, icon: "/src/assets/Figure (5).png" }
-    ];
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -50,6 +62,30 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.clear();
         navigate('/login');
+    };
+
+    const handleCategoryChange = (e) => {
+        const categoryId = e.target.value;
+        setSelectedCategory(categoryId);
+        if (categoryId) {
+            navigate(`/category/${categoryId}`);
+        }
+    };
+
+    const handleCategoryClick = async (categoryId) => {
+        try {
+            console.log('Fetching category with ID:', categoryId);
+            const response = await axios.get(`https://ecommerce-shop-qg3y.onrender.com/api/category/displayCategory?id=${categoryId}`);
+            console.log('Category details:', response.data);
+            
+            if (response.data.success) {
+                console.log('Selected category:', response.data.data);
+                navigate(`/category/${categoryId}`);
+            }
+        } catch (error) {
+            console.error('Error fetching category details:', error);
+        }
+        setShowCategoryDropdown(false);
     };
 
     return (
@@ -151,12 +187,17 @@ const Navbar = () => {
 
                                 <div className="flex-1 max-w-3xl mx-12">
                                     <div className="flex border-green-400 border-[1px] rounded-sm">
-                                        <select className="px-4 py-2 border border-r-0  rounded-l-md bg-white text-gray-600 focus:outline-none">
-                                            <option>All Categories</option>
-                                            <option>Fruits</option>
-                                            <option>Veg</option>
-                                            <option>Non-Veg</option>
-                                            <option>Snacks</option>
+                                        <select 
+                                            className="px-4 py-2 border border-r-0 rounded-l-md bg-white text-gray-600 focus:outline-none"
+                                            value={selectedCategory}
+                                            onChange={handleCategoryChange}
+                                        >
+                                            <option value="">All Categories</option>
+                                            {categories.map((category) => (
+                                                <option key={category._id} value={category._id}>
+                                                    {category.category_name}
+                                                </option>
+                                            ))}
                                         </select>
                                         <div className="flex-1 relative border-none">
                                             <input
@@ -236,10 +277,42 @@ const Navbar = () => {
                             <div className="container mx-auto px-4">
                                 <div className="flex items-center justify-between py-2">
                                     <div className="flex items-center gap-6">
-                                        <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-1.5 rounded-md text-sm flex items-center gap-2">
-                                            <HiOutlineSquares2X2 size={16} />
-                                            Browse All Categories
-                                        </button>
+                                        <div className="relative" ref={dropdownRef}>
+                                            <button 
+                                                onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
+                                                className="bg-[#3BB77E] hover:bg-[#3BB77E]/90 text-white px-4 py-2.5 rounded-md flex items-center gap-2"
+                                            >
+                                                <HiOutlineSquares2X2 size={20} />
+                                                <span className='text-sm'>Browse All Categories</span>
+                                                <IoIosArrowDown 
+                                                    className={`transition-transform duration-200 ${showCategoryDropdown ? 'rotate-180' : ''}`} 
+                                                    size={20}
+                                                />
+                                            </button>
+
+                                            {showCategoryDropdown && (
+                                                <div className="absolute z-50 mt-2 w-[280px] bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                                                    {categories.map((category) => (
+                                                        <button
+                                                            key={category._id}
+                                                            onClick={() => handleCategoryClick(category._id)}
+                                                            className="w-full flex items-center px-4 py-2.5 hover:bg-gray-50 transition-colors"
+                                                        >
+                                                            <div className="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                                                <img 
+                                                                    src={category.category_photo} 
+                                                                    alt={category.category_name}
+                                                                    className="w-full h-full object-cover"
+                                                                />
+                                                            </div>
+                                                            <span className="text-gray-700 hover:text-[#3BB77E] text-sm">
+                                                                {category.category_name}
+                                                            </span>
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
                                         <div className="flex items-center justify-between gap-12 text-gray-600 text-sm">
                                             {/* <Link to="/deals" className="flex items-center gap-1 font-[600] text-sm">
                                                 <span>Deals</span>

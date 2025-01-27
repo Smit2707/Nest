@@ -210,17 +210,17 @@ const Profile = () => {
     );
 
     return (
-        <div className="h-[60vh] bg-[url('https://s3-alpha-sig.figma.com/img/7f7d/5c4f/7cf727a1d919b3a2000dc17aa3892559?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3AEpjBKL46xV7cskNTtWe2qoT~FKj-XF8NxxaRUDTnMUHmjl3YsYMnPVx9E1yQzbUg5A-Z~poFHzMk8Kj0NOUBzlk1yYjhk6WDLug-QZtX45JTk8XA4ku0bQ4MG7WPlrVn83BKyRHZE5SlCvJlFYnpb1IYK7balgB4bsD1lKW8fmRdzLPZOA3Ttfmt28zUhWm35dAIzJYi94C83rSjWfytpK0-HMjeAc~t5VdnuhbHaymjq~U8qhULbWtsA6aww4ySUlz2NBDA0ekrnEgjPak~u54hEm69PSPkmY4UQc3FJMSabWODC0zKv4Dy6NxV4wq5xlYolgP5ZcBarYtjV5g__')] bg-cover py-8 flex items-center justify-center">
-            <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
+        <div className="min-h-[60vh] bg-[url('https://s3-alpha-sig.figma.com/img/7f7d/5c4f/7cf727a1d919b3a2000dc17aa3892559?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3AEpjBKL46xV7cskNTtWe2qoT~FKj-XF8NxxaRUDTnMUHmjl3YsYMnPVx9E1yQzbUg5A-Z~poFHzMk8Kj0NOUBzlk1yYjhk6WDLug-QZtX45JTk8XA4ku0bQ4MG7WPlrVn83BKyRHZE5SlCvJlFYnpb1IYK7balgB4bsD1lKW8fmRdzLPZOA3Ttfmt28zUhWm35dAIzJYi94C83rSjWfytpK0-HMjeAc~t5VdnuhbHaymjq~U8qhULbWtsA6aww4ySUlz2NBDA0ekrnEgjPak~u54hEm69PSPkmY4UQc3FJMSabWODC0zKv4Dy6NxV4wq5xlYolgP5ZcBarYtjV5g__')] bg-cover py-8 flex items-center justify-center">
+            <div className="md:max-w-3xl w-[80vw] mx-auto bg-[#C5EAD9] border border-[#BFE3CE] rounded-lg shadow p-8">
                 <div className="flex justify-between gap-28 items-center mb-8">
-                    <h1 className="text-2xl font-semibold">My Profile</h1>
+                    <h1 className="text-xl md:text-3xl font-semibold">My Profile</h1>
                     <div className="space-x-4">
                         <button
                             onClick={() => {
                                 setIsEditing(!isEditing);
                                 setIsChangingPassword(false);
                             }}
-                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                            className="px-4 py-2 bg-blue-500 text-white rounded text-xs md:text-base hover:bg-blue-600 transition-colors"
                         >
                             {isEditing ? 'Cancel Edit' : 'Edit Profile'}
                         </button>
@@ -229,7 +229,7 @@ const Profile = () => {
                                 setIsChangingPassword(!isChangingPassword);
                                 setIsEditing(false);
                             }}
-                            className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors"
+                            className="px-4 py-2 bg-[#FDD339] text-white rounded hover:bg-[#f4b33a] transition-colors text-xs md:text-base"
                         >
                             {isChangingPassword ? 'Cancel' : 'Change Password'}
                         </button>
@@ -316,9 +316,9 @@ const Profile = () => {
                             <div className="flex justify-end">
                                 <button
                                     type="submit"
-                                    className="px-6 py-2 bg-[#C5EAD9] text-white rounded hover:bg-[#BFE3CE] transition-colors"
+                                    className="px-6 py-2 bg-[#435437] text-[#FEFBD4] rounded hover:bg-[#394B24] transition-colors"
                                     disabled={loading}
-                                    
+
                                 >
                                     {loading ? 'Changing Password...' : 'Change Password'}
                                 </button>
@@ -394,23 +394,23 @@ const Profile = () => {
                         <div className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-gray-600 font-medium">Name</label>
-                                    <p className="text-gray-800 bg-gray-50 p-3 rounded">{userData.name}</p>
+                                    <label className="text-gray-600 font-medium text-sm md:text-base">Name</label>
+                                    <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.name}</p>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-gray-600 font-medium">Email</label>
-                                    <p className="text-gray-800 bg-gray-50 p-3 rounded">{userData.email}</p>
+                                    <label className="text-gray-600 font-medium text-sm md:text-base">Email</label>
+                                    <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.email}</p>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-gray-600 font-medium">Mobile</label>
-                                    <p className="text-gray-800 bg-gray-50 p-3 rounded">{userData.mobile}</p>
+                                    <label className="text-gray-600 font-medium text-sm md:text-base">Mobile</label>
+                                    <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.mobile}</p>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-gray-600 font-medium">Gender</label>
-                                    <p className="text-gray-800 bg-gray-50 p-3 rounded">{userData.gender}</p>
+                                    <label className="text-gray-600 font-medium text-sm md:text-base">Gender</label>
+                                    <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.gender}</p>
                                 </div>
                             </div>
                         </div>

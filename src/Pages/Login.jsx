@@ -41,19 +41,25 @@ const Login = () => {
 
       console.log('Login response:', {
         success: response.data.success,
-        message: response.data.message
-      }); 
+        message: response.data.message,
+        token: response.data.data ? 'Present' : 'Missing'
+      });
 
-      if (response.data.success) {
-        // Store token exactly as received
-        localStorage.setItem('token', response.data.data);
-        // Navigate to home page
+      if (response.data.success && response.data.data) {
+        // Store token exactly as received from the server
+        const token = response.data.data;
+        localStorage.setItem('token', token);
+        console.log('Token stored:', token);
+        // Verify token is stored
+        const storedToken = localStorage.getItem('token');
+        console.log('Verified stored token:', storedToken);
         navigate('/');
       } else {
         setError(response.data.message || 'Login failed. Please try again.');
       }
     } catch (error) {
       console.error('Login error:', error.response?.data);
+      console.log('Error status:', error.response?.status);
       
       if (error.response?.data?.message) {
         setError(error.response.data.message);

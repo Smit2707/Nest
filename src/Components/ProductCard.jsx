@@ -1,7 +1,14 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onClick }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/product/${product.id}`);
+    };
+
     const {
         badge,
         badgeColor,
@@ -15,7 +22,7 @@ const ProductCard = ({ product }) => {
     } = product;
 
     return (
-        <div className="border-[1px] border-grey-100 rounded-xl p-2 hover:shadow-lg transition-shadow">
+        <div onClick={handleClick} className="cursor-pointer border-[1px] border-grey-100 rounded-xl p-2 hover:shadow-lg transition-shadow">
             <div className="relative">
                 {badge && (
                     <span 

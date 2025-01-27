@@ -1,54 +1,134 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import { FiHeart } from 'react-icons/fi';
 import CategorySidebar from './CategorySidebar';
 import { FaShoppingCart } from "react-icons/fa";
 import Section from './Section';
 import Footer from './Footer';
 import ProductDetail_mobile from './ProductDetail_mobile';
+import axios from 'axios';
 
 const ProductDetail = () => {
     const { id } = useParams();
-    const [selectedSize, setSelectedSize] = useState('25g');
+    const [selectedSize, setSelectedSize] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(0);
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const product = {
-        id: parseInt(id),
-        name: "Seeds of Change Organic Quinoa, Brown",
-        brand: "NestFood",
-        rating: 5,
-        reviews: 32,
-        currentPrice: 38,
-        oldPrice: 52,
-        discount: "26% Off",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
-        images: [
-            "/assets/Product Images/1.png",
-            "/assets/Product Images/2.png",
-            "/assets/Product Images/3.png",
-            "/assets/Product Images/4.png"
-        ]
-    };
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+                console.log('=== Fetching Product ===');
+                console.log('Product ID:', id);
+                
+                const response = await axios.get(`https://ecommerce-shop-qg3y.onrender.com/api/product/display?id=${id}`);
+                
+                // Log detailed product information
+                console.log('=== Product Details ===');
+                console.log('Raw Response:', response.data);
+                
+                const productData = response.data.data;
+                
+                if (productData) {
+                    console.log('Product Information:');
+                    console.log('- Name:', productData.name);
+                    console.log('- Brand:', productData.brand);
+                    console.log('- Price:', productData.price);
+                    console.log('- Description:', productData.description);
+                    console.log('- Category:', productData.categoryName);
+                    console.log('- Stock:', productData.stock);
+                    console.log('- Colors:', productData.colour);
+                    console.log('- Size:', productData.size);
+                    console.log('- Images:', productData.product_images);
+                    console.log('- Product Details:', productData.product_details);
+                    console.log('===================');
+                } else {
+                    console.error('Product data is null or undefined');
+                }
+
+                setProduct(productData);
+                
+                if (productData?.size && Array.isArray(productData.size) && productData.size.length > 0) {
+                    setSelectedSize(productData.size[0]);
+                }
+            } catch (error) {
+                console.error('=== Error Fetching Product ===');
+                console.error('Error Type:', error.name);
+                console.error('Error Message:', error.message);
+                console.error('Error Status:', error.response?.status);
+                console.error('Error Response:', error.response?.data);
+                console.error('==========================');
+                setError(error.message || 'Failed to load product. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchProduct();
+        }
+    }, [id]);
+
+    // Debug log for product state changes
+    useEffect(() => {
+        if (product) {
+            console.log('=== Product State Updated ===');
+            console.log('Current Product State:', {
+                id: product._id,
+                name: product.name,
+                price: product.price,
+                brand: product.brand,
+                category: product.categoryName,
+                stock: product.stock
+            });
+            console.log('========================');
+        }
+    }, [product]);
 
     const handleImageSelect = (index) => {
         setSelectedImage(index);
     };
 
+    // Show loading state
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3BB77E]"></div>
+            </div>
+        );
+    }
+
+    // Show error state
+    if (error || !product) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-red-500">{error || 'Product not found'}</div>
+            </div>
+        );
+    }
+
+    // Ensure product_images is an array
+    const productImages = Array.isArray(product.product_images) ? product.product_images : [];
+
     return (
         <>
             {/* Mobile Version */}
-            <ProductDetail_mobile />
+            <ProductDetail_mobile product={product} loading={loading} error={error} />
 
             {/* Desktop Version */}
-            <div className="hidden lg:block mt-[180px] container mx-auto px-4">
+            <div className="hidden lg:block mt-[80px] container mx-auto px-4">
                 {/* Breadcrumb */}
                 <div className="flex items-center gap-2 text-sm mb-8">
                     <Link to="/" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Home</Link>
                     <span className="text-gray-500">•</span>
                     <Link to="/shop" className="text-[#3BB77E] hover:text-[#3BB77E]/80">Shop</Link>
                     <span className="text-gray-500">•</span>
-                    <span className="text-gray-500">Seeds of Change Organic Quinoa</span>
+                    <span className="text-gray-500">{product?.name || 'Product Details'}</span>
                 </div>
 
                 {/* Main Content with Sidebar Layout */}
@@ -56,41 +136,45 @@ const ProductDetail = () => {
                     {/* Main Product Content - Takes 3 columns */}
                     <div className="col-span-3">
                         {/* Product Info Section */}
-                        <div className="grid grid-cols-2 gap-12 mb-16">
+                        <div className="grid grid-cols-2 gap-12">
                             {/* Left - Product Images */}
                             <div>
-                                <div className="bg-[#F4F6FA] rounded-xl p-0 overflow-hidden mb-4">
+                                <div className="bg-[#F4F6FA] rounded-lg p-4 mb-4">
                                     <img
-                                        src={product.images[selectedImage]}
-                                        alt={product.name}
+                                        src={productImages[selectedImage] || '/assets/placeholder.png'}
+                                        alt={product?.name}
                                         className="w-full h-[400px] object-contain"
                                     />
                                 </div>
-                                <div className="grid grid-cols-4 gap-4">
-                                    {product.images.map((image, index) => (
-                                        <div 
-                                            key={index}
-                                            onClick={() => handleImageSelect(index)}
-                                            className={`bg-[#F4F6FA] rounded-xl p-4 cursor-pointer transition-all duration-200 ${
-                                                selectedImage === index 
-                                                    ? 'border-2 border-[#3BB77E] scale-105' 
-                                                    : 'border border-gray-200 hover:border-[#3BB77E]'
-                                            }`}
-                                        >
-                                            <img 
-                                                src={image}
-                                                alt={`${product.name} ${index + 1}`}
-                                                className="w-full h-full object-contain"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                                {productImages.length > 0 && (
+                                    <div className="grid grid-cols-4 gap-4">
+                                        {productImages.map((image, index) => (
+                                            <div 
+                                                key={index}
+                                                onClick={() => handleImageSelect(index)}
+                                                className={`bg-[#F4F6FA] rounded-lg p-2 cursor-pointer ${
+                                                    selectedImage === index ? 'border-2 border-[#3BB77E]' : ''
+                                                }`}
+                                            >
+                                                <img 
+                                                    src={image}
+                                                    alt={`${product.name || 'Product'} ${index + 1}`}
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Right - Product Details */}
                             <div>
-                                <span className="text-[#3BB77E] text-sm">Sale Off</span>
-                                <h1 className="text-2xl font-bold text-[#253D4E] mt-2">Seeds of Change Organic Quinoa, Brown</h1>
+                                <span className="text-[#3BB77E] text-sm">
+                                    {product.stock ? 'In Stock' : 'Out of Stock'}
+                                </span>
+                                <h1 className="text-2xl font-bold text-[#253D4E] mt-2">
+                                    {product.name}
+                                </h1>
 
                                 {/* Rating Section */}
                                 <div className="flex items-center gap-4 mt-4">
@@ -102,213 +186,84 @@ const ProductDetail = () => {
                                         </div>
                                         <span className="text-gray-400 text-sm ml-2">(32 reviews)</span>
                                     </div>
-                                    <span className="text-[#3BB77E] text-xs">By NestFood</span>
+                                    <span className="text-[#3BB77E] text-xs">By {product.brand}</span>
                                 </div>
 
                                 {/* Price Section */}
                                 <div className="flex items-center gap-4 mt-6">
-                                    <span className="text-[#3BB77E] text-xl font-semibold">$38</span>
-                                    <span className="text-gray-400 line-through text-lg">$52</span>
-                                    <span className="bg-[#FFE5E5] text-[#FA5246] px-2 py-1 rounded text-sm">26% Off</span>
+                                    <span className="text-[#3BB77E] text-xl font-semibold">₹{product.price}</span>
+                                    <span className="text-gray-400 line-through text-lg">₹{(product.price * 1.1).toFixed(2)}</span>
+                                    <span className="bg-[#FFE5E5] text-[#FA5246] px-2 py-1 rounded text-sm">10% Off</span>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-600 mt-6 text-sm">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.
-                                </p>
-
-                                {/* Size Selection */}
                                 <div className="mt-6">
-                                    <span className="text-[#253D4E] font-medium mb-2 block text-sm">Size / Weight:</span>
-                                    <div className="flex gap-2">
-                                        {['25g', '50g', '100g', '150g', '300g'].map(size => (
-                                            <button
-                                                key={size}
-                                                onClick={() => setSelectedSize(size)}
-                                                className={`px-4 py-1 rounded-full text-xs ${selectedSize === size
-                                                    ? 'bg-[#3BB77E] text-white'
-                                                    : 'bg-gray-100 text-gray-600 hover:bg-[#3BB77E] hover:text-white'
-                                                    }`}
-                                            >
-                                                {size}
-                                            </button>
-                                        ))}
-                                    </div>
+                                    <p className="text-gray-600 text-sm leading-relaxed">
+                                        {product.description}
+                                    </p>
                                 </div>
 
-                                {/* Quantity and Add to Cart */}
-                                <div className="flex items-center gap-8 mt-10">
-                                    <div className="flex items-center border rounded">
-                                        <input
-                                            type="number"
-                                            value={quantity}
-                                            onChange={(e) => setQuantity(e.target.value)}
-                                            className="w-12 text-center py-2 border-0 focus:ring-0"
-                                        />
-                                    </div>
-                                    <button className="bg-[#3BB77E] text-white px-4 py-2 rounded text-xl hover:bg-[#3BB77E]/90">
-                                        <span></span>
-                                        Add to cart
-                                    </button>
-                                    <button className="text-gray-400 hover:text-[#3BB77E]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                                        </svg>
-                                    </button>
-                                    <button className="text-gray-400 hover:text-[#3BB77E]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
-                                        </svg>
-                                    </button>
-
-                                </div>
                                 {/* Product Details List */}
-                                <div className=" mt-14 mb-6 flex justify-between items-center">
-                                    <div className=''>
+                                <div className="mt-14 mb-6">
+                                    <div>
                                         <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-24">Type:</span>
-                                            <span className="text-[#3BB77E]">Organic</span>
-                                        </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-24">SKU:</span>
-                                            <span>FWM15VK1</span>
-                                        </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-24">MFG:</span>
-                                            <span>Jun 4, 2022</span>
-                                        </div>
-                                    </div>
-                                    <div className=''>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-24">Tags:</span>
-                                            <div className="flex gap-2">
-                                                <span className="text-[#3BB77E]">Snack</span>
-                                                <span className="text-gray-400">,</span>
-                                                <span className="text-[#3BB77E]">Organic</span>
-                                                <span className="text-gray-400">,</span>
-                                                <span className="text-[#3BB77E]">Brown</span>
-                                            </div>
+                                            <span className="text-gray-500 w-24">Category:</span>
+                                            <span className="text-[#3BB77E]">{product.categoryName}</span>
                                         </div>
                                         <div className="flex items-center text-sm">
                                             <span className="text-gray-500 w-24">Stock:</span>
-                                            <span className="text-[#3BB77E]">8 Items In Stock</span>
+                                            <span className="text-[#3BB77E]">{product.stock ? 'In Stock' : 'Out of Stock'}</span>
                                         </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-24">LIFE:</span>
-                                            <span>70 days</span>
-                                        </div>
+                                        {product.colour && (
+                                            <div className="flex items-center text-sm">
+                                                <span className="text-gray-500 w-24">Colors:</span>
+                                                <span className="text-[#3BB77E]">{Array.isArray(product.colour) ? product.colour.join(', ') : product.colour}</span>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
+                        {/* Product Description */}
                         <div className="mt-16">
                             {/* Tab Headers */}
                             <div className="flex gap-4">
-                                <button className="text-[#3bb77e] px-3 py-2  border-[1px] font-medium text-center rounded-full text-sm">
+                                <button className="text-[#3bb77e] px-3 py-2 border-[1px] font-medium text-center rounded-full text-sm">
                                     Description
                                 </button>
-                                <button className="text-gray-500 hover:text-[#253D4E] px-3 py-2 border-[1px] font-medium text-center rounded-full  text-sm">
+                                <button className="text-gray-500 hover:text-[#253D4E] px-3 py-2 border-[1px] font-medium text-center rounded-full text-sm">
                                     Additional info
                                 </button>
-                                <button className="text-gray-500 hover:text-[#253D4E] px-3 py-2 border-[1px] font-medium text-center rounded-full  text-sm">
-                                    Vendor
-                                </button>
-                                <button className="text-gray-500 hover:text-[#253D4E] px-3 py-2 border-[1px] font-medium text-center rounded-full  text-sm">
+                                <button className="text-gray-500 hover:text-[#253D4E] px-3 py-2 border-[1px] font-medium text-center rounded-full text-sm">
                                     Reviews (3)
                                 </button>
                             </div>
 
                             {/* Tab Content */}
                             <div className="py-8">
-                                {/* Description Content */}
                                 <div className="space-y-6">
+                                    <h3 className="text-lg font-semibold text-[#253D4E] mb-4">
+                                        {product.name || 'Product Details'}
+                                    </h3>
                                     <p className="text-gray-600 text-sm leading-relaxed">
-                                        Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart.
+                                        {product.product_details || product.description || 'No details available'}
                                     </p>
-                                    <p className="text-gray-600 text-sm leading-relaxed">
-                                        Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.
-                                    </p>
-
-                                    {/* Product Details Table */}
-                                    <div className="space-y-4">
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-36">Type Of Packing</span>
-                                            <span className="text-gray-700">Bottle</span>
-                                        </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-36">Color</span>
-                                            <span className="text-gray-700">Green, Pink, Powder Blue, Purple</span>
-                                        </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-36">Quantity Per Case</span>
-                                            <span className="text-gray-700">100ml</span>
-                                        </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-36">Ethyl Alcohol</span>
-                                            <span className="text-gray-700">70%</span>
-                                        </div>
-                                        <div className="flex items-center text-sm">
-                                            <span className="text-gray-500 w-36">Piece In One</span>
-                                            <span className="text-gray-700">Carton</span>
-                                        </div>
-                                    </div>
-
-                                    <p className="text-gray-600 text-sm leading-relaxed">
-                                        Lacinia nec vestibulum eget vulputate sodales. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Nulla at volutpat diam ut venenatis tellus in metus vulputate eu. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo.
-                                    </p>
-                                </div>
-
-                                {/* Packaging & Delivery Section */}
-                                <div className="mt-8">
-                                    <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Packaging & Delivery</h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed">
-                                        Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus cackled sheepishly rigid after due one assenting regarding censorious while occasional or this more crane went more as this less much amid overhung anathematic because much held one exuberantly sheep goodness so where rat wry well concomitantly.
-                                    </p>
-                                    <p className="text-gray-600 text-sm leading-relaxed mt-4">
-                                        Scallop or far crud plain remarkably far by thus far iguana lewd precociously and and less rattlesnake contrary caustic wow this near alas and next and pled the yikes articulate about as less cackled dalmatian in much less well jeering for the thanks blindly sentimental whimpered less across objectively fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious luridly irrationally attractively dachshund.
-                                    </p>
-                                </div>
-
-                                {/* Suggested Use Section */}
-                                <div className="mt-8">
-                                    <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Suggested Use</h3>
-                                    <ul className="list-disc list-inside space-y-2 text-sm text-gray-600">
-                                        <li>Refrigeration not necessary.</li>
-                                        <li>Stir before serving</li>
-                                    </ul>
-                                </div>
-
-                                {/* Other Ingredients Section */}
-                                <div className="mt-8">
-                                    <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Other Ingredients</h3>
-                                    <ul className="space-y-2 text-sm text-gray-600">
-                                        <li>Organic raw pecans, organic raw cashews</li>
-                                        <li>This butter was produced using a LTG (Low Temperature Grinding) process</li>
-                                        <li>Made in machinery that processes tree nuts but does not process peanuts, gluten, dairy or soy</li>
-                                    </ul>
-                                </div>
-
-                                {/* Warnings Section */}
-                                <div className="mt-8">
-                                    <h3 className="text-lg font-semibold text-[#253D4E] mb-4">Warnings</h3>
-                                    <p className="text-sm text-gray-600">
-                                        Oil separation occurs naturally. May contain pieces of shell.
-                                    </p>
+                                    {product.description && product.product_details && (
+                                        <p className="text-gray-600 text-sm leading-relaxed mt-4">
+                                            {product.description}
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* right Sidebar */}
-                    <div>
+                    {/* Right Sidebar */}
+                    <div className="col-span-1">
                         <CategorySidebar />
                     </div>
-
                 </div>
-
-                {/* Product Information Tabs */}
-
 
                 <Section />
                 <Footer />

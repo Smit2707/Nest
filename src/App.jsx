@@ -15,6 +15,8 @@ import Profile from './Pages/Profile';
 import ChangePassword from './Pages/ChangePassword';
 import AddProduct from './Pages/AddProduct';
 import ResetPassword from './Pages/ResetPassword';
+import P_Details from './Components/P_Details';
+import Cart from './Pages/Cart';
 
 function App() {
     return (
@@ -40,7 +42,8 @@ function App() {
                 <Route path="/blog/:id" element={<BlogDetail />} />
                 <Route path="/pages" element={<div>Pages</div>} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/product/:id" element={<P_Details />} />
+                <Route path="/cart" element={<Cart />} />
             </Routes>
         </Layout>
     );

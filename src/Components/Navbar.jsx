@@ -22,6 +22,7 @@ const Navbar = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
     const dropdownRef = React.useRef(null);
+    const [cartCount, setCartCount] = useState(0);
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -48,6 +49,46 @@ const Navbar = () => {
 
         fetchCategories();
     }, []);
+
+    // Add useEffect to fetch cart count and listen for updates
+    useEffect(() => {
+        fetchCartCount();
+
+        // Listen for cart updates
+        window.addEventListener('cartUpdated', fetchCartCount);
+        return () => {
+            window.removeEventListener('cartUpdated', fetchCartCount);
+        };
+    }, [token]);
+
+    const fetchCartCount = async () => {
+        if (!token) {
+            setCartCount(0);
+            return;
+        }
+
+        try {
+            const response = await axios.get('https://ecommerce-shop-qg3y.onrender.com/api/cart/displayCart', {
+                headers: {
+                    'Authorization': token
+                }
+            });
+
+            console.log('Cart response:', response.data);
+
+            if (response.data.success && response.data.data && Array.isArray(response.data.data)) {
+                const cart = response.data.data[0];
+                const totalItems = cart && cart.items ? cart.items.length : 0;
+                setCartCount(totalItems);
+            } else {
+                setCartCount(0);
+            }
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+            // Don't remove token or redirect on cart count errors
+            setCartCount(0);
+        }
+    };
 
     const isActive = (path) => {
         if (path === '/' && location.pathname === '/') return true;
@@ -158,7 +199,7 @@ const Navbar = () => {
                                 <Link to="/cart" className="text-gray-600 relative">
                                     <FaShoppingCart size={24} />
                                     <span className="absolute -top-2 -right-2 bg-[#3BB77E] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                                        2
+                                        {cartCount}
                                     </span>
                                 </Link>
                             </div>
@@ -236,15 +277,15 @@ const Navbar = () => {
                                         </div>
                                         <span>Wishlist</span>
                                     </div>
-                                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                                    <Link to="/cart" className="flex items-center gap-2 text-gray-500 text-sm hover:text-[#3BB77E]">
                                         <div className="relative">
                                             <FaShoppingCart size={20} />
                                             <span className="absolute -top-2 -right-2 bg-[#3bb77e] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                                                2
+                                                {cartCount}
                                             </span>
                                         </div>
                                         <span>Cart</span>
-                                    </div>
+                                    </Link>
                                     {token ? (
                                         <div className="flex items-center space-x-4">
                                             <Link 

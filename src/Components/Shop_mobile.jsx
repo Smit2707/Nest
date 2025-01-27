@@ -8,62 +8,11 @@ import Section from './Section';
 import Footer_mobile from './Footer_mobile';
 import DealCard from './DealCard';
 
-const Shop_mobile = () => {
+const Shop_mobile = ({ products, loading, error }) => {
     const navigate = useNavigate();
     const [showFilters, setShowFilters] = useState(false);
     const [selectedSort, setSelectedSort] = useState('Featured');
     const token = localStorage.getItem('token');
-
-    const products = [
-        {
-            id: 1,
-            badge: "Hot",
-            badgeColor: "bg-red-500",
-            image: "/assets/Product Images/1.png",
-            brand: "NestFood",
-            title: "Seeds of Change Organic Quinoa",
-            rating: 4,
-            reviews: "4.0",
-            currentPrice: "28.85",
-            originalPrice: "32.0"
-        },
-        {
-            id: 2,
-            badge: "Sale",
-            badgeColor: "bg-blue-500",
-            image: "/assets/Product Images/2.png",
-            brand: "Stouffer",
-            title: "All Natural Italian-Style Chicken Meatballs",
-            rating: 5,
-            reviews: "4.0",
-            currentPrice: "52.85",
-            originalPrice: "55.8"
-        },
-        {
-            id: 3,
-            badge: "New",
-            badgeColor: "bg-green-500",
-            image: "/assets/Product Images/3.png",
-            brand: "NestFood",
-            title: "Angie's Boomchickapop Sweet & Salty",
-            rating: 4,
-            reviews: "4.0",
-            currentPrice: "28.85",
-            originalPrice: "32.0"
-        },
-        {
-            id: 4,
-            badge: "-14%",
-            badgeColor: "bg-orange-500",
-            image: "/assets/Product Images/4.png",
-            brand: "Stouffer",
-            title: "Foster Farms Takeout Crispy Classic",
-            rating: 5,
-            reviews: "4.0",
-            currentPrice: "52.85",
-            originalPrice: "55.8"
-        }
-    ];
 
     const dealsData = [
         {
@@ -104,6 +53,20 @@ const Shop_mobile = () => {
         navigate('/add-product');
     };
 
+    // Transform API product data to match ProductCard props
+    const transformProduct = (product) => ({
+        id: product._id,
+        badge: product.stock === "in stock" ? "Hot" : "Sale",
+        badgeColor: product.stock === "in stock" ? "bg-green-500" : "bg-blue-500",
+        image: product.product_images[0] || "/assets/placeholder.png",
+        brand: product.brand,
+        title: product.name,
+        rating: 4,
+        reviews: "4.0",
+        currentPrice: product.price,
+        originalPrice: (product.price * 1.1).toFixed(2)
+    });
+
     return (
         <div className="lg:hidden pb-2">
             {/* Breadcrumb */}
@@ -118,18 +81,9 @@ const Shop_mobile = () => {
             {/* Title and Count */}
             <div className="px-4 py-3">
                 <div className="flex items-center justify-between mb-2">
-                    <h1 className="text-xl font-bold text-[#253D4E]">Snack</h1>
-                    {token && (
-                        <button
-                            onClick={handleAddProduct}
-                            className="flex items-center gap-1 px-3 py-1.5 bg-[#3BB77E] text-white rounded-lg hover:bg-[#3BB77E]/90 transition-colors text-sm"
-                        >
-                            <IoMdAdd className="text-lg" />
-                            Add Product
-                        </button>
-                    )}
+                    <h1 className="text-xl font-bold text-[#253D4E]">Products</h1>
                 </div>
-                <p className="text-sm text-gray-500">We found <span className="text-[#3BB77E] font-medium">29</span> items for you!</p>
+                <p className="text-sm text-gray-500">We found <span className="text-[#3BB77E] font-medium">{products?.length || 0}</span> items for you!</p>
             </div>
 
             {/* Filter Tags */}
@@ -176,17 +130,25 @@ const Shop_mobile = () => {
 
             {/* Products Grid */}
             <div className="px-4 py-4">
-                <div className="grid grid-cols-2 gap-3">
-                    {products.map((product) => (
-                        <div 
-                            key={product.id}
-                            onClick={() => handleProductClick(product.id)}
-                            className="cursor-pointer"
-                        >
-                            <ProductCard product={product} />
-                        </div>
-                    ))}
-                </div>
+                {loading ? (
+                    <div className="flex justify-center items-center h-64">
+                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3BB77E]"></div>
+                    </div>
+                ) : error ? (
+                    <div className="text-red-500 text-center">{error}</div>
+                ) : (
+                    <div className="grid grid-cols-2 gap-3">
+                        {products?.map((product) => (
+                            <div 
+                                key={product._id}
+                                onClick={() => handleProductClick(product._id)}
+                                className="cursor-pointer"
+                            >
+                                <ProductCard product={transformProduct(product)} />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Deals Section */}
@@ -205,11 +167,13 @@ const Shop_mobile = () => {
             </div>
 
             {/* Load More Button */}
-            <div className="px-4 py-4">
-                <button className="w-full py-2.5 border border-[#3BB77E] text-[#3BB77E] rounded-md text-sm font-medium">
-                    Load More
-                </button>
-            </div>
+            {products?.length > 0 && (
+                <div className="px-4 py-4">
+                    <button className="w-full py-2.5 border border-[#3BB77E] text-[#3BB77E] rounded-md text-sm font-medium">
+                        Load More
+                    </button>
+                </div>
+            )}
 
             {/* Newsletter Section */}
             <div className="mt-8">

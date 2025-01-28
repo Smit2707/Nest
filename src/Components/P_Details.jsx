@@ -10,6 +10,7 @@ import Footer from './Footer';
 const P_Details = () => {
     const { id } = useParams();
     const [selectedSize, setSelectedSize] = useState('');
+    const [selectedColor, setSelectedColor] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(0);
     const [product, setProduct] = useState(null);
@@ -23,11 +24,9 @@ const P_Details = () => {
             try {
                 setLoading(true);
                 setError(null);
-                console.log('Fetching product with ID:', id);
                 
                 const response = await axios.get(`https://ecommerce-shop-qg3y.onrender.com/api/product/display?id=${id}`);
-                console.log('API Response:', response.data);
-
+                
                 if (response.data && response.data.success) {
                     // Access the product directly from response.data.data.product
                     const productData = response.data.data.product;
@@ -39,13 +38,16 @@ const P_Details = () => {
                     if (!productData) {
                         throw new Error('Product data not found');
                     }
-
+                    
                     setProduct(productData);
                     setSimilarProducts(similarProductsData || []);
-
-                    // Set initial size if available
+                    
+                    // Set initial size and color if available
                     if (productData.size && productData.size.length > 0) {
                         setSelectedSize(productData.size[0]);
+                    }
+                    if (productData.colour && productData.colour.length > 0) {
+                        setSelectedColor(productData.colour[0]);
                     }
                 } else {
                     throw new Error(response.data?.message || 'Failed to fetch product');
@@ -61,6 +63,16 @@ const P_Details = () => {
         if (id) {
             fetchProduct();
         }
+
+        return () => {
+            // Cleanup
+            setProduct(null);
+            setSimilarProducts([]);
+            setSelectedSize('');
+            setSelectedColor('');
+            setQuantity(1);
+            setSelectedImage(0);
+        };
     }, [id]);
 
     const handleImageSelect = (index) => {
@@ -75,21 +87,48 @@ const P_Details = () => {
                 return;
             }
 
-            if (!selectedSize) {
-                alert('Please select a size');
+            // First check if product exists
+            if (!product) {
+                alert('Product data not available');
                 return;
             }
 
+            // Check if size selection is required and validate
+            if (product.size && product.size.length > 0) {
+                if (!selectedSize) {
+                    alert('Please select a size');
+                    return;
+                }
+            }
+
+            // Check if color selection is required and validate
+            if (product.colour && product.colour.length > 0) {
+                if (!selectedColor) {
+                    alert('Please select a color');
+                    return;
+                }
+            }
+
+            // Create cart data object with selected size and color
             const cartData = {
                 productId: product._id,
+                productName: product.name,
+                productImage: product.images[0],
                 quantity: quantity,
                 price: product.price,
                 totalPrice: product.price * quantity,
                 productSize: selectedSize,
-                productColour: product.colour?.[0] || null
+                productColour: selectedColor,
+                brand: product.brand,
+                size: product.size,
+                colour: product.colour
             };
 
-            console.log('Adding to cart:', cartData);
+            console.log('Adding to cart with size and color:', {
+                selectedSize,
+                selectedColor,
+                cartData
+            });
 
             const response = await axios.post(
                 'https://ecommerce-shop-qg3y.onrender.com/api/cart/addToCart',
@@ -104,7 +143,6 @@ const P_Details = () => {
             console.log('Add to cart response:', response.data);
 
             if (response.data.success) {
-                // Dispatch event to update cart count
                 window.dispatchEvent(new Event('cartUpdated'));
                 alert('Product added to cart successfully!');
                 navigate('/cart');
@@ -115,7 +153,6 @@ const P_Details = () => {
             console.error('Error adding to cart:', error);
             const errorMessage = error.response?.data?.message || error.message;
             
-            // Only redirect if token is actually invalid
             if (error.response?.status === 401 && !localStorage.getItem('token')) {
                 navigate('/login');
             } else {
@@ -212,18 +249,18 @@ const P_Details = () => {
                     </div>
 
                     {/* Size Selection */}
-                    {product.size && (
+                    {product.size && product.size.length > 0 && (
                         <div className="mb-6">
-                            <h3 className="text-[#253D4E] font-medium mb-2">Size:</h3>
-                            <div className="flex gap-2">
+                            <h3 className="text-[#253D4E] font-medium mb-3">Size:</h3>
+                            <div className="flex flex-wrap gap-3">
                                 {product.size.map((size) => (
                                     <button
                                         key={size}
                                         onClick={() => setSelectedSize(size)}
-                                        className={`px-4 py-2 rounded-full ${
+                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${
                                             selectedSize === size
                                                 ? 'bg-[#3BB77E] text-white'
-                                                : 'bg-gray-100 text-gray-600 hover:bg-[#3BB77E] hover:text-white'
+                                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                                         }`}
                                     >
                                         {size}
@@ -234,14 +271,22 @@ const P_Details = () => {
                     )}
 
                     {/* Color Selection */}
-                    {product.colour && (
+                    {product.colour && product.colour.length > 0 && (
                         <div className="mb-6">
-                            <h3 className="text-[#253D4E] font-medium mb-2">Colors:</h3>
-                            <div className="flex gap-2">
+                            <h3 className="text-[#253D4E] font-medium mb-3">Color:</h3>
+                            <div className="flex flex-wrap gap-3">
                                 {product.colour.map((color) => (
-                                    <span key={color} className="px-3 py-1 bg-gray-100 rounded-full text-gray-600">
+                                    <button
+                                        key={color}
+                                        onClick={() => setSelectedColor(color)}
+                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                                            selectedColor === color
+                                                ? 'bg-[#3BB77E] text-white'
+                                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                                        }`}
+                                    >
                                         {color}
-                                    </span>
+                                    </button>
                                 ))}
                             </div>
                         </div>

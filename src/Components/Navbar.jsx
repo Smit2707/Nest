@@ -74,7 +74,7 @@ const Navbar = () => {
                 }
             });
 
-            console.log('Cart response:', response.data);
+            // console.log('Cart response:', response.data);
 
             if (response.data.success && response.data.data && Array.isArray(response.data.data)) {
                 const cart = response.data.data[0];
@@ -84,7 +84,7 @@ const Navbar = () => {
                 setCartCount(0);
             }
         } catch (error) {
-            console.error('Error fetching cart:', error);
+            // console.error('Error fetching cart:', error);
             // Don't remove token or redirect on cart count errors
             setCartCount(0);
         }

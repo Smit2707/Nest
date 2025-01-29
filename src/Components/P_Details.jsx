@@ -35,19 +35,30 @@ const P_Details = () => {
                     console.log('Product Data:', productData);
                     console.log('Similar Products:', similarProductsData);
 
-                    if (!productData) {
-                        throw new Error('Product data not found');
+                    if (!productData || !productData._id) {
+                        throw new Error('Invalid product data received');
                     }
                     
-                    setProduct(productData);
+                    // Initialize the product with default values if needed
+                    const processedProduct = {
+                        ...productData,
+                        price: productData.price || 0,
+                        brand: productData.brand || 'Realme',
+                        images: productData.images || [],
+                        size: productData.size || [],
+                        colour: productData.colour || [],
+                        description: productData.description || 'No description available'
+                    };
+                    
+                    setProduct(processedProduct);
                     setSimilarProducts(similarProductsData || []);
                     
                     // Set initial size and color if available
-                    if (productData.size && productData.size.length > 0) {
-                        setSelectedSize(productData.size[0]);
+                    if (processedProduct.size && processedProduct.size.length > 0) {
+                        setSelectedSize(processedProduct.size[0]);
                     }
-                    if (productData.colour && productData.colour.length > 0) {
-                        setSelectedColor(productData.colour[0]);
+                    if (processedProduct.colour && processedProduct.colour.length > 0) {
+                        setSelectedColor(processedProduct.colour[0]);
                     }
                 } else {
                     throw new Error(response.data?.message || 'Failed to fetch product');
@@ -87,11 +98,16 @@ const P_Details = () => {
                 return;
             }
 
-            // First check if product exists
-            if (!product) {
+            // First check if product exists and has required data
+            if (!product || !product._id || !product.name) {
                 alert('Product data not available');
                 return;
             }
+
+            // Ensure we have the required data
+            const productImage = product.images && product.images.length > 0 ? product.images[0] : '';
+            const productPrice = product.price || 0;
+            const productQuantity = quantity || 1;
 
             // Check if size selection is required and validate
             if (product.size && product.size.length > 0) {
@@ -113,29 +129,23 @@ const P_Details = () => {
             const cartData = {
                 productId: product._id,
                 productName: product.name,
-                productImage: product.images[0],
-                quantity: quantity,
-                price: product.price,
-                totalPrice: product.price * quantity,
-                productSize: selectedSize,
-                productColour: selectedColor,
-                brand: product.brand,
-                size: product.size,
-                colour: product.colour
+                productImage: productImage,
+                quantity: productQuantity,
+                price: productPrice,
+                totalPrice: productPrice * productQuantity,
+                productColour: selectedColor || (product.colour && product.colour[0]) || '',
+                productSize: selectedSize || (product.size && product.size[0]) || '',
+                brand: product.brand || 'Realme'
             };
 
-            console.log('Adding to cart with size and color:', {
-                selectedSize,
-                selectedColor,
-                cartData
-            });
+            console.log('Adding to cart:', cartData);
 
             const response = await axios.post(
                 'https://ecommerce-shop-qg3y.onrender.com/api/cart/addToCart',
                 cartData,
                 {
                     headers: {
-                        'Authorization': token
+                        'Authorization': `${token}`
                     }
                 }
             );
@@ -153,7 +163,8 @@ const P_Details = () => {
             console.error('Error adding to cart:', error);
             const errorMessage = error.response?.data?.message || error.message;
             
-            if (error.response?.status === 401 && !localStorage.getItem('token')) {
+            if (error.response?.status === 401) {
+                localStorage.removeItem('token');
                 navigate('/login');
             } else {
                 alert(errorMessage || 'Failed to add item to cart. Please try again.');

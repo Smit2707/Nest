@@ -327,6 +327,14 @@ const Cart = () => {
         }
     };
 
+    const calculateSubtotal = () => {
+        return cartData.items.reduce((total, item) => {
+            const itemTotal = item.price * item.quantity;
+            console.log(`Item: ${item.productName}, Price: ${item.price}, Quantity: ${item.quantity}, Total: ${itemTotal}`);
+            return total + itemTotal;
+        }, 0);
+    };
+
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
@@ -455,22 +463,43 @@ const Cart = () => {
             </div>
 
             {/* Cart Summary */}
-            <div className="mt-8 bg-white rounded-lg shadow-sm p-6 max-w-md ml-auto">
-                <h2 className="text-xl font-bold text-[#253D4E] mb-4">Cart Summary</h2>
-                <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-600">Subtotal:</span>
-                    <span className="font-medium">₹{cartData.totalAmount?.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-600">Shipping:</span>
-                    <span className="font-medium">Free</span>
-                </div>
-                <div className="border-t pt-4">
-                    <div className="flex justify-between items-center mb-4">
-                        <span className="text-lg font-bold text-[#253D4E]">Total:</span>
-                        <span className="text-lg font-bold text-[#3BB77E]">₹{cartData.totalAmount?.toFixed(2)}</span>
+            <div className="mt-8 flex flex-col items-end">
+                <div className="w-full max-w-md space-y-4">
+                    <div className="flex justify-between text-gray-600">
+                        <span>Subtotal:</span>
+                        <span className="text-[#3BB77E] font-medium">₹{calculateSubtotal().toLocaleString('en-IN', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        })}</span>
                     </div>
-                    <button className="w-full bg-[#3BB77E] text-white py-3 rounded-lg hover:bg-[#2a9c64] transition-colors">
+                    <div className="flex justify-between text-gray-600">
+                        <span>Shipping:</span>
+                        <span>Calculated at next step</span>
+                    </div>
+                    <div className="border-t pt-4 mt-4">
+                        <div className="flex justify-between items-center">
+                            <span className="text-lg font-semibold">Total:</span>
+                            <div className="text-right">
+                                <span className="text-xl font-semibold text-[#3BB77E]">₹{calculateSubtotal().toLocaleString('en-IN', {
+                                    minimumFractionDigits: 2,
+                                    maximumFractionDigits: 2
+                                })}</span>
+                                <p className="text-sm text-gray-500">Including GST</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        onClick={() => {
+                            const token = localStorage.getItem('token');
+                            if (!token) {
+                                alert('Please login to proceed');
+                                navigate('/login');
+                                return;
+                            }
+                            navigate('/address');
+                        }}
+                        className="w-full bg-[#3BB77E] text-white py-3 rounded-full hover:bg-[#2a9c66] transition-colors mt-4"
+                    >
                         Proceed to Checkout
                     </button>
                 </div>

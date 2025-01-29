@@ -140,7 +140,7 @@ const Navbar = () => {
                                 <Link className='sm:text-xs' to="/about">About Us</Link>
                                 <Link className='sm:text-xs' to="/account">My Account</Link>
                                 <Link className='sm:text-xs' to="/wishlist">Wishlist</Link>
-                                <Link className='sm:text-xs' to="/order-tracking">Order Tracking</Link>
+                                <Link className='sm:text-xs' to="/my-orders">My Order</Link>
                             </div>
                             <span className="text-gray-500 sm:text-xs">100% Secure delivery without contacting the courier</span>
                             <div className="flex items-center gap-6">
@@ -240,7 +240,7 @@ const Navbar = () => {
                                                 </option>
                                             ))}
                                         </select>
-                                        <div className="flex-1 relative border-none">
+                                        <div className="flex-1 relative hidden sm:hidden md:block border-none">
                                             <input
                                                 type="text"
                                                 placeholder="Search for items..."
@@ -321,32 +321,37 @@ const Navbar = () => {
                                         <div className="relative" ref={dropdownRef}>
                                             <button 
                                                 onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
-                                                className="bg-[#3BB77E] hover:bg-[#3BB77E]/90 text-white px-4 py-2.5 rounded-md flex items-center gap-2"
+                                                className="flex items-center gap-2 bg-white border border-gray-300 rounded-md px-4 py-2 w-[250px] justify-between hover:border-[#3BB77E] transition-all duration-200"
                                             >
-                                                <HiOutlineSquares2X2 size={20} />
-                                                <span className='text-sm'>Browse All Categories</span>
+                                                <div className="flex items-center gap-2">
+                                                    <HiOutlineSquares2X2 size={20} className="text-[#3BB77E]" />
+                                                    <span className="text-gray-700">All Categories</span>
+                                                </div>
                                                 <IoIosArrowDown 
-                                                    className={`transition-transform duration-200 ${showCategoryDropdown ? 'rotate-180' : ''}`} 
-                                                    size={20}
+                                                    className={`transition-transform duration-200 text-gray-500 ${showCategoryDropdown ? 'rotate-180' : ''}`} 
+                                                    size={16}
                                                 />
                                             </button>
 
                                             {showCategoryDropdown && (
-                                                <div className="absolute z-50 mt-2 w-[280px] bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                                                <div className="absolute z-50 mt-1 w-[250px] bg-white rounded-md shadow-lg border border-gray-100 py-1 max-h-[400px] overflow-y-auto">
                                                     {categories.map((category) => (
                                                         <button
                                                             key={category._id}
-                                                            onClick={() => handleCategoryClick(category._id)}
-                                                            className="w-full flex items-center px-4 py-2.5 hover:bg-gray-50 transition-colors"
+                                                            onClick={() => {
+                                                                handleCategoryClick(category._id);
+                                                                setShowCategoryDropdown(false);
+                                                            }}
+                                                            className="w-full flex items-center px-4 py-2 hover:bg-gray-50 transition-colors group"
                                                         >
-                                                            <div className="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                                            <div className="w-7 h-7 rounded-full overflow-hidden mr-3 flex-shrink-0">
                                                                 <img 
                                                                     src={category.category_photo} 
                                                                     alt={category.category_name}
                                                                     className="w-full h-full object-cover"
                                                                 />
                                                             </div>
-                                                            <span className="text-gray-700 hover:text-[#3BB77E] text-sm">
+                                                            <span className="text-gray-700 group-hover:text-[#3BB77E] text-sm text-left">
                                                                 {category.category_name}
                                                             </span>
                                                         </button>
@@ -375,6 +380,12 @@ const Navbar = () => {
                                                 className={`text-[15px] ${isActive('/shop') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Shop
+                                            </Link>
+                                            < Link
+                                                to="/my-orders" 
+                                                className={`text-[15px] ${isActive('/shop') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                            >
+                                                My Order
                                             </Link>
                                             {/* <Link 
                                                 to="/vendors" 

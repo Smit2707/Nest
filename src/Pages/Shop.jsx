@@ -75,12 +75,12 @@ const Shop = () => {
 
             {/* Desktop Version */}
             <div className="hidden lg:block container mx-auto px-4 mt-[80px]">
-                {/* Breadcrumb */}
+                        {/* Breadcrumb */}
                 <div className="flex items-center gap-2 text-sm mb-8">
                     <span className="text-[#3BB77E]">Home</span>
-                    <span className="text-gray-500">•</span>
+                            <span className="text-gray-500">•</span>
                     <span className="text-gray-500">Shop</span>
-                </div>
+                        </div>
 
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-2xl font-bold text-[#253D4E]">Products</h1>
@@ -89,21 +89,21 @@ const Shop = () => {
                             {loading ? 'Loading...' : `${products.length} items found`}
                         </span>
                     </div>
-                </div>
-
-                {/* Main Content with Sidebar Layout */}
-                <div className="grid grid-cols-4 gap-8">
-                    {/* Left Sidebar */}
-                    <div className="col-span-1">
-                        <CategorySidebar />
                     </div>
 
+                {/* Main Content with Sidebar Layout */}
+                    <div className="grid grid-cols-4 gap-8">
+                        {/* Left Sidebar */}
+                        <div className="col-span-1">
+                            <CategorySidebar />
+                        </div>
+
                     {/* Product Grid */}
-                    <div className="col-span-3">
+                        <div className="col-span-3">
                         {loading ? (
                             <div className="flex justify-center items-center h-64">
                                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3BB77E]"></div>
-                            </div>
+                                    </div>
                         ) : error ? (
                             <div className="flex justify-center items-center h-64">
                                 <div className="text-red-500">{error}</div>

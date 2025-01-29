@@ -30,10 +30,10 @@ const Order = () => {
 
             console.log('Fetching order details for ID:', id);
             const response = await axios.get(
-                `https://ecommerce-shop-qg3y.onrender.com/api/order/displayOrder?orderId=${id}`,
+                `https://ecommerce-shop-qg3y.onrender.com/api/order/displayOrderById?orderId=${id}`,
                 {
                     headers: {
-                        'Authorization': token
+                        'Authorization': `${token}`
                     }
                 }
             );
@@ -58,7 +58,7 @@ const Order = () => {
             }
         } catch (error) {
             console.error('Error fetching order details:', error);
-            toast.error('Failed to fetch order details');
+            // toast.error('Failed to fetch order details');
         }
     };
 
@@ -122,7 +122,7 @@ const Order = () => {
             }
         } catch (error) {
             console.error('Error fetching cart:', error);
-            toast.error('Failed to fetch cart items');
+            // toast.error('Failed to fetch cart items');
         }
     };
 
@@ -146,7 +146,7 @@ const Order = () => {
             }
         } catch (error) {
             console.error('Error fetching addresses:', error);
-            toast.error('Failed to fetch address');
+            // toast.error('Failed to fetch address');
         }
     };
 
@@ -165,44 +165,39 @@ const Order = () => {
         try {
             const token = localStorage.getItem('token');
             if (!token) {
+                toast.error('Please login to continue');
                 navigate('/login');
                 return;
             }
 
-            // Format items for the API
+            // Format items according to API requirements
             const formattedItems = cartItems.map(item => ({
-                productId: item.productId,
-                productName: item.productName,
-                productImage: item.productImage,
-                productSize: item.productSize,
-                productColour: item.productColour,
-                price: item.price,
-                quantity: item.quantity,
-                totalPrice: item.price * item.quantity
+                productId: item.productId || item._id,
+                productName: item.productName || item.name,
+                price: parseFloat(item.price),
+                quantity: parseInt(item.quantity),
+                productDescription: item.productDescription || "Product Description",
+                productCategory: item.productCategory || "General",
+                productSize: Array.isArray(item.productSize) ? item.productSize[0] : (item.productSize || "Standard"),
+                productColour: Array.isArray(item.productColour) ? item.productColour[0] : (item.productColour || "Default"),
+                product_details: item.product_details || "Product Details"
             }));
+
+            // Calculate total amount
+            const totalAmount = formattedItems.reduce((total, item) => total + (item.price * item.quantity), 0);
 
             const orderData = {
                 items: formattedItems,
-                shippingAddress: {
-                    fullName: selectedAddress.fullName,
-                    phoneNumber: selectedAddress.phoneNumber,
-                    addressLine1: selectedAddress.addressLine1,
-                    addressLine2: selectedAddress.addressLine2 || '',
-                    landmark: selectedAddress.landmark || '',
-                    city: selectedAddress.city,
-                    state: selectedAddress.state,
-                    pincode: selectedAddress.pincode,
-                    country: selectedAddress.country
-                },
-                totalAmount: cartItems.reduce((total, item) => total + (item.price * item.quantity), 0),
-                paymentMethod: 'COD'
+                totalAmount: totalAmount,
+                paymentMethod: "Cash on Delivery",
+                deliveryAddress: selectedAddress._id
             };
 
-            console.log('Creating order with data:', orderData);
+            console.log('Creating order with data:', JSON.stringify(orderData, null, 2));
 
-            const response = await axios.post(
-                'https://ecommerce-shop-qg3y.onrender.com/api/order/createOrder',
-                orderData,
+            // Get cart ID first
+            const cartResponse = await axios.get(
+                'https://ecommerce-shop-qg3y.onrender.com/api/cart/displayCart',
                 {
                     headers: {
                         'Authorization': `${token}`
@@ -210,19 +205,49 @@ const Order = () => {
                 }
             );
 
-            console.log('Order creation response:', response.data);
+            if (!cartResponse.data.success || !cartResponse.data.data.length) {
+                throw new Error('Cart not found');
+            }
+
+            const cartId = cartResponse.data.data[0]._id;
+
+            // Create order
+            const response = await axios.post(
+                'https://ecommerce-shop-qg3y.onrender.com/api/order/createOrder',
+                orderData,
+                {
+                    headers: {
+                        'Authorization': `${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+
+            console.log('Order API Response:', response.data);
 
             if (response.data.success) {
                 const orderId = response.data.data._id;
-                console.log('Generated Order ID:', orderId);
+                console.log('Order created successfully! Order ID:', orderId);
+
+                // Clear cart using cartId
+                await axios.delete(
+                    `https://ecommerce-shop-qg3y.onrender.com/api/cart/clearCartById?cartId=${cartId}`,
+                    {
+                        headers: {
+                            'Authorization': `${token}`
+                        }
+                    }
+                );
+
                 toast.success('Order placed successfully!');
-                navigate(`/order/${orderId}`);
+                navigate(`/order-details/${orderId}`);
             } else {
                 throw new Error(response.data.message || 'Failed to create order');
             }
         } catch (error) {
             console.error('Error creating order:', error);
-            toast.error(error.response?.data?.message || 'Failed to create order. Please try again.');
+            const errorMessage = error.response?.data?.message || error.message || 'Error creating order';
+            // toast.error(`Error: ${errorMessage}`);
         } finally {
             setLoading(false);
         }

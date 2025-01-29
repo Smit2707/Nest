@@ -147,23 +147,23 @@ const ProductDetail = () => {
                                     />
                                 </div>
                                 {productImages.length > 0 && (
-                                    <div className="grid grid-cols-4 gap-4">
+                                <div className="grid grid-cols-4 gap-4">
                                         {productImages.map((image, index) => (
-                                            <div 
-                                                key={index}
-                                                onClick={() => handleImageSelect(index)}
+                                        <div 
+                                            key={index}
+                                            onClick={() => handleImageSelect(index)}
                                                 className={`bg-[#F4F6FA] rounded-lg p-2 cursor-pointer ${
                                                     selectedImage === index ? 'border-2 border-[#3BB77E]' : ''
-                                                }`}
-                                            >
-                                                <img 
-                                                    src={image}
+                                            }`}
+                                        >
+                                            <img 
+                                                src={image}
                                                     alt={`${product.name || 'Product'} ${index + 1}`}
-                                                    className="w-full h-full object-contain"
-                                                />
-                                            </div>
-                                        ))}
-                                    </div>
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
                                 )}
                             </div>
 
@@ -215,10 +215,10 @@ const ProductDetail = () => {
                                             <span className="text-[#3BB77E]">{product.stock ? 'In Stock' : 'Out of Stock'}</span>
                                         </div>
                                         {product.colour && (
-                                            <div className="flex items-center text-sm">
+                                        <div className="flex items-center text-sm">
                                                 <span className="text-gray-500 w-24">Colors:</span>
                                                 <span className="text-[#3BB77E]">{Array.isArray(product.colour) ? product.colour.join(', ') : product.colour}</span>
-                                            </div>
+                                        </div>
                                         )}
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@ const ProductDetail = () => {
                                         {product.product_details || product.description || 'No details available'}
                                     </p>
                                     {product.description && product.product_details && (
-                                        <p className="text-gray-600 text-sm leading-relaxed mt-4">
+                                    <p className="text-gray-600 text-sm leading-relaxed mt-4">
                                             {product.description}
                                         </p>
                                     )}

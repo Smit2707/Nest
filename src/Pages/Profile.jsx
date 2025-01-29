@@ -241,12 +241,12 @@ const Profile = () => {
                         {updateSuccess}
                     </div>
                 )}
-
+                
                 {userData && (
                     isChangingPassword ? (
                         <form onSubmit={handlePasswordChange} className="space-y-6">
                             <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-                                <div className="space-y-2">
+                            <div className="space-y-2">
                                     <label className="text-gray-600 font-medium">Current Password</label>
                                     <div className="relative">
                                         <input
@@ -266,9 +266,9 @@ const Profile = () => {
                                             {showPasswords.currentPassword ? "Hide" : "Show"}
                                         </button>
                                     </div>
-                                </div>
-
-                                <div className="space-y-2">
+                            </div>
+                            
+                            <div className="space-y-2">
                                     <label className="text-gray-600 font-medium">New Password</label>
                                     <div className="relative">
                                         <input
@@ -288,9 +288,9 @@ const Profile = () => {
                                             {showPasswords.newPassword ? "Hide" : "Show"}
                                         </button>
                                     </div>
-                                </div>
-
-                                <div className="space-y-2">
+                            </div>
+                            
+                            <div className="space-y-2">
                                     <label className="text-gray-600 font-medium">Confirm New Password</label>
                                     <div className="relative">
                                         <input
@@ -349,10 +349,10 @@ const Profile = () => {
                                         className="w-full p-3 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                                         required
                                     />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-gray-600 font-medium">Mobile</label>
+                            </div>
+                            
+                            <div className="space-y-2">
+                                <label className="text-gray-600 font-medium">Mobile</label>
                                     <input
                                         type="tel"
                                         name="mobile"
@@ -361,10 +361,10 @@ const Profile = () => {
                                         className="w-full p-3 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                                         required
                                     />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-gray-600 font-medium">Gender</label>
+                            </div>
+                            
+                            <div className="space-y-2">
+                                <label className="text-gray-600 font-medium">Gender</label>
                                     <select
                                         name="gender"
                                         value={updateData.gender}
@@ -379,7 +379,7 @@ const Profile = () => {
                                     </select>
                                 </div>
                             </div>
-
+                            
                             <div className="flex justify-end">
                                 <button
                                     type="submit"
@@ -401,14 +401,14 @@ const Profile = () => {
                                 <div className="space-y-2">
                                     <label className="text-gray-600 font-medium text-sm md:text-base">Email</label>
                                     <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.email}</p>
-                                </div>
-
-                                <div className="space-y-2">
+                            </div>
+                            
+                            <div className="space-y-2">
                                     <label className="text-gray-600 font-medium text-sm md:text-base">Mobile</label>
                                     <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.mobile}</p>
-                                </div>
-
-                                <div className="space-y-2">
+                            </div>
+                            
+                            <div className="space-y-2">
                                     <label className="text-gray-600 font-medium text-sm md:text-base">Gender</label>
                                     <p className="text-gray-800 bg-gray-50 p-3 rounded text-sm md:text-base">{userData.gender}</p>
                                 </div>

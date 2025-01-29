@@ -2,93 +2,93 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { FaTrash } from 'react-icons/fa';
 
 const Cart = () => {
     const [cartData, setCartData] = useState({ items: [], totalAmount: 0 });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const [selectedSizes, setSelectedSizes] = useState({});
-    const [selectedColors, setSelectedColors] = useState({});
-
-    useEffect(() => {
-        fetchCartItems();
-
-        // Add event listener for cart updates
-        window.addEventListener('cartUpdated', fetchCartItems);
-
-        // Cleanup
-        return () => {
-            window.removeEventListener('cartUpdated', fetchCartItems);
-        };
-    }, []);
 
     const fetchCartItems = async () => {
         try {
             setLoading(true);
-            setError(null);
-            
             const token = localStorage.getItem('token');
             if (!token) {
-                throw new Error('Please login to view your cart');
+                navigate('/login');
+                return;
             }
 
-            const response = await axios.get('https://ecommerce-shop-qg3y.onrender.com/api/cart/displayCart', {
-                headers: {
-                    'Authorization': token
+            const response = await axios.get(
+                'https://ecommerce-shop-qg3y.onrender.com/api/cart/displayCart',
+                {
+                    headers: {
+                        'Authorization': ` ${token}`
+                    }
                 }
-            });
+            );
 
-            console.log('Cart API Response:', response.data);
+            console.log('Cart Response:', response.data);
 
-            if (response.data.success) {
-                const cartData = response.data.data[0] || { items: [], totalPrice: 0 };
-                console.log('Raw cart data:', cartData);
-                
-                // Check if cartData.items exists and is an array
-                if (!cartData.items || !Array.isArray(cartData.items)) {
-                    setCartData({ items: [], totalAmount: 0 });
-                    return;
-                }
+            if (response.data.success && response.data.data.length > 0) {
+                const cartData = response.data.data[0];
+                // Transform the cart data to include product details
+                const transformedItems = cartData.items.map(item => ({
+                    ...item,
+                    productSize: item.size || item.productSize || (item.productDetails?.size?.[0] || 'N/A'),
+                    productColour: item.colour || item.productColour || (item.productDetails?.colour?.[0] || 'N/A')
+                }));
 
-                // Transform the cart data
-                const transformedData = {
-                    items: cartData.items.map(item => {
-                        console.log('Processing cart item:', item);
-                        return {
-                            productId: item.productId,
-                            productName: item.productName,
-                            productImage: item.productImage,
-                            quantity: item.quantity,
-                            price: item.price,
-                            totalPrice: item.price * item.quantity,
-                            productSize: item.size || item.productSize,
-                            productColour: item.colour || item.productColour,
-                            brand: item.brand,
-                            // Keep the original size and color arrays for options
-                            size: item.size,
-                            colour: item.colour
-                        };
-                    }),
+                setCartData({
+                    items: transformedItems,
                     totalAmount: cartData.totalPrice || 0
-                };
-                
-                console.log('Transformed cart data:', transformedData);
-                setCartData(transformedData);
+                });
             } else {
-                // If the API call is successful but returns no data, set empty cart
                 setCartData({ items: [], totalAmount: 0 });
             }
         } catch (error) {
             console.error('Error fetching cart:', error);
-            const errorMessage = error.response?.data?.message || error.message;
-            setError(errorMessage);
-            
-            if (error.response?.status === 401 && !localStorage.getItem('token')) {
-                navigate('/login');
-            }
+            // toast.error('Failed to fetch cart items');
         } finally {
             setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchCartItems();
+    }, []);
+
+    const handleRemoveItem = async (productId) => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                toast.error('Please login to remove items');
+                navigate('/login');
+                return;
+            }
+
+            const response = await axios({
+                method: 'DELETE',
+                url: 'https://ecommerce-shop-qg3y.onrender.com/api/cart/removeCart',
+                headers: {
+                    'Authorization': `${token}`,
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    productId: productId
+                }
+            });
+
+            if (response.data.success) {
+                toast.success('Item removed from cart');
+                fetchCartItems(); // Refresh cart after deletion
+            } else {
+                toast.error(response.data.message || 'Failed to remove item');
+            }
+        } catch (error) {
+            console.error('Error removing item:', error);
+            // toast.error('Failed to remove item from cart');
         }
     };
 
@@ -96,13 +96,14 @@ const Cart = () => {
         try {
             const token = localStorage.getItem('token');
             if (!token) {
-                throw new Error('Please login to update cart');
+                toast.error('Please login to update cart');
+                navigate('/login');
+                return;
             }
 
             const currentItem = cartData.items.find(item => item.productId === itemId);
             if (!currentItem) return;
 
-            // Calculate new quantity based on action
             let newQuantity;
             if (action === 'increase') {
                 newQuantity = parseInt(currentItem.quantity) + 1;
@@ -112,218 +113,29 @@ const Cart = () => {
                 return;
             }
 
-            console.log('Updating quantity:', { 
-                itemId, 
-                currentQuantity: currentItem.quantity, 
-                newQuantity,
-                size: currentItem.productSize,
-                color: currentItem.productColour
-            });
-
-            const response = await axios.post(
-                'https://ecommerce-shop-qg3y.onrender.com/api/cart/addToCart',
+            const response = await axios.put(
+                'https://ecommerce-shop-qg3y.onrender.com/api/cart/updateCart',
                 {
                     productId: itemId,
-                    productName: currentItem.productName,
-                    productImage: currentItem.productImage,
-                    quantity: newQuantity,
-                    price: currentItem.price,
-                    totalPrice: currentItem.price * newQuantity,
-                    productSize: currentItem.productSize,
-                    productColour: currentItem.productColour,
-                    brand: currentItem.brand,
-                    size: currentItem.size,
-                    colour: currentItem.colour
+                    quantity: newQuantity
                 },
                 { 
                     headers: { 
-                        'Authorization': token
+                        'Authorization': ` ${token}`,
+                        'Content-Type': 'application/json'
                     } 
                 }
             );
 
-            console.log('Update quantity response:', response.data);
-
             if (response.data.success) {
-                // Update the cart data directly instead of fetching
-                const updatedItems = cartData.items.map(item => {
-                    if (item.productId === itemId) {
-                        return {
-                            ...item,
-                            quantity: newQuantity,
-                            totalPrice: item.price * newQuantity
-                        };
-                    }
-                    return item;
-                });
-
-                const newTotalAmount = updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                
-                setCartData({
-                    items: updatedItems,
-                    totalAmount: newTotalAmount
-                });
-
-                // Only dispatch the event for navbar update
-                window.dispatchEvent(new Event('cartUpdated'));
+                toast.success('Cart updated successfully');
+                fetchCartItems(); // Refresh the cart
             } else {
-                throw new Error(response.data.message || 'Failed to update quantity');
+                toast.error(response.data.message || 'Failed to update quantity');
             }
         } catch (error) {
             console.error('Error updating quantity:', error);
-            if (error.response?.status === 401) {
-                localStorage.removeItem('token');
-                navigate('/login');
-            } else {
-                alert(error.response?.data?.message || 'Failed to update quantity. Please try again.');
-            }
-        }
-    };
-
-    const handleRemoveItem = async (itemId) => {
-        try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                throw new Error('Please login to remove items from cart');
-            }
-
-            console.log('Removing item:', itemId);
-            const response = await axios.delete(
-                'https://ecommerce-shop-qg3y.onrender.com/api/cart/removeCart',
-                {
-                    headers: {
-                        'Authorization': token
-                    },
-                    data: {
-                        productId: itemId
-                    }
-                }
-            );
-
-            console.log('Remove item response:', response.data);
-
-            if (response.data.success) {
-                // Refresh cart data
-                fetchCartItems();
-                // Update cart count in navbar
-                window.dispatchEvent(new Event('cartUpdated'));
-            } else {
-                throw new Error(response.data.message || 'Failed to remove item');
-            }
-        } catch (error) {
-            console.error('Error removing item:', error);
-            const errorMessage = error.response?.data?.message || error.message;
-            alert(errorMessage || 'Failed to remove item. Please try again.');
-        }
-    };
-
-    const handleSizeChange = async (itemId, newSize) => {
-        try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                throw new Error('Please login to update cart');
-            }
-
-            const currentItem = cartData.items.find(item => item.productId === itemId);
-            if (!currentItem) return;
-
-            const response = await axios.post(
-                'https://ecommerce-shop-qg3y.onrender.com/api/cart/addToCart',
-                {
-                    productId: itemId,
-                    quantity: currentItem.quantity,
-                    price: currentItem.price,
-                    totalPrice: currentItem.price * currentItem.quantity,
-                    productSize: newSize,
-                    productColour: currentItem.productColour || ''
-                },
-                { 
-                    headers: { 
-                        'Authorization': token
-                    } 
-                }
-            );
-
-            if (response.data.success) {
-                setSelectedSizes(prev => ({
-                    ...prev,
-                    [itemId]: newSize
-                }));
-                
-                // Update cart data
-                const updatedItems = cartData.items.map(item => {
-                    if (item.productId === itemId) {
-                        return {
-                            ...item,
-                            productSize: newSize
-                        };
-                    }
-                    return item;
-                });
-                
-                setCartData({
-                    ...cartData,
-                    items: updatedItems
-                });
-            }
-        } catch (error) {
-            console.error('Error updating size:', error);
-            alert('Failed to update size. Please try again.');
-        }
-    };
-
-    const handleColorChange = async (itemId, newColor) => {
-        try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                throw new Error('Please login to update cart');
-            }
-
-            const currentItem = cartData.items.find(item => item.productId === itemId);
-            if (!currentItem) return;
-
-            const response = await axios.post(
-                'https://ecommerce-shop-qg3y.onrender.com/api/cart/addToCart',
-                {
-                    productId: itemId,
-                    quantity: currentItem.quantity,
-                    price: currentItem.price,
-                    totalPrice: currentItem.price * currentItem.quantity,
-                    productSize: currentItem.productSize || '',
-                    productColour: newColor
-                },
-                { 
-                    headers: { 
-                        'Authorization': token
-                    } 
-                }
-            );
-
-            if (response.data.success) {
-                setSelectedColors(prev => ({
-                    ...prev,
-                    [itemId]: newColor
-                }));
-                
-                // Update cart data
-                const updatedItems = cartData.items.map(item => {
-                    if (item.productId === itemId) {
-                        return {
-                            ...item,
-                            productColour: newColor
-                        };
-                    }
-                    return item;
-                });
-                
-                setCartData({
-                    ...cartData,
-                    items: updatedItems
-                });
-            }
-        } catch (error) {
-            console.error('Error updating color:', error);
-            alert('Failed to update color. Please try again.');
+            toast.error('Failed to update quantity');
         }
     };
 
@@ -377,85 +189,71 @@ const Cart = () => {
             
             <div className="bg-white rounded-lg shadow-sm">
                 {/* Table Header */}
-                <div className="grid grid-cols-12 gap-4 p-4 border-b text-gray-600 font-medium">
-                    <div className="col-span-4">PRODUCT</div>
-                    <div className="col-span-2 text-center">PRICE</div>
-                    <div className="col-span-2 text-center">QUANTITY</div>
-                    <div className="col-span-2 text-center">SIZE/COLOR</div>
-                    <div className="col-span-2 text-center">TOTAL</div>
+                <div className="grid grid-cols-[2fr,1fr,1fr,1fr] gap-4 p-4 border-b bg-gray-50">
+                    <div>PRODUCT</div>
+                    <div>QUANTITY</div>
+                    <div>SIZE/COLOR</div>
+                    <div>TOTAL</div>
                 </div>
 
                 {/* Cart Items */}
-                {cartData.items.map((item) => (
-                    <div key={item.productId} className="grid grid-cols-12 gap-4 p-4 border-b items-center hover:bg-gray-50">
+                {cartData.items && cartData.items.map((item, index) => (
+                    <div key={index} className="grid grid-cols-[2fr,1fr,1fr,1fr] gap-4 p-4 border-b items-center">
                         {/* Product Info */}
-                        <div className="col-span-4">
-                            <div className="flex items-center gap-4">
-                                {item.productImage && (
-                                    <img 
-                                        src={item.productImage} 
-                                        alt={item.productName} 
-                                        className="w-16 h-16 object-cover rounded-lg"
+                        <div className="flex items-center gap-4">
+                            <div className="w-20 h-20 flex-shrink-0">
+                                {item.productImage ? (
+                                    <img
+                                        src={item.productImage}
+                                        alt={item.productName}
+                                        className="w-full h-full object-cover rounded"
                                     />
+                                ) : (
+                                    <div className="w-full h-full bg-gray-100 rounded flex items-center justify-center">
+                                        <span className="text-gray-400 text-xs">No Image</span>
+                                    </div>
                                 )}
-                                <div>
-                                    <h3 className="font-medium text-gray-800">{item.productName || 'Product Name'}</h3>
-                                    <p className="text-sm text-gray-500">ID: {item.productId}</p>
-                                    {item.brand && <p className="text-sm text-[#3BB77E]">{item.brand}</p>}
-                                </div>
+                            </div>
+                            <div>
+                                <h3 className="font-medium">{item.productName}</h3>
+                                <p className="text-sm text-gray-500">₹{item.price}</p>
                             </div>
                         </div>
 
-                        {/* Price */}
-                        <div className="col-span-2 text-center">
-                            <span className="font-medium text-gray-800">₹{item.price.toFixed(2)}</span>
-                        </div>
-
-                        {/* Quantity */}
-                        <div className="col-span-2">
-                            <div className="flex items-center justify-center">
-                                <button 
-                                    onClick={() => handleQuantityChange(item.productId, 'decrease')}
-                                    className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-l"
-                                    disabled={parseInt(item.quantity) <= 1}
-                                >
-                                    -
-                                </button>
-                                <span className="px-4 py-1 bg-gray-100">{item.quantity}</span>
-                                <button 
-                                    onClick={() => handleQuantityChange(item.productId, 'increase')}
-                                    className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-r"
-                                >
-                                    +
-                                </button>
-                            </div>
+                        {/* Quantity Controls */}
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => handleQuantityChange(item.productId, 'decrease')}
+                                className="w-8 h-8 flex items-center justify-center border rounded-full hover:bg-gray-100"
+                            >
+                                -
+                            </button>
+                            <span className="w-8 text-center">{item.quantity}</span>
+                            <button
+                                onClick={() => handleQuantityChange(item.productId, 'increase')}
+                                className="w-8 h-8 flex items-center justify-center border rounded-full hover:bg-gray-100"
+                            >
+                                +
+                            </button>
                         </div>
 
                         {/* Size and Color */}
-                        <div className="col-span-2">
-                            <div className="flex flex-col items-center gap-2">
-                                {item.productSize && (
-                                    <div className="text-sm bg-gray-100 px-3 py-1 rounded-full text-gray-700 w-full text-center">
-                                        Size: {item.productSize}
-                                    </div>
-                                )}
-                                {item.productColour && (
-                                    <div className="text-sm bg-gray-100 px-3 py-1 rounded-full text-gray-700 w-full text-center">
-                                        Color: {item.productColour}
-                                    </div>
-                                )}
+                        <div className="space-y-2">
+                            <div className="text-sm text-gray-600">
+                                <p>Size: {item.size || item.productSize || (item.productDetails?.size?.[0] || 'N/A')}</p>
+                                <p>Color: {item.colour || item.productColour || (item.productDetails?.colour?.[0] || 'N/A')}</p>
                             </div>
                         </div>
 
-                        {/* Total Price and Remove Button */}
-                        <div className="col-span-2 flex items-center justify-between px-4">
+                        {/* Total and Remove */}
+                        <div className="flex items-center justify-between">
                             <span className="font-medium text-[#3BB77E]">₹{(item.price * item.quantity).toFixed(2)}</span>
-                            <button 
+                            <button
                                 onClick={() => handleRemoveItem(item.productId)}
                                 className="text-gray-400 hover:text-red-500 transition-colors"
                                 aria-label="Remove item"
                             >
-                                <FiTrash2 size={18} />
+                                <FaTrash />
                             </button>
                         </div>
                     </div>
@@ -467,10 +265,7 @@ const Cart = () => {
                 <div className="w-full max-w-md space-y-4">
                     <div className="flex justify-between text-gray-600">
                         <span>Subtotal:</span>
-                        <span className="text-[#3BB77E] font-medium">₹{calculateSubtotal().toLocaleString('en-IN', {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2
-                        })}</span>
+                        <span className="text-[#3BB77E] font-medium">₹{calculateSubtotal().toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                         <span>Shipping:</span>
@@ -480,10 +275,7 @@ const Cart = () => {
                         <div className="flex justify-between items-center">
                             <span className="text-lg font-semibold">Total:</span>
                             <div className="text-right">
-                                <span className="text-xl font-semibold text-[#3BB77E]">₹{calculateSubtotal().toLocaleString('en-IN', {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2
-                                })}</span>
+                                <span className="text-xl font-semibold text-[#3BB77E]">₹{calculateSubtotal().toFixed(2)}</span>
                                 <p className="text-sm text-gray-500">Including GST</p>
                             </div>
                         </div>
@@ -492,7 +284,7 @@ const Cart = () => {
                         onClick={() => {
                             const token = localStorage.getItem('token');
                             if (!token) {
-                                alert('Please login to proceed');
+                                toast.error('Please login to proceed');
                                 navigate('/login');
                                 return;
                             }

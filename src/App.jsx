@@ -23,6 +23,7 @@ import Address from './Pages/Address';
 import DisplayAddress from './Pages/DisplayAddress';
 import Order from './Pages/Order';
 import OrderDetails from './Pages/OrderDetails';
+import AllOrders from './Pages/AllOrders';
 
 function App() {
     return (
@@ -55,6 +56,7 @@ function App() {
                     <Route path="/my-addresses" element={<DisplayAddress />} />
                     <Route path="/order" element={<Order />} />
                     <Route path="/order/:orderId" element={<OrderDetails />} />
+                    <Route path="/my-orders" element={<AllOrders />} />
                 </Routes>
             </Layout>
             <ToastContainer

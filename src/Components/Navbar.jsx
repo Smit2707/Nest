@@ -135,7 +135,7 @@ const Navbar = () => {
         <>
             <header className="fixed top-0 w-full z-[1000] bg-white shadow-sm">
                 {/* Top Bar - Hidden on Mobile */}
-                <div className="hidden md:block text-white py-2">
+                <div className="hidden xl:block text-white py-2">
                     <div className="container mx-auto px-4">
                         <div className="flex justify-between items-center">
                             <div className="flex gap-6  text-gray-500">
@@ -170,7 +170,7 @@ const Navbar = () => {
                 {/* Main Navbar */}
                 <div className="container mx-auto px-4">
                     {/* Mobile Header */}
-                    <div className="block md:hidden w-full">
+                    <div className="block xl:hidden w-full">
                         <div className="flex items-center justify-between p-4 max-w-full">
                             <button 
                                 onClick={toggleMobileMenu}
@@ -221,7 +221,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Desktop Navbar - Hidden on Mobile */}
-                    <div className="hidden md:block">
+                    <div className="hidden xl:block">
                         <div className="bg-white py-2">
                             <div className="container mx-auto px-4 flex items-center justify-between">
                                 <Link to="/" className="flex items-center">

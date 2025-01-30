@@ -290,7 +290,7 @@ const categories = [
 
 const Home = () => {
   return (
-        <div className="relative min-h-screen mt-24">
+        <div className="relative min-h-screen mt-24 md:mt-32 lg:mt-24 xl:mt-48">
             <div className="container mx-auto px-8">
                 <div className=" flex gap-8">
                     <div className="w-[200px] hidden md:block flex-shrink-0">

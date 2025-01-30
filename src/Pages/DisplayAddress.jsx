@@ -149,15 +149,15 @@ const DisplayAddress = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-between items-center mb-8">
-                <h1 className="text-3xl font-bold text-[#253D4E]">Select Your Addresses</h1>
+        <div className="container mx-auto px-4 py-8 md:mt-[220px] lg:mt-0">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+                <h1 className="text-2xl md:text-3xl font-bold text-[#253D4E]">Select Your Addresses</h1>
                 <button
                     onClick={() => {
-                        localStorage.removeItem('editingAddress'); // Clear any existing edit state
+                        localStorage.removeItem('editingAddress');
                         navigate('/address');
                     }}
-                    className="bg-[#3BB77E] text-white px-6 py-2 rounded-full hover:bg-[#2a9c66] transition-colors flex items-center gap-2"
+                    className="w-full sm:w-auto bg-[#3BB77E] text-white px-6 py-2 rounded-full hover:bg-[#2a9c66] transition-colors flex items-center justify-center gap-2"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -166,20 +166,19 @@ const DisplayAddress = () => {
                 </button>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {addresses.map((address) => (
                     <div 
-                    
                         key={address._id} 
-                        className={`p-6 rounded-lg shadow-md ${
+                        className={`p-4 md:p-6 rounded-lg shadow-md ${
                             address.isDefault ? 'bg-green-50 border-2 border-[#3BB77E]' : 'bg-white'
                         }`}
                     >
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
                             <h3 className="text-lg font-semibold text-[#253D4E]">
                                 {address.userName}
                             </h3>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center">
                                 <label className="flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -197,30 +196,34 @@ const DisplayAddress = () => {
                             <p className="font-medium">
                                 {address.fullName}
                             </p>
-                            <p>
+                            <p className="break-words">
                                 {`${address.addressLine1}${address.addressLine2 ? ', ' + address.addressLine2 : ''}`}
                             </p>
-                            <p>
-                                📱 {address.phoneNumber}
-                            </p>
-                            <p>
-                                📍 {address.country}
-                            </p>
+                            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                <p className="flex items-center">
+                                    <span className="mr-1">📱</span>
+                                    {address.phoneNumber}
+                                </p>
+                                <p className="flex items-center">
+                                    <span className="mr-1">📍</span>
+                                    {address.country}
+                                </p>
+                            </div>
                             <p className="text-sm text-gray-500">
                                 Type: {address.address_type}
                             </p>
                         </div>
 
-                        <div className="mt-4 flex justify-end gap-2">
+                        <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-end">
                             <button
                                 onClick={() => handleEdit(address)}
-                                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-sm"
+                                className="w-full sm:w-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-sm flex items-center justify-center"
                             >
                                 Edit
                             </button>
                             <button
                                 onClick={() => handleDelete(address._id)}
-                                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors text-sm"
+                                className="w-full sm:w-auto bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors text-sm flex items-center justify-center"
                                 disabled={address.isDefault}
                             >
                                 Delete

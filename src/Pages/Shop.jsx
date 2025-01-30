@@ -123,6 +123,8 @@ const Shop = () => {
                         )}
                     </div>
                 </div>
+                    <Section />
+                    <Footer />
             </div>
         </Layout>
     );

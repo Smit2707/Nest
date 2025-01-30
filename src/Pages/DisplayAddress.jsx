@@ -40,6 +40,12 @@ const DisplayAddress = () => {
 
     useEffect(() => {
         fetchAddresses();
+        // Check if addresses were just updated
+        const addressesUpdated = localStorage.getItem('addressesUpdated');
+        if (addressesUpdated) {
+            fetchAddresses();
+            localStorage.removeItem('addressesUpdated');
+        }
     }, []);
 
     const handleSetDefault = async (addressId) => {
@@ -111,8 +117,27 @@ const DisplayAddress = () => {
     };
 
     const handleEdit = (address) => {
-        localStorage.setItem('editingAddress', JSON.stringify(address));
-        navigate('/address');
+        try {
+            localStorage.setItem('editingAddress', JSON.stringify({
+                ...address,
+                fullName: address.fullName || '',
+                phoneNumber: address.phoneNumber || '',
+                addressLine1: address.addressLine1 || '',
+                addressLine2: address.addressLine2 || '',
+                landmark: address.landmark || '',
+                city: address.city || '',
+                state: address.state || '',
+                pincode: address.pincode || '',
+                country: address.country || 'India',
+                address_type: address.address_type || 'Home',
+                isDefault: address.isDefault || false,
+                _id: address._id
+            }));
+            navigate('/address');
+        } catch (error) {
+            console.error('Error preparing address for edit:', error);
+            toast.error('Failed to edit address. Please try again.');
+        }
     };
 
     if (loading) {
@@ -126,9 +151,12 @@ const DisplayAddress = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="flex justify-between items-center mb-8">
-                <h1 className="text-3xl font-bold text-[#253D4E]">Your Addresses</h1>
+                <h1 className="text-3xl font-bold text-[#253D4E]">Select Your Addresses</h1>
                 <button
-                    onClick={() => navigate('/address')}
+                    onClick={() => {
+                        localStorage.removeItem('editingAddress'); // Clear any existing edit state
+                        navigate('/address');
+                    }}
                     className="bg-[#3BB77E] text-white px-6 py-2 rounded-full hover:bg-[#2a9c66] transition-colors flex items-center gap-2"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,6 +169,7 @@ const DisplayAddress = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {addresses.map((address) => (
                     <div 
+                    
                         key={address._id} 
                         className={`p-6 rounded-lg shadow-md ${
                             address.isDefault ? 'bg-green-50 border-2 border-[#3BB77E]' : 'bg-white'
@@ -201,9 +230,21 @@ const DisplayAddress = () => {
                 ))}
             </div>
 
-            {addresses.length === 0 && (
+            {addresses.length === 0 ? (
                 <div className="text-center text-gray-500 py-8">
                     No addresses found. Add a new address to get started.
+                </div>
+            ) : (
+                <div className="mt-8 flex justify-center">
+                    <button
+                        onClick={() => {
+                            localStorage.removeItem('editingAddress');
+                            navigate('/order');
+                        }}
+                        className="w-full max-w-md bg-[#3BB77E] text-white py-3 rounded-full hover:bg-[#2a9c66] transition-colors text-lg font-semibold flex items-center justify-center gap-2"
+                    >
+                        Proceed to Payment
+                    </button>
                 </div>
             )}
         </div>

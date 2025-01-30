@@ -229,25 +229,49 @@ const Order = () => {
                 const orderId = response.data.data._id;
                 console.log('Order created successfully! Order ID:', orderId);
 
-                // Clear cart using cartId
-                await axios.delete(
-                    `https://ecommerce-shop-qg3y.onrender.com/api/cart/clearCartById?cartId=${cartId}`,
-                    {
-                        headers: {
-                            'Authorization': `${token}`
-                        }
-                    }
-                );
+                // Show success message immediately after order creation
+                toast.success('🎉 Order placed successfully! You can view your order details in My Orders page', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
 
-                toast.success('Order placed successfully!');
-                navigate(`/order-details/${orderId}`);
+                // Try to clear cart but don't let it block navigation
+                try {
+                    await axios.delete(
+                        `https://ecommerce-shop-qg3y.onrender.com/api/cart/clearCartById?cartId=${cartId}`,
+                        {
+                            headers: {
+                                'Authorization': `${token}`
+                            }
+                        }
+                    );
+                } catch (cartError) {
+                    console.error('Error clearing cart:', cartError);
+                    // Don't show error to user since order was successful
+                }
+
+                // Navigate to my-orders page after a short delay
+                setTimeout(() => {
+                    navigate('/my-orders');
+                }, 2000);
             } else {
                 throw new Error(response.data.message || 'Failed to create order');
             }
         } catch (error) {
             console.error('Error creating order:', error);
             const errorMessage = error.response?.data?.message || error.message || 'Error creating order';
-            // toast.error(`Error: ${errorMessage}`);
+            toast.error(`Error: ${errorMessage}`);
+            
+            // If order was created but there was an error afterwards, still navigate
+            if (error.response?.data?.success) {
+                setTimeout(() => {
+                    navigate('/my-orders');
+                }, 2000);
+            }
         } finally {
             setLoading(false);
         }

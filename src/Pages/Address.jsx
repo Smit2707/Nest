@@ -15,8 +15,7 @@ const Address = () => {
         state: '',
         pincode: '',
         country: 'India',
-        address_type: 'Home',
-        isDefault: false
+        address_type: 'Home'
     });
 
     const [loading, setLoading] = useState(false);
@@ -39,8 +38,7 @@ const Address = () => {
                 state: address.state || '',
                 pincode: address.pincode || '',
                 country: address.country || 'India',
-                address_type: address.address_type || 'Home',
-                isDefault: address.isDefault || false
+                address_type: address.address_type || 'Home'
             });
             setIsEditing(true);
             setEditingAddressId(address._id);
@@ -82,8 +80,7 @@ const Address = () => {
                         state: defaultAddress.state || '',
                         pincode: defaultAddress.pincode || '',
                         country: defaultAddress.country || 'India',
-                        address_type: defaultAddress.address_type || 'Home',
-                        isDefault: false // Set to false for new address
+                        address_type: defaultAddress.address_type || 'Home'
                     });
                 }
             }
@@ -94,15 +91,34 @@ const Address = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
+        
+        // Phone number validation
+        if (name === 'phoneNumber') {
+            // Only allow numbers and limit to 10 digits
+            const phoneNumber = value.replace(/\D/g, '').slice(0, 10);
+            setFormData(prev => ({
+                ...prev,
+                [name]: phoneNumber
+            }));
+            return;
+        }
+
         setFormData(prev => ({
             ...prev,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate phone number
+        if (formData.phoneNumber.length !== 10) {
+            toast.error('Phone number must be 10 digits');
+            return;
+        }
+
         setLoading(true);
         setError('');
 
@@ -153,21 +169,46 @@ const Address = () => {
         }
     };
 
+    const handleClearForm = () => {
+        setFormData({
+            fullName: '',
+            phoneNumber: '',
+            addressLine1: '',
+            addressLine2: '',
+            landmark: '',
+            city: '',
+            state: '',
+            pincode: '',
+            country: 'India',
+            address_type: 'Home'
+        });
+        toast.success('Form cleared successfully!');
+    };
+
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-between items-center mb-16">
+            <div className="flex justify-between items-center mb-8">
                 <h1 className="text-3xl font-bold text-[#253D4E]">
-                    {isEditing ? 'Edit Address' : 'Shipping Address'}
+                    {isEditing ? 'Edit Address' : 'Add New Address'}
                 </h1>
-                <button
-                    onClick={() => navigate('/my-addresses')}
-                    className="bg-white border-2 border-[#3BB77E] text-[#3BB77E] px-6 py-2 rounded-full hover:bg-[#3BB77E] hover:text-white transition-colors flex items-center gap-2"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                    </svg>
-                    View/Edit All Addresses
-                </button>
+                <div className="flex gap-4">
+                    <button
+                        type="button"
+                        onClick={handleClearForm}
+                        className="bg-gray-100 text-gray-600 px-6 py-2 rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        Clear Form
+                    </button>
+                    <button
+                        onClick={() => navigate('/my-addresses')}
+                        className="bg-white border-2 border-[#3BB77E] text-[#3BB77E] px-6 py-2 rounded-full hover:bg-[#3BB77E] hover:text-white transition-colors"
+                    >
+                        Back to Addresses
+                    </button>
+                </div>
             </div>
             
             {error && (
@@ -176,7 +217,7 @@ const Address = () => {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto  rounded-lg shadow-sm p-6 bg-slate-100 h-fit">
+            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto rounded-lg shadow-sm p-6 bg-slate-100">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label className="block text-gray-700 text-sm mb-2">Full Name</label>
@@ -186,6 +227,7 @@ const Address = () => {
                             value={formData.fullName}
                             onChange={handleChange}
                             required
+                            placeholder="Enter your full name"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
@@ -193,13 +235,17 @@ const Address = () => {
                     <div>
                         <label className="block text-gray-700 text-sm mb-2">Phone Number</label>
                         <input
-                            type="number"
+                            type="tel"
                             name="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={handleChange}
                             required
+                            placeholder="Enter 10 digit mobile number"
+                            pattern="[0-9]{10}"
+                            maxLength="10"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
+                        <p className="text-xs text-gray-500 mt-1">Enter 10 digit mobile number without country code</p>
                     </div>
 
                     <div className="md:col-span-2">
@@ -210,6 +256,7 @@ const Address = () => {
                             value={formData.addressLine1}
                             onChange={handleChange}
                             required
+                            placeholder="House No., Building Name, Street"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
@@ -221,6 +268,7 @@ const Address = () => {
                             name="addressLine2"
                             value={formData.addressLine2}
                             onChange={handleChange}
+                            placeholder="Area, Colony, Street (Optional)"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
@@ -232,6 +280,7 @@ const Address = () => {
                             name="landmark"
                             value={formData.landmark}
                             onChange={handleChange}
+                            placeholder="Nearby landmark (Optional)"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
@@ -244,6 +293,7 @@ const Address = () => {
                             value={formData.city}
                             onChange={handleChange}
                             required
+                            placeholder="Enter your city"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
@@ -256,6 +306,7 @@ const Address = () => {
                             value={formData.state}
                             onChange={handleChange}
                             required
+                            placeholder="Enter your state"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
@@ -263,13 +314,17 @@ const Address = () => {
                     <div>
                         <label className="block text-gray-700 text-sm mb-2">Pincode</label>
                         <input
-                            type="number"
+                            type="text"
                             name="pincode"
                             value={formData.pincode}
                             onChange={handleChange}
                             required
+                            placeholder="Enter 6 digit pincode"
+                            pattern="[0-9]{6}"
+                            maxLength="6"
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
+                        <p className="text-xs text-gray-500 mt-1">Enter 6 digit pincode</p>
                     </div>
 
                     <div>
@@ -310,27 +365,15 @@ const Address = () => {
                             </label>
                         </div>
                     </div>
-
-                    <div className="flex items-center">
-                        <input
-                            type="checkbox"
-                            name="isDefault"
-                            checked={formData.isDefault}
-                            onChange={(e) => setFormData(prev => ({ ...prev, isDefault: e.target.checked }))}
-                            className="mr-2"
-                        />
-                        <label className="text-gray-700 text-sm">Set as default address</label>
-                    </div>
                 </div>
 
-                <div className="mt-8 flex justify-end">
+                <div className="mt-6 flex justify-end">
                     <button
-                        type="button"
-                        onClick={() => navigate('/order')}
+                        type="submit"
                         disabled={loading}
-                        className="bg-[#3BB77E] text-white px-8 py-3 rounded-full hover:bg-[#2a9c66] transition-colors disabled:opacity-50"
+                        className={`w-full bg-[#3BB77E] text-white py-3 rounded-full hover:bg-[#2a9c66] transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
-                        {loading ? (isEditing ? 'Updating...' : 'Adding...') : (isEditing ? 'Update Address' : 'Proceed to Payment')}
+                        {loading ? 'Processing...' : (isEditing ? 'Update Address' : 'Add Address')}
                     </button>
                 </div>
             </form>

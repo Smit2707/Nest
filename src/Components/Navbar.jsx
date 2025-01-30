@@ -91,8 +91,10 @@ const Navbar = () => {
     };
 
     const isActive = (path) => {
+        // Exact match for home page
         if (path === '/' && location.pathname === '/') return true;
-        if (path !== '/' && location.pathname.startsWith(path)) return true;
+        // For other pages, ensure exact match and not just startsWith
+        if (path !== '/' && location.pathname === path) return true;
         return false;
     };
 
@@ -140,7 +142,7 @@ const Navbar = () => {
                                 <Link className='sm:text-xs' to="/about">About Us</Link>
                                 <Link className='sm:text-xs' to="/account">My Account</Link>
                                 <Link className='sm:text-xs' to="/wishlist">Wishlist</Link>
-                                <Link className='sm:text-xs' to="/my-orders">My Order</Link>
+                                <Link className='sm:text-xs' to="/my-orders">My Orders</Link>
                             </div>
                             <span className="text-gray-500 sm:text-xs">100% Secure delivery without contacting the courier</span>
                             <div className="flex items-center gap-6">
@@ -240,14 +242,16 @@ const Navbar = () => {
                                                 </option>
                                             ))}
                                         </select>
-                                        <div className="flex-1 relative hidden sm:hidden md:block border-none">
+                                        <div className="flex-1 relative md:hidden xl:block">
                                             <input
                                                 type="text"
                                                 placeholder="Search for items..."
                                                 className="w-full px-4 py-2 border border-gray-200 focus:outline-none"
                                             />
-                                            <button className="absolute right-0 top-0 h-full px-6 bg-transparent">
-                                                <BiSearch size={18} className="text-gray-400" />
+                                            <button 
+                                                className="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-[#3BB77E]"
+                                            >
+                                                <BiSearch size={20} />
                                             </button>
                                         </div>
                                     </div>
@@ -360,60 +364,39 @@ const Navbar = () => {
                                             )}
                                         </div>
                                         <div className="flex items-center justify-between gap-12 text-gray-600 text-sm">
-                                            {/* <Link to="/deals" className="flex items-center gap-1 font-[600] text-sm">
-                                                <span>Deals</span>
-                                            </Link> */}
                                             <Link 
                                                 to="/" 
-                                                className={`text-[15px] ${isActive('/') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                                className={`text-[15px] ${location.pathname === '/' ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Home
                                             </Link>
                                             <Link 
                                                 to="/about" 
-                                                className={`text-[15px] ${isActive('/about') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                                className={`text-[15px] ${location.pathname === '/about' ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 About
                                             </Link>
                                             <Link 
                                                 to="/shop" 
-                                                className={`text-[15px] ${isActive('/shop') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                                className={`text-[15px] ${location.pathname === '/shop' ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Shop
                                             </Link>
-                                            < Link
+                                            <Link 
                                                 to="/my-orders" 
-                                                className={`text-[15px] ${isActive('/shop') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                                className={`text-[15px] ${location.pathname === '/my-orders' ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
-                                                My Order
+                                                My Orders
                                             </Link>
-                                            {/* <Link 
-                                                to="/vendors" 
-                                                className={`text-[15px] ${isActive('/vendors') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
-                                            >
-                                                Vendors
-                                            </Link> */}
-                                            {/* <Link 
-                                                to="/mega-menu" 
-                                                className={`text-[15px] ${isActive('/mega-menu') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
-                                            >
-                                                Mega menu
-                                            </Link> */}
                                             <Link 
                                                 to="/blog" 
-                                                className={`text-[15px] ${isActive('/blog') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                                className={`text-[15px] ${location.pathname === '/blog' ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Blog
                                             </Link>
-                                            {/* <Link 
-                                                to="/pages" 
-                                                className={`text-[15px] ${isActive('/pages') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
-                                            >
-                                                Pages
-                                            </Link> */}
                                             <Link 
                                                 to="/contact" 
-                                                className={`text-[15px] ${isActive('/contact') ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
+                                                className={`text-[15px] ${location.pathname === '/contact' ? 'text-[#3BB77E]' : 'text-gray-600 hover:text-[#3BB77E]'}`}
                                             >
                                                 Contact
                                             </Link>

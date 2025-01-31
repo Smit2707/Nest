@@ -320,7 +320,7 @@ const Cart = () => {
                                         navigate('/login');
                                         return;
                                     }
-                                    navigate('/my-addresses');
+                                    navigate('/address');
                                 }}
                                 className="w-full bg-[#3BB77E] text-white py-3 rounded-full hover:bg-[#2a9c66] transition-colors"
                             >

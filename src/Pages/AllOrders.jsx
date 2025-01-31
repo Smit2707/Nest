@@ -62,7 +62,7 @@ const AllOrders = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto px-4 py-8 lg:mt-40">
             <h1 className="text-3xl font-bold text-gray-800 mb-8">My Orders</h1>
             
             {orders.length === 0 ? (

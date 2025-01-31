@@ -184,7 +184,7 @@ const Cart = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 lg:mt-40">
             <h1 className="text-2xl md:text-3xl font-bold text-[#253D4E] mb-6">Shopping Cart</h1>
 
             {loading ? (

@@ -149,9 +149,9 @@ const DisplayAddress = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8 md:mt-[220px] lg:mt-0">
+        <div className="container mx-auto px-4 py-8 md:mt-[220px] lg:mt-40">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-                <h1 className="text-2xl md:text-3xl font-bold text-[#253D4E]">Select Your Addresses</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-[#253D4E]">Select Your Address</h1>
                 <button
                     onClick={() => {
                         localStorage.removeItem('editingAddress');

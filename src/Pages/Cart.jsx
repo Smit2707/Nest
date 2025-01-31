@@ -646,7 +646,7 @@ const Cart = () => {
                                 return;
                             }
                             // navigate('/address');
-                            navigate('/address');
+                            navigate('/my-addresses');
                         }}
                         className="w-full bg-[#3BB77E] text-white py-3 rounded-full hover:bg-[#2a9c66] transition-colors mt-4"
                     >

@@ -299,7 +299,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex-col w-full">
-                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XRUbJqLWiAgNVa2kH~9OBglw8~JD8C0T9FDa50Y9vxzEs22nni0cuezgRSVggu-u5m-Hd0n6kequGohs9jFKcmI5~1-U3S1ZE5bZIONWDzkcdwgXkc4ZQt93NPPCTt44zGHwPeO2YToCoixFvTj9906RW7BOjKtL4Lejy12kqfqiCxUBQkS1aW-F0TPQgEVtNK8qXMhRevr9-NYixbSHlWIvF50PioXAeqbo6CMbUrHHmyaRThRVKzO2yYG8Ka2CkqfyiqzokyuLk7Izdt8eYwfK4WH3R~4poaw5Abcgwb5CFAz~Ju5-PcD3Yg3CZ0oRCT-X1IEwme0Nlg0PGGFZvQ__')] bg-cover bg-start bg-[55%] rounded-xl pt-12 px-8 h-[250px] md:h-[400px]">
+                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a1w0~yNNj-0omADQfB7FqPVCEgQa-v44cLeT~2YD~nbpfmLzUqVor4QugSeQkL-TlxEauDSJYuqO7MCJt2j52NHXFOytddD302lD2jutJMZZgepRoko8OlxefmtdjK2fPhqyJyuhuUHHgIzYuWtOF6mBetdbNQlwA4PtsfFQPYSv0VdGRyyvTOS-xr7Rgk78BkrBH9H-PYjeEPYXOZSoHVNLa3H7j4nmj3-OW0mqjO7MYtn7EzH7aGCbZb5Jd-VlAxPfrs6UmFbQJEihdVVF2X5jbZAs9bTh9dnA2bfb9A~ipkLuO9Z~vtcOyy8vGjun~SE6OZA-OW9IKhEVN1oafg__')] bg-cover bg-start bg-[55%] rounded-xl pt-12 px-8 h-[250px] md:h-[400px]">
                             <h1 className="text-xl md:text-[42px] font-bold text-[#253D4E] leading-tight">
                                 Don't miss amazing<br />grocery deals.
                             </h1>
@@ -460,7 +460,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__"
+                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=tDtlanhpu~e0f3HePSwCovz5ZCjNv5McNpx0VQscIYhK5Vo-kNvOD~IsKM-Q5uhRmAg6qYgxzmdk272g5J79VYIdGPq~FywJ2MtegNxPFL8XfUSZYV-j2HPo959-nLkd7f1oTsdInUBAizw9IZ~~iifuFfOC0bZRp~naZXE0Es12LpN52rMEG9jiIDQwoE96XOwCnUgRAyaGUFaSCvtLumCo4W73BrhvwKr9j0ApnzsTduHfBc-Tt89YU-5YpCGG6UpDhmZjX1A-aMMRhiVGlMPfCaxJjfMirOYYUc5I5bXO3ecpTJ2f06P8fVgczPwBL3IHxeUu1juIVs5yaUZ0WA__"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -480,7 +480,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__"
+                                            src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Ooz6~YFxay~m4b599mJASohFPhbk7xV8h7wl4HcC9FFlqYvh9nyYRs7VX9OOhDNrMj6GXcvqzbUppBPLA5D07twULbyuEnHoQT4jO-0WXq3eYitvvAHIwEdsWAflHRjaeUR5K4gdoA7UYfortsKFzUWA9Glpt5DDif5~Eoa59-PVN5xzV4CzCbS-80yxeNhzoU1KbMSLKDuE5hhwzaw~kYI448g6G0zoA1oTdtNzMXTVChty52i3P2bb~ZisZkClFv~ZBnOlJEUwj46vHBdRKCOxrPLtqotStmfUqqFjizS2XCqlnLzljGmCecySIRO4ukedL6~zTR7GB16g7Ln-BQ__"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -500,7 +500,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__"
+                                            src="https://s3-alpha-sig.figma.com/img/c6e0/0d2a/20467838df1c528af63bb228455b48f6?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=KHkdecTrQ4bhhZxPD5YBszt7GD7YtlnqFlQOew66LqeKEmX9rN-GiTTuI1EzRhEulnpPOazqmSkrQsEpjg~Si9w-1IZuHAjt4~MYEoUVeKjepH61PQT9DgWO9-ZXSQ1-~IF2d06cSfoZ5Ywm6F6hHHT0rawm-C-7DjGUz~d41go-JnMyxnOk0c62j6arX91qKcmp-ifTa0bhG5I1j8I3Pjce-~GckYGd0MKHOuahcueiiMskoiajkUwVjWiGxqusMOC-r5Rp3-XYAPR65LiasN-~nt0m4r4qbV5dW3FM3sFOMNE3MVb3W7gV17ygRIRUrXMiYf1FU0xW0SlRhnbHWw__"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />

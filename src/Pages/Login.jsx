@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Login = () => {
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,6 +20,10 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
     setError('');
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleSubmit = async (e) => {
@@ -76,9 +82,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url('https://s3-alpha-sig.figma.com/img/7f7d/5c4f/7cf727a1d919b3a2000dc17aa3892559?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3AEpjBKL46xV7cskNTtWe2qoT~FKj-XF8NxxaRUDTnMUHmjl3YsYMnPVx9E1yQzbUg5A-Z~poFHzMk8Kj0NOUBzlk1yYjhk6WDLug-QZtX45JTk8XA4ku0bQ4MG7WPlrVn83BKyRHZE5SlCvJlFYnpb1IYK7balgB4bsD1lKW8fmRdzLPZOA3Ttfmt28zUhWm35dAIzJYi94C83rSjWfytpK0-HMjeAc~t5VdnuhbHaymjq~U8qhULbWtsA6aww4ySUlz2NBDA0ekrnEgjPak~u54hEm69PSPkmY4UQc3FJMSabWODC0zKv4Dy6NxV4wq5xlYolgP5ZcBarYtjV5g__')] bg-cover bg-right">
-      <div className="bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center mb-6">Sign in to your account</h2>
+    <div className="h-screen lg:min-h-screen flex items-center justify-center bg-[url('https://s3-alpha-sig.figma.com/img/7f7d/5c4f/7cf727a1d919b3a2000dc17aa3892559?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3AEpjBKL46xV7cskNTtWe2qoT~FKj-XF8NxxaRUDTnMUHmjl3YsYMnPVx9E1yQzbUg5A-Z~poFHzMk8Kj0NOUBzlk1yYjhk6WDLug-QZtX45JTk8XA4ku0bQ4MG7WPlrVn83BKyRHZE5SlCvJlFYnpb1IYK7balgB4bsD1lKW8fmRdzLPZOA3Ttfmt28zUhWm35dAIzJYi94C83rSjWfytpK0-HMjeAc~t5VdnuhbHaymjq~U8qhULbWtsA6aww4ySUlz2NBDA0ekrnEgjPak~u54hEm69PSPkmY4UQc3FJMSabWODC0zKv4Dy6NxV4wq5xlYolgP5ZcBarYtjV5g__')] bg-cover bg-right">
+      <div className="bg-white p-8 rounded-xl shadow-xl w-[80%] h-fit lg:w-full max-w-md">
+        <h2 className="text-lg lg:text-2xl font-semibold text-center mb-6">Sign in to your account</h2>
 
         {error && (
           <div className="mb-4 p-3 bg-red-50 text-red-500 rounded-md text-sm">
@@ -88,11 +94,11 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-600 mb-2">Email address Or Mobile Number</label>
+            <label className="block text-gray-600 mb-2 text-xs lg:text-base">Email address Or Mobile Number</label>
             <input
               type="text"
               placeholder="Enter email address Or Mobile Number"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+              className="w-full px-4 py-3 text-xs lg:text-base rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
               value={formData.email}
               onChange={handleChange}
               name="email"
@@ -102,24 +108,33 @@ const Login = () => {
           </div>
 
           <div>
-            <label className="block text-gray-600 mb-2">Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
-              value={formData.password}
-              onChange={handleChange}
-              name="password"
-              required
-              disabled={loading}
-              minLength="6"
-            />
+            <label className="block text-gray-600 mb-2 text-xs lg:text-base">Password</label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full px-4 py-3 rounded-lg text-xs lg:text-base border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
+                value={formData.password}
+                onChange={handleChange}
+                name="password"
+                required
+                disabled={loading}
+                minLength="6"
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </button>
+            </div>
           </div>
 
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 ">
             <Link
               to="/forgot-password"
-              className="text-sm text-[#3BB77E] hover:underline"
+              className="text-[#3BB77E] hover:underline text-xs lg:text-base"
             >
               Forgot Password?
             </Link>
@@ -127,7 +142,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className={`w-full bg-[#3BB77E] text-white py-3 rounded-lg font-medium hover:bg-[#3BB77E]/90 ${loading ? 'opacity-70 cursor-not-allowed' : ''
+            className={`w-full bg-[#3BB77E] text-white py-3 rounded-lg font-medium text-xs lg:text-base hover:bg-[#3BB77E]/90 ${loading ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             disabled={loading}
           >
@@ -135,7 +150,7 @@ const Login = () => {
           </button>
         </form>
 
-        <p className="text-center mt-4 text-gray-600">
+        <p className="text-center mt-4 text-gray-600 text-xs lg:text-base">
           Don't have an account? {' '}
           <Link to="/signup" className="text-[#3BB77E] hover:underline">
             Sign up

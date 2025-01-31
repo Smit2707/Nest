@@ -186,25 +186,25 @@ const Address = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8 lg:mt-40">
-            <div className="flex justify-between items-center mb-8">
-                <h1 className="text-3xl font-bold text-[#253D4E]">
+        <div className="container mx-auto px-4 py-4 sm:py-8 lg:mt-40">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-8 gap-3">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#253D4E]">
                     {isEditing ? 'Edit Address' : 'Add New Address'}
                 </h1>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-2 sm:gap-4">
                     <button
                         type="button"
                         onClick={handleClearForm}
-                        className="bg-gray-100 text-gray-600 px-6 py-2 rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2"
+                        className="bg-gray-100 text-gray-600 px-4 sm:px-6 py-2 rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 text-sm"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                         Clear Form
                     </button>
                     <button
                         onClick={() => navigate('/my-addresses')}
-                        className="bg-white border-2 border-[#3BB77E] text-[#3BB77E] px-6 py-2 rounded-full hover:bg-[#3BB77E] hover:text-white transition-colors"
+                        className="bg-white border-2 border-[#3BB77E] text-[#3BB77E] px-4 sm:px-6 py-2 rounded-full hover:bg-[#3BB77E] hover:text-white transition-colors text-sm"
                     >
                         Back to Addresses
                     </button>
@@ -212,15 +212,15 @@ const Address = () => {
             </div>
             
             {error && (
-                <div className="mb-4 p-4 bg-red-50 text-red-500 rounded-lg">
+                <div className="mb-4 p-3 sm:p-4 bg-red-50 text-red-500 rounded-lg text-sm">
                     {error}
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto rounded-lg shadow-sm p-6 bg-slate-100">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto rounded-lg shadow-sm p-4 sm:p-6 bg-slate-100">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">Full Name</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Full Name</label>
                         <input
                             type="text"
                             name="fullName"
@@ -228,12 +228,12 @@ const Address = () => {
                             onChange={handleChange}
                             required
                             placeholder="Enter your full name"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">Phone Number</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Phone Number</label>
                         <input
                             type="tel"
                             name="phoneNumber"
@@ -243,13 +243,13 @@ const Address = () => {
                             placeholder="Enter 10 digit mobile number"
                             pattern="[0-9]{10}"
                             maxLength="10"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
-                        <p className="text-xs text-gray-500 mt-1">Enter 10 digit mobile number without country code</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mt-1">Enter 10 digit mobile number without country code</p>
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="block text-gray-700 text-sm mb-2">Address Line 1</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Address Line 1</label>
                         <input
                             type="text"
                             name="addressLine1"
@@ -257,36 +257,36 @@ const Address = () => {
                             onChange={handleChange}
                             required
                             placeholder="House No., Building Name, Street"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="block text-gray-700 text-sm mb-2">Address Line 2</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Address Line 2</label>
                         <input
                             type="text"
                             name="addressLine2"
                             value={formData.addressLine2}
                             onChange={handleChange}
                             placeholder="Area, Colony, Street (Optional)"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">Landmark</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Landmark</label>
                         <input
                             type="text"
                             name="landmark"
                             value={formData.landmark}
                             onChange={handleChange}
                             placeholder="Nearby landmark (Optional)"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">City</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">City</label>
                         <input
                             type="text"
                             name="city"
@@ -294,12 +294,12 @@ const Address = () => {
                             onChange={handleChange}
                             required
                             placeholder="Enter your city"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">State</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">State</label>
                         <input
                             type="text"
                             name="state"
@@ -307,12 +307,12 @@ const Address = () => {
                             onChange={handleChange}
                             required
                             placeholder="Enter your state"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">Pincode</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Pincode</label>
                         <input
                             type="text"
                             name="pincode"
@@ -322,13 +322,13 @@ const Address = () => {
                             placeholder="Enter 6 digit pincode"
                             pattern="[0-9]{6}"
                             maxLength="6"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
+                            className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3BB77E]"
                         />
-                        <p className="text-xs text-gray-500 mt-1">Enter 6 digit pincode</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mt-1">Enter 6 digit pincode</p>
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm mb-2">Address Type</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Address Type</label>
                         <div className="flex flex-col gap-2">
                             <label className="flex items-center gap-2">
                                 <input
@@ -337,9 +337,9 @@ const Address = () => {
                                     value="Home"
                                     checked={formData.address_type === 'Home'}
                                     onChange={handleChange}
-                                    className="form-radio"
+                                    className="form-radio h-4 w-4"
                                 />
-                                <span className="text-gray-700 text-sm">Home</span>
+                                <span className="text-gray-700 text-xs sm:text-sm">Home</span>
                             </label>
                             <label className="flex items-center gap-2">
                                 <input
@@ -348,9 +348,9 @@ const Address = () => {
                                     value="Work"
                                     checked={formData.address_type === 'Work'}
                                     onChange={handleChange}
-                                    className="form-radio"
+                                    className="form-radio h-4 w-4"
                                 />
-                                <span className="text-gray-700 text-sm">Work</span>
+                                <span className="text-gray-700 text-xs sm:text-sm">Work</span>
                             </label>
                             <label className="flex items-center gap-2">
                                 <input
@@ -359,19 +359,19 @@ const Address = () => {
                                     value="Other"
                                     checked={formData.address_type === 'Other'}
                                     onChange={handleChange}
-                                    className="form-radio"
+                                    className="form-radio h-4 w-4"
                                 />
-                                <span className="text-gray-700 text-sm">Other</span>
+                                <span className="text-gray-700 text-xs sm:text-sm">Other</span>
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-6 flex justify-end">
+                <div className="mt-6">
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`w-full bg-[#3BB77E] text-white py-3 rounded-full hover:bg-[#2a9c66] transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`w-full bg-[#3BB77E] text-white py-2.5 sm:py-3 rounded-full hover:bg-[#2a9c66] transition-colors text-sm sm:text-base ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         {loading ? 'Processing...' : (isEditing ? 'Update Address' : 'Add Address')}
                     </button>

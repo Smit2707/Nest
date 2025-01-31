@@ -7,6 +7,7 @@ import { FaTrash } from 'react-icons/fa';
 
 const Cart = () => {
     const [cartData, setCartData] = useState({ items: [], totalAmount: 0 });
+    console.log(cartData);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -59,7 +60,7 @@ const Cart = () => {
         fetchCartItems();
     }, []);
 
-    const handleRemoveItem = async (productId) => {
+    const handleRemoveItem = async (productId, productSize, productColor) => {
         try {
             const token = localStorage.getItem('token');
             if (!token) {
@@ -76,7 +77,9 @@ const Cart = () => {
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    productId: productId
+                    productId: productId,
+                    productSize: productSize,
+                    productColour: productColor,
                 }
             });
 
@@ -117,7 +120,9 @@ const Cart = () => {
                 'https://ecommerce-shop-qg3y.onrender.com/api/cart/updateCart',
                 {
                     productId: itemId,
-                    quantity: newQuantity
+                    quantity: newQuantity,
+                    productSize: currentItem.productSize,
+                    productColour: currentItem.productColour
                 },
                 { 
                     headers: { 
@@ -275,7 +280,7 @@ const Cart = () => {
                                         {/* Remove Button - Full width on mobile */}
                                         <div className="col-span-1 md:col-span-5 flex justify-end">
                                             <button
-                                                onClick={() => handleRemoveItem(item.productId)}
+                                                onClick={() => handleRemoveItem(item?.productId, item?.productSize, item?.productColour)}
                                                 className="text-red-500 hover:text-red-700 text-sm"
                                             >
                                                 Remove

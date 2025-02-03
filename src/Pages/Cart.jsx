@@ -561,9 +561,9 @@ const Cart = () => {
                             <div className="w-20 h-20 flex-shrink-0">
                                 {item.productImage ? (
                                     <img
-                                        src={item.productImage}
+                                        src={item.productImage[0]}
                                         alt={item.productName}
-                                        className="w-full h-full object-cover rounded"
+                                        className="w-full h-full object-cover object-center rounded"
                                     />
                                 ) : (
                                     <div className="w-full h-full bg-gray-100 rounded flex items-center justify-center">

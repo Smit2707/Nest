@@ -38,7 +38,7 @@ const BlogDetail = () => {
                         {/* Left Content - Blog Detail */}
                         <div className="col-span-3">
                             <div className="bg-white rounded-xl overflow-hidden">
-                                {/* Blog Header */}
+                                {/* Blog Header */} 
                                 <div className="p-8">
                                     <span className="text-[#3BB77E] text-sm">Recipes</span>
                                     <h1 className="text-[30px] font-bold text-[#253D4E] mt-2 leading-tight">
@@ -46,7 +46,7 @@ const BlogDetail = () => {
                                     </h1>
                                     <div className="flex items-center gap-4 mt-4">
                                         <div className="flex items-center gap-2">
-                                            <img src="https://s3-alpha-sig.figma.com/img/9f79/eb35/790bf748bb2ed29e628fc867299685b9?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U-wLlJpicNB-mCyF60YddJCkvL~3F-v0uDpW6rtj8PUK29w1tOC~FJG2uYWNVXrg-SC8uEYbwDt1DRw64U5zl0PPob4zQfzaGqdbrs5CngV~9u4eP7fStUXL0nnYFW3lhgZamf21QozfpXI-Y2ZoefxAjOpz7Q~B32fw~W1ztygQXHRsDVGNAzzVPfPzH6BNgmp9zzdhGTWoasHSXjkcVRRrNW8zPB~PaMrnsUrcCWSMHJCMgjC0kP13ALZuIc6~7S7k9BSAGLyLixACWucyju0WxCYPHH8iPsCgJun1FFgejaH2KrV0x89Qf66MG92~OjVwxNEK-3qfafb1r2kTOA__"
+                                            <img src="https://s3-alpha-sig.figma.com/img/9f79/eb35/790bf748bb2ed29e628fc867299685b9?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hUA4z~unVy3QBIx609FTJOeHBLxbQFGHgjkiNcydfMB9jeqqqdpae-X~tvtprZ8jRXEqCj4ms6sRC004jaMtG4HAYOnbOjDTcLQ099AJ1aQIuw8X6-ulmI9otzNU0M9qGbMKhrABTqas2qWGI3XWxmN5nkS-Lo5dOLhXevo1zNbwAleOjRwC6pLIO7wzmlmC7zQKBnz0Ubsotg7~56B-D6YAaWPfC1RO9wNwcikzsOKLr4NHxo9nYKPtABXxTbtoiGC5zyFpj8qz-Ss9qcd6izEnO6CS8Am3UqdXG~rQoDVjc8A23OQSSbGCwN-2J2iTd9IcNgYdk5Yli0w~gIPJQA__"
                                                 alt="Author"
                                                 className="w-10 h-10 rounded-full"
                                             />
@@ -59,7 +59,7 @@ const BlogDetail = () => {
 
                                 {/* Blog Image */}
                                 <img
-                                    src="https://s3-alpha-sig.figma.com/img/b1e5/2be5/9a57884a1b9c44b922d17fcd1206bf06?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JUq13qFIoFd~WGdtpsOA9CyNeuVn6b-IkzNdb62B0rLwC~M~VVAM3VOaH7aGPoz7HFlIhXGd35aIEhPtWOt7o9UW3MVLuFvJMeHYg-iCkC6nEBHE5WEN4wQQbs46fL5RKD95-ZLqsfwhQkVrYYHf3LqJ16qCnroVzSCslOJ~JeZkXe99iY~ssuBjtbIPu9lMBaHv6HzfQL4UsgrCf~-AdV8LuYrJUFq2vyg6TYBzIqUyTbE4pIMYObUgzQCVG64qIfFoPQDVzKEHZNLq03Rdd2shvDSenQPeUoVggeNxyUcgIQjtmxVsHH2CV8Jjmt8rlFQ7XvaBaMcN~ZtQckep5Q__"
+                                    src="https://s3-alpha-sig.figma.com/img/b1e5/2be5/9a57884a1b9c44b922d17fcd1206bf06?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=St77NYRz8F97HbyYDWIz0gRnKHgEF3CfELotJ4MZXjSnDwtRGkZEf7LtPLGIpRdht2eH1TNf2Ipby37p0StjJawUKhy33rcTLvBGiGbVhE2cOfZ~GQrcDnpMUw9ZKO2Cl3N2B3WOMCzC0lYDjNNs6OUEbe4Y3U0BPOTJq9zE-E19YTg-RUu1nHmtthpiYBC0okd~CuNPTeBn~zq4~C9iCVuyr2CaaObCpK8LVTKisSanwz3kNlaMgDTV-igCe3E1~qde2LX9lw2EbrOLDmCWNWLcOHjJ5Ojbiauode1k93S9DkUEEsSDCVE3Zff~VIc4mOckPSWYJA3Qq-E4CNFz9Q__"
                                     alt="Blog Cover"
                                     className="w-full h-[400px] object-cover rounded-xl"
                                 />
@@ -83,17 +83,17 @@ const BlogDetail = () => {
                                     </p>
 
                                     {/* Two Column Images */}
-                                    <div className="grid grid-cols-2 gap-8 mb-8">
+                                    <div className="grid grid-cols-1 gap-8 mb-8">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/31d3/8a09/86ecc64f1750a54603c27ef6ebd61c56?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MXEcts2IPubIW1d-OVElxa~ed6hY0HaN1AJAdCMT-qKCd8eqg2VCcue2jWGVO0IPc8P5y2TZOnqHncXyFNnPyYf0EXICjYPLu0nRqktM719VALX3f6jEh5tRXnYZ6lC0fOhvEQJZuUivAjh8x1BUoJyb9rn331PrgYiy3138scIt4ym~tE-vWEMMFKD0ACUWQjwCDd3gzB1M2Hq45z~M0cTaDh1y8QIKQwul5Ri9JaTn6-aIq3EqB~BTuw6TfT1puJf2nJBE1Gvx-zk4Vdvr9O0w8QiLVBFwLYU16xsWD5Mk0brUVX4UimwvUCrW36ANMtOR880bK5PPMpMQhaaTzA__"
+                                            src="https://s3-alpha-sig.figma.com/img/daff/60cf/e1a72a111440440494f96802fcecc268?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=I4bKXK8IBAfnbzHvbV9po2wEXSrbrdZZQC5NH0bEKrhjCuBb17iAD~2s5kRTpwM2jd-adjQ-QmcxAPXAqxRTUvckZmKqJfcf~7GQG3rE77YWp25vZuETJfVYZveRmPR69cRr3nOoMR5C1yeZ2UvfIeVR1S~dxtt6vMkJ8U04drS-bwbBcrRYR5G~gKWC8uTTDo6azJ8Un9D5cf9cwwoxlHvwh2XwMqcOzINJFYlheKfPDdg1eDyT7UqVT60pDi90xklt-9h-1-e08u40XqyDlqesXx8VcbF3vRJ-HZA~MOdekP~muSUJJae~tITEhGBz27PoxN13HSJt084Qp1exzw__"
                                             alt="Food Image 1"
                                             className="w-full h-[300px] object-cover rounded-xl"
                                         />
-                                        <img
+                                        {/* <img
                                             src="https://s3-alpha-sig.figma.com/img/0b06/d35f/9f0dc9b8b2a2a863096159d763f50baa?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mhE6Cj-~pNkWB3CzfLFjtJ9nvD5mAfVQAYZoE74oyAqEk2GaAYCXd1dmuxw6DuIOl8xF4xdtOmdfNM9xwFYkcM5YOyrmSaMoNbfaKYaQfBAjJ9UBNPw1973Rpt5jPZI71Nca9cYwPXFMSl7jbbmD-k51pDTRolg7shT134OzS57cnzHhFqDCutoz1M6xvmp4qYd-sdReiE2es4~AMTXgmzGFKxZebVy-zEeZwlHf1s1MhcIwqrEd6c3sq1EAodkpfCuS2wO4ZHMKQv0dqBOqV9c68DJXgP-XjflEYqSAbFjk16BtCBY9e7pdFk02SMxx5rFC0eiui7F~sjcmuQsHsw__"
                                             alt="Food Image 2"
                                             className="w-full h-[300px] object-cover rounded-xl"
-                                        />
+                                        /> */}
                                     </div>
 
                                     <p className="text-gray-600 mb-8">

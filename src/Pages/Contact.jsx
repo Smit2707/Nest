@@ -195,7 +195,7 @@ const Contact = () => {
                         {/* Image Section */}
                         <div>
                             <img 
-                                src="https://s3-alpha-sig.figma.com/img/4027/36d2/6308ccf0f42597b84434ecec3cb4995f?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oKoT3BimVfdzoIxkc50cS9kujXZDx2qyvAdr1lqJeugwzznF1PZeqZh8H278P9JR4xoce49HntIL8xr-Tm9sydtk~pKThfKKRfO-3BcUm3OqXzB5hPfVoxs4Qax2K1yi7MO7xVzCtJzvE9ebvKL3Mj7hM1XrkyVKmyj4gOLsFVNTrCHHVnCWHsUSxeb1w9nlHo7L0FYfTKFcykPMuh8sPxnwLesU3Dp5I4cssjqrci7sKNr3woc5Sz~UoseWAuLj41CDVv7iagvXDKbAvr~7rrsTZ2PuOkaySEwVybD7qauOdfefqnlXE-uPiJxA7ni1KXvQ1dn~Z0EgHGdeZ7NH2A__" 
+                                src="https://s3-alpha-sig.figma.com/img/4027/36d2/6308ccf0f42597b84434ecec3cb4995f?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=WiRYA-G-Qo1oWTEFrL1d48q8bUTa6wegNStaR9DLaGdXmPwBbAesGrHpJBSlOkYz5O7P43ISJ8yyerL2pOnNS4o-Kuj~z7qoQfSEb1P1gg1L0NFzJUCityQWyNYeVJCqw7NVKoWRielOtWc~bNaxk56sEEZXzuIA~gZR7M71k7A4uairqbMUFzuv84sY9AReZ6vX7kq4YcDFf2l~H1Wt6qibobgX9gctro9owKrt7UZc98WbxthXVR2~PVFN-0TWF1BV7sz2rdAIvSEtl2Ysvy6QKRhQgEniSLsdpglNg4uei-Mfpttlqs2p8JseKaF7jFqt72HFdB9lBtqGNhxKeA__" 
                                 alt="Contact Support" 
                                 className="w-full h-full object-cover rounded-xl"
                             />

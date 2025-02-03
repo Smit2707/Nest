@@ -12,7 +12,7 @@ const Blog = () => {
             id: 1,
             category: "Side Dish",
             title: "The Intermediate Guide to Healthy Food",
-            image: "https://s3-alpha-sig.figma.com/img/00a9/190d/dfa332514b43ba0822970ef1973003b7?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fnDHcxvA96InH3SfCuWQrhFfxYP3o~1zvVXgf5qwMOtmPCD6OlB~rfjBLI1K9awR9oWY7a49m~wB40y~98BmczzokKuPbX45eEi6fwyTbOg4QIK6rmAETg4B4QTb46vh5rqqobOAdmRM9tHU0hiek1wnAOF2XzK-0DO4hWt2IC6h-8MH52-RTV5xaAt86BcljSM9NNDeZgLEPKiW~wFSt5idBLUEASNwKUqDp4sMSj3ixvg5gtFZQsJnGr19rgWk36FnfcTSdFWXzJZz-ILsxs66l~8KXeGPJWPqyskO8rHBRfB-AlsXIGUak-NG5ZFMcuH1qUhIY0BVE3ECpZqX1Q__",
+            image: "https://s3-alpha-sig.figma.com/img/00a9/190d/dfa332514b43ba0822970ef1973003b7?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=INTUH2qgDPBNlXwfFvanHlNkPlckZX~XPhCjSzdet-lm1bynjdYpHWIa1DvXWqWCkpNZDNSMHm2yTyAf84MMimXSK~3jH3Ar1rL0FqIGwUpnUdriO970b1~ElmxpWruRC2KGhCCZjwDnVa-UxuilcETHWzlmtpPT4rHXF4SxWAIvV9rvborh2Vg3FFl5O2ZR6evB9PKgF1nhNURtqFfUtREgOksBWfvlZQr-W1VoWdrlzr5HpkJj6DhYEq35RUZVdVs~551A0V5mQQ5ztHd7H4Ze2nFvZtplNf7tLL4dRs-6SJ25BZ5Jt1WX3anKbk1-lXT57W468M9WseEcZsjiIg__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -21,7 +21,7 @@ const Blog = () => {
             id: 2,
             category: "Soups and Stews",
             title: "Summer Quinoa Salad Jars with Lemon Dill",
-            image: "https://s3-alpha-sig.figma.com/img/e5da/07b0/9e59559c5805fc67657a7c0cf8fa25d9?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eJ6OhNL6dGcTHQhNL-icEMM~B1YhSxi42qGy7Q~uejmMSohyREfqfnIFHhrCBLYj9qD~c8cWNNhwchxiJqwiI25v7lcG28Y5WX-4Y375GNgaZ6otJl-T~DVdi9w6q77UQejen9nr8kAXGlAO-PXaH53Amks9babzfBjkV4diIly~JyaKf3QAKXTevPUTc1hUdrHnXOI6J8YMseDNGzdVuzkiudHKMk9Cb-cBm6Nx4QZ7lp0nuamumWH9sD4FLi8XI55QQoOWAIgaWQFQZ1RN7srpuSf7CG0ePJGAeB6FxO58fqLsneDjJ87F5-RNgUJGIfOMP3nAKarhyxv5d4seEQ__",
+            image: "https://s3-alpha-sig.figma.com/img/e5da/07b0/9e59559c5805fc67657a7c0cf8fa25d9?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=srARc~16J2ArwtSlCnk5Tw~6FrzOECd175f4sDXAKlFMxlrSK0Sr5RMi5ztZM-O81Vm2d3y1ArZC39a-2JafZG91wDYWmUDXUVhNW-XiZDx524IObtVJ7dNLII79FzPpxSGJWw-oddaGLZaaiBJ4JnzF8t3uoYi9teyuUYEABwK1yoG6crq22QsAk~2H35Df6eWqiOhLmu36E-ibx7xpG-8dKmtLeqMt3lUC7DjBTNWsiFC-4rpl1NhjOVSXRAAgAwUU182IJpDaX1KmFi4-j-eaX8Lsh7lXqPsBw751DP6IUtehirxI5lbq1RbtGbUbM~i7uvZmshBrz1ewbyMupQ__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -30,7 +30,7 @@ const Blog = () => {
             id: 3,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/be99/2069/e68b06db95bfa627bc18c8202d45422d?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jmrZ7D--R9e7yKUjFo6GfkpQ9bMFPwhc4wKqrYhQSXDP0JoCZKlGIolJaWM2CuWgiGaCpYZNisGmuKTMULGm7eL5W~hnCfUUCzXswowd23GGcDUmtIJnlnSdeKFHps6QFdf2t-4e42D7-06lkKhIt00rrghOzeaYUsORyemy~7~drRpBeyPQYlcuW6yz4XuN5ugpZCP4GevrGzWT5usRWs68Tz2zQ6hAvHnP0HlDQ1FkMPgcPhbG4pyo3sSzyh4Q9eaOZOPC0ditu5sXTMjC3MxbzOddKi0o7b0DXFsnLBET5sS6B26i~~aQ3jEl1xWLkABmdTzYvAwI3ylkHgyQMA__",
+            image: "https://s3-alpha-sig.figma.com/img/be99/2069/e68b06db95bfa627bc18c8202d45422d?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kD1mW61-H~IWZTD5jwZPzl2FnbHG8owpa9oTi11l0qieXtP4RASbKLw0r4JDHXFHovRC6ctmTAP-mff5oUrBw0dTSXHd-zGRPQq7gJ-MufdwYa5VNmeVtdXs0Clu3s~PFkpKHdJwTFhGMeu-7hYFiKROfJbBJX2oKNlFuE5G5FviQhPQ3C~gfvR1FYo8TnE5Irxm8k2p53eTC3grYUvw4NnK6-F6nY2tcOUERiU8E-4SFTeAP5VfGmeyAn8AVqLG9zO2AvzDZ0CXIZFM~ore7xT1TGwosP-CdsC789B5yZf-Hi9pf74PrSYRNNZV~6obZk0zTRXuzzeWxPfp8-MR6w__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -39,7 +39,7 @@ const Blog = () => {
             id: 4,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/6071/5da3/f2863278a563e9f53cc3dc65d7b57a4a?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qztb~BckUO7GYwoKNET39TFnv~nMAMV9l3JPMYwt6UzjR19pPifahTaNWCyFhknd9w4Lg7b25kI8z0BkeVOINGfor44xNrTKSaOkHHswE3zLxS2EiSqHeEpxgtxdWxcPme1mSi5u6RiIGUZ~DruDYGDbdnrwluBEwciexc1gw95EiCJUypYOQTwRsOO3wnLwj956q42HbOEcNEFi705F-~kq1iqPneHumFw~e8QLWd593oek8zIw2GjUGJzNFnohvQsifVdlocW~KyoIMSumoLeOM~jUSyURpUX-hpKpzwXlznvhouUg8d-9ea-7nMEIymSYYx-wFELY3jW2mAjFOw__",
+            image: "https://s3-alpha-sig.figma.com/img/6071/5da3/f2863278a563e9f53cc3dc65d7b57a4a?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ipeOhlu3pN-1pXo8MPxg9zXnijzIleItrXwBg3dEo1LITZYbe4lFQGSSwBZ0lJXdlb0rRhycl~s1-Fx8sEg~tgQyn-vfSRwIw0XGtjWVQb482V~tICnmCPoMUMWiFgxmC8PTFW90Vna7rN8qhiJFVTTVmeKX~l3RgXkPeM1kFWqrVfIz2PbUBjx2K57~T4N0-wste8q-weFHICU3hfle-Rlsb0-cp6HEwwpTpn7scsT4mG76ip61a2b8ZeOn4fmRlqW8OkU-YeAND5OLDMJhHwoabgrkvOY4sXAXW5jzVgXMUZGf6qd-CWndMDgw4WGHK~oDkCbMLcKKE2uxcAJCGA__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -48,7 +48,7 @@ const Blog = () => {
             id: 5,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/31d3/8a09/86ecc64f1750a54603c27ef6ebd61c56?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MXEcts2IPubIW1d-OVElxa~ed6hY0HaN1AJAdCMT-qKCd8eqg2VCcue2jWGVO0IPc8P5y2TZOnqHncXyFNnPyYf0EXICjYPLu0nRqktM719VALX3f6jEh5tRXnYZ6lC0fOhvEQJZuUivAjh8x1BUoJyb9rn331PrgYiy3138scIt4ym~tE-vWEMMFKD0ACUWQjwCDd3gzB1M2Hq45z~M0cTaDh1y8QIKQwul5Ri9JaTn6-aIq3EqB~BTuw6TfT1puJf2nJBE1Gvx-zk4Vdvr9O0w8QiLVBFwLYU16xsWD5Mk0brUVX4UimwvUCrW36ANMtOR880bK5PPMpMQhaaTzA__",
+            image: "https://s3-alpha-sig.figma.com/img/31d3/8a09/86ecc64f1750a54603c27ef6ebd61c56?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=iIoPaZhGvi4p6Ns0epow7x3No7hn2DNbgwg82nGmdTKPrR74cPUyq6s0XOgzCZgh7R8zTdz7IIIp4gJWYdqOm1xItYYd3ItadOXs9I~vCV92zM0xT-TTMx6dHcUjUN7GRvoF-liz-RmHaozTQfiNE3Z--eftaWdDvPPI3GLdkkFhFJZNCg4vgRErqhYEv~YMT9soWx30-~66XNDcnN2xBX76WB-cXFZccBF~j85jQJvsQ2GO3A-D0akwCKQSWipIRy~eZdWtLBEICiw~h2IHNmY7NNphA1d82tsptOotUVL8GoRD69Fig84W3oO9NZRoxKeGSMdJU5NWcI0GXP7WOg__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -57,7 +57,7 @@ const Blog = () => {
             id: 6,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/0b06/d35f/9f0dc9b8b2a2a863096159d763f50baa?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mhE6Cj-~pNkWB3CzfLFjtJ9nvD5mAfVQAYZoE74oyAqEk2GaAYCXd1dmuxw6DuIOl8xF4xdtOmdfNM9xwFYkcM5YOyrmSaMoNbfaKYaQfBAjJ9UBNPw1973Rpt5jPZI71Nca9cYwPXFMSl7jbbmD-k51pDTRolg7shT134OzS57cnzHhFqDCutoz1M6xvmp4qYd-sdReiE2es4~AMTXgmzGFKxZebVy-zEeZwlHf1s1MhcIwqrEd6c3sq1EAodkpfCuS2wO4ZHMKQv0dqBOqV9c68DJXgP-XjflEYqSAbFjk16BtCBY9e7pdFk02SMxx5rFC0eiui7F~sjcmuQsHsw__",
+            image: "https://s3-alpha-sig.figma.com/img/0b06/d35f/9f0dc9b8b2a2a863096159d763f50baa?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=VeZNkHgmcaR8tUWzvUcipvsJsid5liWsAPZgyofuGj3z~f2HzVzuWdfRDPH3x7pqVsjpU3XQhyhtwS3iC~KHvQHVNmSbrvxn3m2h6UBw1DqhyqdlXNroCTvtXfspTq8vx2dU7Dx2D744UOB0vlzjkJ7BCOU5cfk3uyBqp5Jnh0AcqVmlUpumX8aG9Wo7TdGv6YnlLCMBeUdEB8v~g6duzwDfLQBmHqB6j-i-opJGJuWgya3XRkDRLhiEbmXUoXBPEVW1~33vLv5dUZe0RX9M4fWJMR6o3zv0uwqOJUMerEq~Vrqij~CyqC4jPzSGgxrQ1O~GXs8dSCTv2bWYHTbSJA__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -66,7 +66,7 @@ const Blog = () => {
             id: 7,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/ae8b/a941/30923620aa4218146b28c898b0c8213d?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oE8B3smhAk-x9SnlMHWCsJwFCF8SL~30tpnDtq08KvQtmqtVWmBfc8~FHcJWt8G36yVAx9pf5bKSf~BFTJKPq4WvNOkCj4l-UZAZWT9u2qzgqC6brkZkfb8VmCb99LDI8-ujQxKTscTUUJuLx8rP2ti2heF2YXk0G3zV8U51uZNoJ7dpH2dSIi9E4-IIBvOo4Qm4dq7pYYRrNoBBsDzDAFUTRZf2I-zZz0~hHUNpa0RF76xCSAjPx2FPL75Uu2Pno5GS87Xs66Mp8GKCpzLA-i~o000c-L6rOO9N0qAHDyqns9pWRau9vKc0Ntj1J52hyLwHySeyjphFIWzVx6XDwg__",
+            image: "https://s3-alpha-sig.figma.com/img/ae8b/a941/30923620aa4218146b28c898b0c8213d?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=JzSv-m56YPeaIKVnCH~RsGRDT3MDCon9tp0pEuOcvCRCi3JMn-LBHMh7X5kMk9cCxgXWUpmjwO~kViWwu2S1zIk0I43A9mjpsfIhuxvLlmcUWD~Wzd04WSSf2deHG4k0UCmPpt-MkABEdGefb4v6lmTKq7Gh7sWxJQiFt5ZF3d6De8v-nPNoHxZIWA4s7hZAuIWeztUjy~nVtlkkggifaI4KomDOmUyRWEvkjTfCnfYnZiZ~9WNHQ4EjYFibRbdgDjoaYGgKX6a6MmWztgDwDRqfTOu9SNerllHF0otleQZYaGNzgDB4TJbwLHDCS3p-xOzEqKm5lwHx7lj4B1dbXg__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -75,7 +75,7 @@ const Blog = () => {
             id: 8,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/b540/2c5b/55a16d364ffdd9afcffd1a57e1e75b85?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GmdtVgGOQ~MCkSDCQHHCNTTc55h0JkiAqguSbBXydXJLZgFyK8KlntrOIzyQdUokqt3fLSlXyww0Kw0a5keoo12093aMEd3dP7y7zgHxyk6lcGI9i2m9jv5Dg0FUbIi8USl~q1l2QSe-Yrvsqe~RyfttQyKOcb1eaHtzIpi2lK1eg9AOXNuX~fYKRtHUQvgfx3bBKyI5Qn8Me~09RQNQeqgcx3cpx2IBBf~4VvY9QMFnxMW93c5eLLZVjijYgrF5mdw0J1BeL~X4mOm98I6F5iUWjIGN3Z9QMdahnbEePAT2WL~7wnpOJBSGfvw3RUNYK7qtgpTR8I-XU9dzlh4ioQ__",
+            image: "https://s3-alpha-sig.figma.com/img/b540/2c5b/55a16d364ffdd9afcffd1a57e1e75b85?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=CVBhrzNL~i0vUn~1Hf-19vlG10X2LruM9-degG9-S5XBmmzG7xf050f14yeAkZ99nLYHuiO9Z0UNpwnDy0YJFnB8yoL3Yzpmp3f2k2Se1OagldKYZvlT0LhYF3PzIFW9fWdkogcYsEoGERsEoDoktx9CNwKXbnpQWbDMnOvgnqtR09Bt7sg3mz4Cz1MmRjuQn7F8wTKtIDJt4RAbtlQ7~tRVO-rF5cj0Ji2ga-Kn9d~u0Paux20HAnKvd~GNgycgtyAHC0Bo2A9yfprrK9N7bjIXsqo3wmwaIZ8Gdsn36glD005yv8c8Ev-02hkxGHXGDf~5OIavl2jk05RVa5ndPQ__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -84,7 +84,7 @@ const Blog = () => {
             id: 9,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/5f46/0167/878920b8ae639325010cfcce869cd6dd?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kZDIVoJ~NtvbEtFHrpBZOT9uji6EhR1t1KbEAOkCMosS9TtIZ~a~Pn7I8tvYxsKlj6USew5pYlIKiZKV8Q~eyp3X3aBvDdLnilENZCHivTYqNum4BW0dzbNUBtp01OReaTUG3r0Z5z6W23edd4ldntHrZL1dLcd0zyA-pJbHpcoliI0y4fjCRGiYJ3MUMLBVHrT~XF7~~Jvdp6alVCoP7gcjkmTdF3wQwt1rbVnedV12ZavOF2UshC915KIqY-uIdwEsaEOWnXEFdSKinnVVLDFO1IxWDtBglFQg1Gra6crKdnvefnmC0LIJ9t6GJNuU203cgM2U-Tzdl5XsGp-nQw__",
+            image: "https://s3-alpha-sig.figma.com/img/5f46/0167/878920b8ae639325010cfcce869cd6dd?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=YCjA~XoyNyRqOixKRkCsHyjBGonTmWRjT0CEACMpAq9DM~684HikZCVtcBcHu71vnhPTwoQJ4FQRCX0dzoUc7Xavwcvtw73LwsxYwd3TQnb~p-Vzv4VdjfesNmX94PQBj4tjnv5oXisN1RBbnaTyCi2btZF3Gsi3Mrk3EayGrvWbb-1SqrH-HD6~BtoGlMVt0oX1wLYMd8utP5lWZDRepk2RIvwLVzeHgstW~JwJv-v5ZX0bYYfIxICaPDn~Cby~MH93I7TkRI7VXRWCwjVec97Y3teHNWLT0zMIs8IBAuQq2D~wb2-Kf3xoFWiCJvq2T25xx9sdOe71PPi3vOQsbQ__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -93,7 +93,7 @@ const Blog = () => {
             id: 10,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/b95d/1a82/cb7d39819229fcb1035f77dad15ce947?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pECxQjjLajSWIkEFn1WYPb52zX2yCyVcG-uMZsynm1TPfZF93rdhrzFejkRbPTd54GO4axoqr~SQrG2P7K2kWShvhvOLW7tyqQLn1uC9vO8-J92t4hXyb3qtpMKIvWfP48hOLfWrOvAue0BcamSAFBvsLxaM76~G8KZdYigvHXf1iF-TCaM1is~A1~ETn7Jl5BIlakJ7qmsHCMTmJk-~vH2x~hZ3y0iwNeivO11I4gknLX9MxtmmjL2lFWHnAOU6lk8jQ5PU9vytSMs2XsgoHrri5IYrR-0NySvDCVWLnPpxsVAtPhLxm0NByLEmw-ZiAcGWAbveDOJ2wTud27Ncrg__",
+            image: "https://s3-alpha-sig.figma.com/img/b95d/1a82/cb7d39819229fcb1035f77dad15ce947?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FV2w3GPn3OzW-ZXi71JOREuLG-CD~ydu2zwKPKoRTAM3R~2vod9FgyYli~IHNcuan3-edp6I10s9THigi2h9ZXLUi3WOtd~VHwDCMKp7FlVEeloys7PSG0vBd3FtMqizCyG9d6h2-etfVqfN7B1Cl4GVh0buiRTzxxR2SiTXl-LMHVzELJ9Gq5WoOCpMzwM1LnH8r8nhlop26aUC-kBsfwmJhrdYor0xxZ2B0azij5baqQVIFRvOOnodUA7Hbl~vP0UjQr1B7XiKxPMOfUKTe2lStyFQsWf7c1xdCTCDoqiQK1~Yqx9rc3DTF5DCmwfj3U892rBKMrQnTOj6GJDWEg__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -102,7 +102,7 @@ const Blog = () => {
             id: 11,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/00a9/190d/dfa332514b43ba0822970ef1973003b7?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fnDHcxvA96InH3SfCuWQrhFfxYP3o~1zvVXgf5qwMOtmPCD6OlB~rfjBLI1K9awR9oWY7a49m~wB40y~98BmczzokKuPbX45eEi6fwyTbOg4QIK6rmAETg4B4QTb46vh5rqqobOAdmRM9tHU0hiek1wnAOF2XzK-0DO4hWt2IC6h-8MH52-RTV5xaAt86BcljSM9NNDeZgLEPKiW~wFSt5idBLUEASNwKUqDp4sMSj3ixvg5gtFZQsJnGr19rgWk36FnfcTSdFWXzJZz-ILsxs66l~8KXeGPJWPqyskO8rHBRfB-AlsXIGUak-NG5ZFMcuH1qUhIY0BVE3ECpZqX1Q__",
+            image: "https://s3-alpha-sig.figma.com/img/00a9/190d/dfa332514b43ba0822970ef1973003b7?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=INTUH2qgDPBNlXwfFvanHlNkPlckZX~XPhCjSzdet-lm1bynjdYpHWIa1DvXWqWCkpNZDNSMHm2yTyAf84MMimXSK~3jH3Ar1rL0FqIGwUpnUdriO970b1~ElmxpWruRC2KGhCCZjwDnVa-UxuilcETHWzlmtpPT4rHXF4SxWAIvV9rvborh2Vg3FFl5O2ZR6evB9PKgF1nhNURtqFfUtREgOksBWfvlZQr-W1VoWdrlzr5HpkJj6DhYEq35RUZVdVs~551A0V5mQQ5ztHd7H4Ze2nFvZtplNf7tLL4dRs-6SJ25BZ5Jt1WX3anKbk1-lXT57W468M9WseEcZsjiIg__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"
@@ -111,7 +111,7 @@ const Blog = () => {
             id: 12,
             category: "Salad",
             title: "Caprese Chicken with Smashed Potatoes",
-            image: "https://s3-alpha-sig.figma.com/img/3b19/62db/eb891a693699a5ac96fd9384860ba7ba?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=N8VHLiOLKXm-w54F0mwTZGJY5d7slcADKU2MRjefGxRqELLz7xv~KfnJYeamXor~LvhA0ytyMRlcinYJSFjsyESOMF91NrSlH3J8Y69E9Br~XJyhf5Gd6xTgweXtHh5gJsdxjqU4iflv5Zq4MAoEcgPKXslNkC87FUZfFVbCgxJsd~4MYIIC3nf~CJScKnX-o5c4vkV1PfGjIEO07KPQqbKSacgCa2N~3tFtTh7uRYGAtmDkOsq80kj4DAJEcvFk4OTJwKWNS7i8GFbwdCmpUoh8M17NdVI09KElM9GLUygrzcxi7Hqx9KmuhmjDSZu1eIoc1Q7Etmn-Qg287DzQvg__",
+            image: "https://s3-alpha-sig.figma.com/img/3b19/62db/eb891a693699a5ac96fd9384860ba7ba?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kNoQhSTnsf7gVNA~amZO9YpstUa0DTx3ydENvcnDWuWnVR1cVBeBgn-fodpzMALvdQg2FoVrOy~yDGTy39gVPxNbS3qNUbDsKcDEdxCdmEPFMSvR3G2aTcmz8b-k~O88ug96~yclxp2msklVV7buo6aP4BJz7DasPI-KRvJRuJ8~HEBR00PpG6EVmLRAWdxOmkCC55~Cet42-dWOS4bOscD0yJuQCF~7m0BPRdgETLhxEakT1gzrm~3wxkOVjEw97aU7aXSRzlltnhY6NNDE1XQbdnEndy9243o-Om~olNKfrLomnBXMlYxoynBsVkZYfDPVjgNDgA4AQFhZdqU5mA__",
             date: "25 April 2022",
             views: "126k Views",
             readTime: "4 mins read"

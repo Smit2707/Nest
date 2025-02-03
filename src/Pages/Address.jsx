@@ -249,7 +249,7 @@ const Address = () => {
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Address Line 1</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Enter House No., Building Name, Street</label>
                         <input
                             type="text"
                             name="addressLine1"
@@ -262,7 +262,7 @@ const Address = () => {
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Address Line 2</label>
+                        <label className="block text-gray-700 text-xs sm:text-sm mb-1 sm:mb-2">Add Area, Colony, Street (Optional)</label>
                         <input
                             type="text"
                             name="addressLine2"

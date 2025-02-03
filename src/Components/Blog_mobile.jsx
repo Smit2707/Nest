@@ -8,7 +8,7 @@ const Blog_mobile = () => {
     const blogPosts = [
         {
             id: 1,
-            image: "https://s3-alpha-sig.figma.com/img/00a9/190d/dfa332514b43ba0822970ef1973003b7?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eXErtR3KU-tA1S-hmsY2m8BIlaOFjGmPzVunlE77YQT0g8CwSjVSehcKraojRP4cXNVw9RcpWGNWc4Lcggtha3TlBkxagBbdlbLpfWmvnl4nyEuuLH-OAhkSNXKNA8rRl4Bgkd-MevtATN6XgVCt~rsdRZ9owsKO974mt5lAzjeg3H4wRzSMPHYN22nsgWhNPv7oVisDBPbxjC0u~2Vr7UwJ2Xm7Y5DdIukqbdvlGmDQukUKRQHjBGmVMSDO0mIUsRUF9yocUvAI3ouANc18W4~pHpb-6LMJYD3J41rxO5Pmha1LIk3hdK0G2rwAmZ7z2Z7Vsg0fSaVcXXvxCOozgg__",
+            image: "/assets/blog1.png",
             category: "Shopping",
             date: "25 April 2023",
             views: "126k Views",
@@ -17,7 +17,7 @@ const Blog_mobile = () => {
         },
         {
             id: 2,
-            image: "https://s3-alpha-sig.figma.com/img/e5da/07b0/9e59559c5805fc67657a7c0cf8fa25d9?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e2DSD9FImGxA6v~rVBs48Lg1JNPVp3XkFP3CYuJZKUiYnHVhylNlf6DZ6~30lZZ9~7yGBJDXvmrX6p1xcDjXR1V9VHZCZAxVsCSriz7ttnqBn0oO3B1mqB8~IfO6k3nFTHT1IH17t50r5W2MrivEM3goV~p5bPoloDmlzQBjET6BzSMq~qIM56zT1pyRK1M38-t0DCuf3zQ~h9IZYSU1YE8cmcuQdXVsXB8rqjaH3G4495kh9CvzW20GpGu6xDAR-CKuX5m4JNTnDqkPC-Tda9HrcPszAB26RVDgByMtlrMQGHAgx2Tk4IjNfvhLirb667rkcEw6aiqYB0WkTF9sug__",
+            image: "/assets/blog2.png",
             category: "Recipes",
             date: "24 April 2023",
             views: "88k Views",
@@ -26,7 +26,7 @@ const Blog_mobile = () => {
         },
         {
             id: 3,
-            image: "https://s3-alpha-sig.figma.com/img/6071/5da3/f2863278a563e9f53cc3dc65d7b57a4a?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jPm82Xi3qc0oFDfu~k14ksl~0QF4I0YeHjwW05v9g6u~GBP54H-vIGa3OUXQZzkVUVWFakIMHlb-epiMEThOsukDfLOa03lVeBbouSyxaOLYr9L16jK6Qbhz7msyR2CQweNdQnwycDAUiHQWlM48STn1jj42xR699fJAAfg9kF2SEGyaIsbnEUFOTp9z6JvZAWqec~TMvy65nTDsa~YMprqldX5GsKnNSYErMcIVkNnvqMrMewnODO9vRwgGOUf0rRLdKBcyANDCyJ9QCaC83Az8VGPZOGVVjqIA7ncgQ13s0dxG5cKov04oWBHtqa8lVjm1MqQOSY33DcVE5Z5jOw__",
+            image: "/assets/blog3.png",
             category: "Kitchen",
             date: "25 April 2023",
             views: "100k Views",
@@ -35,7 +35,7 @@ const Blog_mobile = () => {
         },
         {
             id: 4,
-            image: "https://s3-alpha-sig.figma.com/img/31d3/8a09/86ecc64f1750a54603c27ef6ebd61c56?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oNhvSJn-89rg8uheTOo0--itMU8bccaYlHRjSPsOxf15P6NstG0Ni~EalsrSULBN~9ofaMhkHkMZg0r4Isqq5gvNXfBpaB3fJ0sroohwYuMl6qZ50INpUTolBnBMP3CzuXjREQRqKxrfu8IPotwwcgVaRU180H3eG8806pHkja4VefNrZE9domqVDp0D-Bav0tCzXbxyN9nBMkYGWo08mPivvU4ZclOLJX7W8R1-xWlJRhararrRyUmooc2iuYL1qTQTu3xA34mwbhji~JCz-rwC7u~4S-wxuOaiIiv7~BwDe7AJDKx5PJMtWYbcQOcJ6p9qUBMp7LuRdZO-EGCwsw__",
+            image: "/assets/blog4.png",
             category: "Food",
             date: "25 April 2023",
             views: "150k Views",
@@ -44,7 +44,7 @@ const Blog_mobile = () => {
         },
         {
             id: 5,
-            image: "https://s3-alpha-sig.figma.com/img/0b06/d35f/9f0dc9b8b2a2a863096159d763f50baa?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jFYg-P5V6WgT36xFAcRUzVwoeHskBMBuuLnffeElpKIfucEMynmHcYdgRRwjF-cD0SbXVbfmPo8rwHf7t-el9HDFvtLgHj2VcF6XW49CHAroglkQnZgYZ39LfdhVhiuG~EvCA~g0zao96D~ePo9nmtzzFJYYqzGBDJfBsDZHBH~oTr~w2jKwPkIUGLI1a00lsH8jzgmTzCfKbFTW0kpni2WlpW6bvKqyRjRKkkbN0Ols-Xh8VFKqrGl4NHFs3Lw1tV72NneF3zH0VjXaz~ThMXtf66SfDIj167PF5ZQW~F3u6-gl8E07m7NQJfz9o2kbokn4MhFCdfZFdMqeu0VEdw__",
+            image: "/assets/blog5.png",
             category: "Food",
             date: "25 April 2023",
             views: "150k Views",

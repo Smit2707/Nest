@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import PaymentMethods from '../Components/PaymentMethods';
 
 const Order = () => {
     const { orderId } = useParams();
@@ -10,6 +11,8 @@ const Order = () => {
     const [cartItems, setCartItems] = useState([]);
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [orderDetails, setOrderDetails] = useState(null);
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+    const [processingPayment, setProcessingPayment] = useState(false);
 
     useEffect(() => {
         if (orderId) {
@@ -58,7 +61,7 @@ const Order = () => {
             }
         } catch (error) {
             console.error('Error fetching order details:', error);
-            // toast.error('Failed to fetch order details');
+            toast.error('Failed to fetch order details');
         }
     };
 
@@ -122,7 +125,7 @@ const Order = () => {
             }
         } catch (error) {
             console.error('Error fetching cart:', error);
-            // toast.error('Failed to fetch cart items');
+            toast.error('Failed to fetch cart items');
         }
     };
 
@@ -146,7 +149,7 @@ const Order = () => {
             }
         } catch (error) {
             console.error('Error fetching addresses:', error);
-            // toast.error('Failed to fetch address');
+            toast.error('Failed to fetch address');
         }
     };
 
@@ -265,7 +268,7 @@ const Order = () => {
             console.error('Error creating order:', error);
             const errorMessage = error.response?.data?.message || error.message || 'Error creating order';
             toast.error(`Error: ${errorMessage}`);
-            
+
             // If order was created but there was an error afterwards, still navigate
             if (error.response?.data?.success) {
                 setTimeout(() => {
@@ -276,6 +279,55 @@ const Order = () => {
             setLoading(false);
         }
     };
+
+    const handlePaymentMethodSelect = (methodId) => {
+        setSelectedPaymentMethod(methodId);
+    };
+
+    const handlePayment = async () => {
+        if (!selectedPaymentMethod) {
+            toast.error('Please select a payment method');
+            return;
+        }
+
+        setProcessingPayment(true);
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.post(
+                'https://ecommerce-shop-qg3y.onrender.com/api/order/process-payment',
+                {
+                    orderId: orderDetails._id,
+                    paymentMethod: selectedPaymentMethod
+                },
+                {
+                    headers: {
+                        'Authorization': `${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+
+            if (response.data.success) {
+                toast.success('Payment successful!');
+                navigate('/order-confirmation');
+            } else {
+                toast.error(response.data.message || 'Payment failed');
+            }
+        } catch (error) {
+            console.error('Error processing payment:', error);
+            toast.error('Payment failed. Please try again.');
+        } finally {
+            setProcessingPayment(false);
+        }
+    };
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3BB77E]"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto px-4 py-8 lg:mt-40">
@@ -314,16 +366,16 @@ const Order = () => {
                 </h2>
                 {selectedAddress ? (
                     <div className="bg-white p-6 rounded-lg shadow-md">
-                        <p className="font-medium text-lg">{selectedAddress.fullName}</p>
-                        <p className="text-gray-600 mt-1">{selectedAddress.addressLine1}</p>
-                        {selectedAddress.addressLine2 && (
-                            <p className="text-gray-600">{selectedAddress.addressLine2}</p>
-                        )}
-                        {selectedAddress.landmark && (
-                            <p className="text-gray-600">Landmark: {selectedAddress.landmark}</p>
-                        )}
-                        <p className="text-gray-600">{`${selectedAddress.city}, ${selectedAddress.state} - ${selectedAddress.pincode}`}</p>
-                        <p className="text-gray-600 mt-1">📱 {selectedAddress.phoneNumber}</p>
+                        <div>
+                            <p className="font-medium text-lg">{selectedAddress.fullName}</p>
+                            <p className="text-gray-600 mt-1">📱 {selectedAddress.phoneNumber}</p>
+                            <span className="text-gray-600 mt-1">{selectedAddress.addressLine1} {selectedAddress.addressLine2 && (
+                                <span className="text-gray-600">{selectedAddress.addressLine2} </span>
+                            )},  {selectedAddress.landmark && (
+                                <span className="text-gray-600">{selectedAddress.landmark}</span>
+                            )} <span className="text-gray-600">{`${selectedAddress.city}, ${selectedAddress.state} - ${selectedAddress.pincode}`}</span> </span>
+                        </div>
+                        <div>
                         {!orderId && (
                             <button
                                 onClick={() => navigate('/my-addresses')}
@@ -332,6 +384,7 @@ const Order = () => {
                                 Change Address
                             </button>
                         )}
+                        </div>
                     </div>
                 ) : (
                     !orderId && (
@@ -349,71 +402,29 @@ const Order = () => {
             </div>
 
             {/* Order Items Section */}
-            <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Order Items</h2>
+            <div className="bg-white rounded-lg shadow-sm p-4 md:p-6 mb-8">
+                <h2 className="text-xl font-bold text-[#253D4E] mb-6">Order Items</h2>
                 <div className="space-y-4">
-                    {cartItems.map((item, index) => (
-                        <div key={index} className="bg-white p-6 rounded-lg shadow-md flex items-start gap-6">
-                            <div className="w-24 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-                                {item.productImage ? (
-                                    <img 
-                                        src={item.productImage}
-                                        alt={`${item.productName} - ${item.productBrand || ''} ${item.productColour || ''} ${item.productSize || ''}`}
-                                        className="w-full h-full object-cover"
-                                        onError={(e) => {
-                                            e.target.style.display = 'none';
-                                            const fallbackText = document.createElement('span');
-                                            fallbackText.className = 'text-gray-400 text-sm text-center p-2';
-                                            fallbackText.textContent = `${item.productName} Image`;
-                                            e.target.parentNode.appendChild(fallbackText);
-                                        }}
-                                    />
-                                ) : (
-                                    <div className="text-gray-400 text-sm text-center p-2">
-                                        <span>{item.productName}</span>
-                                        <br />
-                                        <span className="text-xs">
-                                            {[
-                                                item.productBrand,
-                                                item.productColour,
-                                                item.productSize
-                                            ].filter(Boolean).join(' - ')}
-                                        </span>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="flex-1">
-                                <h3 className="font-medium text-lg text-gray-900">{item.productName}</h3>
-                                {item.productBrand && (
-                                    <p className="text-sm text-gray-500 mb-2">Brand: {item.productBrand}</p>
-                                )}
-                                <div className="mt-2 space-y-1">
-                                    <p className="text-gray-600">
-                                        <span className="font-medium">Size:</span> {item.productSize}
-                                    </p>
-                                    <p className="text-gray-600">
-                                        <span className="font-medium">Color:</span> {item.productColour}
-                                    </p>
-                                    <p className="text-gray-600">
-                                        <span className="font-medium">Quantity:</span> {item.quantity} × ₹{item.price}
-                                    </p>
-                                    {item.productDescription && (
-                                        <p className="text-gray-600 text-sm mt-2">
-                                            <span className="font-medium">Description:</span> {item.productDescription}
-                                        </p>
-                                    )}
-                                    {item.productCategory && (
-                                        <p className="text-gray-600 text-sm">
-                                            <span className="font-medium">Category:</span> {item.productCategory}
-                                        </p>
-                                    )}
-                                    <p className="text-[#3BB77E] text-sm mt-1">
-                                        {item.productStock}
+                    {cartItems.map((item) => (
+                        <div key={item.productId} className="flex flex-col md:flex-row gap-4 py-4 border-b last:border-0">
+                            <div className="flex gap-4 flex-1">
+                                <img
+                                    src={item.productImage}
+                                    alt={item.productName}
+                                    className="w-20 h-20 object-cover rounded"
+                                />
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-medium text-[#253D4E] truncate">{item.productName}</h3>
+                                    <p className="text-sm text-gray-500">Brand: {item.productBrand}</p>
+                                    <p className="text-sm text-gray-500">Size: {item.productSize}</p>
+                                    <p className="text-sm text-gray-500">Color: {item.productColour}</p>
+                                    <p className="text-sm text-gray-500">
+                                        Quantity: {item.quantity} × ₹{item.price}
                                     </p>
                                 </div>
                             </div>
-                            <div className="text-right">
-                                <p className="font-bold text-lg text-[#3BB77E]">₹{item.price * item.quantity}</p>
+                            <div className="text-right md:min-w-[100px]">
+                                <p className="font-medium text-[#3BB77E]">₹{item.price * item.quantity}</p>
                             </div>
                         </div>
                     ))}
@@ -421,25 +432,49 @@ const Order = () => {
             </div>
 
             {/* Order Total Section */}
-            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-                <div className="flex justify-between mb-2 text-gray-600">
+            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mb-8">
+                <div className="flex justify-between items-center mb-2 text-gray-600">
                     <span>Subtotal</span>
-                    <span>₹{cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</span>
+                    <span className="ml-4">₹{cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</span>
                 </div>
-                <div className="flex justify-between mb-2 text-gray-600">
+                <div className="flex justify-between items-center mb-2 text-gray-600">
                     <span>Shipping</span>
-                    <span>Free</span>
+                    <span className="ml-4">Free</span>
                 </div>
                 <div className="border-t pt-4 mt-4">
-                    <div className="flex justify-between font-bold text-lg">
+                    <div className="flex justify-between items-center font-bold text-lg">
                         <span>Total</span>
-                        <span className="text-[#3BB77E]">
+                        <span className="text-[#3BB77E] ml-4">
                             ₹{orderDetails ? orderDetails.totalAmount : cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}
                         </span>
                     </div>
                 </div>
             </div>
 
+            {/* Payment Methods Section */}
+            <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-4">Select Payment Method</h2>
+                <PaymentMethods
+                    onPaymentMethodSelect={handlePaymentMethodSelect}
+                    selectedMethod={selectedPaymentMethod}
+                />
+            </div>
+
+            {/* Place Order Button - Only show when creating new order */}
+            {/* {!orderId && (
+                <div className="flex justify-end">
+                    <button
+                        onClick={handlePayment}
+                        disabled={!selectedPaymentMethod || processingPayment}
+                        className={`bg-[#3BB77E] text-white px-8 py-3 rounded-full hover:bg-[#2a9c66] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg font-medium
+                            ${!selectedPaymentMethod || processingPayment
+                                ? 'bg-gray-400 cursor-not-allowed'
+                                : ''}`}
+                    >
+                        {processingPayment ? 'Processing...' : 'Pay Now'}
+                    </button>
+                </div>
+            )} */}
             {/* Place Order Button - Only show when creating new order */}
             {!orderId && (
                 <div className="flex justify-end">

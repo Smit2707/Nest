@@ -145,15 +145,15 @@ const AllOrders = () => {
                                 <h4 className="font-medium mb-2">Delivery Address</h4>
                                 <div className="text-sm text-gray-600">
                                     <p className="font-medium text-gray-800">{order.deliveryAddress.fullName}</p>
+                                    <p className="mt-1">📱 {order.deliveryAddress.phoneNumber}</p>
                                     <p>{order.deliveryAddress.addressLine1}</p>
                                     {order.deliveryAddress.addressLine2 && (
                                         <p>{order.deliveryAddress.addressLine2}</p>
                                     )}
                                     {order.deliveryAddress.landmark && (
-                                        <p>Landmark: {order.deliveryAddress.landmark}</p>
+                                        <p>{order.deliveryAddress.landmark}</p>
                                     )}
                                     <p>{order.deliveryAddress.city}, {order.deliveryAddress.state} - {order.deliveryAddress.pincode}</p>
-                                    <p className="mt-1">📱 {order.deliveryAddress.phoneNumber}</p>
                                 </div>
                             </div>
                         </div>

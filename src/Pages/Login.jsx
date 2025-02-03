@@ -33,14 +33,24 @@ const Login = () => {
 
     try {
       console.log('Attempting login with:', {
-        email: formData.email,
+        emailOrMobile: formData.email,
         password: '[HIDDEN]'
       });
+
+      // Check if input is email or mobile number
+      const isEmail = formData.email.includes('@');
+      const isMobile = /^\d{10}$/.test(formData.email);
+
+      if (!isEmail && !isMobile) {
+        setError('Please enter a valid email address or 10-digit mobile number');
+        setLoading(false);
+        return;
+      }
 
       const response = await axios.post(
         'https://ecommerce-shop-qg3y.onrender.com/api/user/login',
         {
-          email: formData.email.trim().toLowerCase(),
+          [isEmail ? 'email' : 'mobile']: formData.email.trim().toLowerCase(),
           password: formData.password
         }
       );
@@ -52,11 +62,9 @@ const Login = () => {
       });
 
       if (response.data.success && response.data.data) {
-        // Store token exactly as received from the server
         const token = response.data.data;
         localStorage.setItem('token', token);
         console.log('Token stored:', token);
-        // Verify token is stored
         const storedToken = localStorage.getItem('token');
         console.log('Verified stored token:', storedToken);
         navigate('/');
@@ -70,9 +78,9 @@ const Login = () => {
       if (error.response?.data?.message) {
         setError(error.response.data.message);
       } else if (error.response?.status === 400) {
-        setError('Invalid email or password. Please try again.');
+        setError('Invalid email/mobile or password. Please try again.');
       } else if (error.response?.status === 401) {
-        setError('Invalid credentials. Please check your email and password.');
+        setError('Invalid credentials. Please check your email/mobile and password.');
       } else {
         setError('Login failed. Please try again.');
       }
@@ -97,7 +105,7 @@ const Login = () => {
             <label className="block text-gray-600 mb-2 text-xs lg:text-base">Email address Or Mobile Number</label>
             <input
               type="text"
-              placeholder="Enter email address Or Mobile Number"
+              placeholder="Enter email address or mobile number"
               className="w-full px-4 py-3 text-xs lg:text-base rounded-lg border border-gray-200 focus:outline-none focus:border-[#3BB77E]"
               value={formData.email}
               onChange={handleChange}

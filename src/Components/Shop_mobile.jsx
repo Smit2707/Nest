@@ -102,7 +102,7 @@ const Shop_mobile = ({ products, loading, error }) => {
             <div className="sticky top-0 z-10 bg-white border-b">
                 <div className="flex justify-between items-center px-4 py-3">
                     <button 
-                        onClick={() => setShowFilters(!showFilters)}
+                        // onClick={() => setShowFilters(!showFilters)}
                         className="flex items-center gap-2 text-sm font-medium text-gray-700"
                     >
                         <IoFilterOutline className="text-lg" />
@@ -112,7 +112,7 @@ const Shop_mobile = ({ products, loading, error }) => {
                     <div className="relative">
                         <button 
                             className="flex items-center gap-2 text-sm font-medium text-gray-700"
-                            onClick={() => setShowFilters(!showFilters)}
+                            // onClick={() => setShowFilters(!showFilters)}
                         >
                             Sort by: {selectedSort}
                             <IoIosArrowDown />

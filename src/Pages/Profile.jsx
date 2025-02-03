@@ -214,27 +214,29 @@ const Profile = () => {
         <div className="min-h-[50vh] bg-[#4ABD88] pt-24 pb-8 px-4">
             <div className="max-w-xl mx-auto bg-[#b6ede2] rounded-lg shadow-sm">
                 <div className="p-6">
-                    <h1 className="text-2xl font-semibold text-[#253D4E] mb-6">My Profile</h1>
-                    
-                    <div className="space-y-4 mb-6">
-                        <button
-                            onClick={() => {
-                                setIsEditing(!isEditing);
-                                setIsChangingPassword(false);
-                            }}
-                            className="w-full bg-[#3BB77E] text-white py-3 rounded-lg text-base font-medium hover:bg-[#2a9c66] transition-colors"
-                        >
-                            Edit Profile
-                        </button>
-                        <button
-                            onClick={() => {
-                                setIsChangingPassword(!isChangingPassword);
-                                setIsEditing(false);
-                            }}
-                            className="w-full bg-[#FDD339] text-white py-3 rounded-lg text-base font-medium hover:bg-[#f4b33a] transition-colors"
-                        >
-                            Change Password
-                        </button>
+                    <div className='flex justify-between items-center'>
+                        <h1 className="text-2xl font-semibold text-[#253D4E] mb-6">My Profile</h1>
+
+                        <div className="flex items-center justify-center mb-6 gap-2 w-1/2">
+                            <button
+                                onClick={() => {
+                                    setIsEditing(!isEditing);
+                                    setIsChangingPassword(false);
+                                }}
+                                className="w-full bg-[#3BB77E] text-white py-2 text-xs px-2 rounded-lg font-medium hover:bg-[#2a9c66] transition-colors"
+                            >
+                                Edit Profile
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setIsChangingPassword(!isChangingPassword);
+                                    setIsEditing(false);
+                                }}
+                                className="w-full bg-[#FDD339] text-white py-2 text-xs px-2 rounded-lg font-medium hover:bg-[#f4b33a] transition-colors"
+                            >
+                                Change Password
+                            </button>
+                        </div>
                     </div>
 
                     {updateSuccess && (
@@ -242,8 +244,8 @@ const Profile = () => {
                             {updateSuccess}
                         </div>
                     )}
-                    
-                    {userData && (
+                
+                {userData && (
                         isChangingPassword ? (
                             <form onSubmit={handlePasswordChange} className="space-y-6">
                                 <div className="space-y-4">
@@ -295,7 +297,7 @@ const Profile = () => {
                                 </div>
                             </form>
                         ) : (
-                            <div className="space-y-6">
+                    <div className="space-y-6">
                                 <div>
                                     <label className="block text-[#253D4E] text-sm font-medium mb-2">
                                         Name
@@ -311,15 +313,15 @@ const Profile = () => {
                                     ) : (
                                         <p className="w-full px-4 py-3 bg-white rounded-lg border border-gray-100">{userData.name}</p>
                                     )}
-                                </div>
-
+                            </div>
+                            
                                 <div>
                                     <label className="block text-[#253D4E] text-sm font-medium mb-2">
                                         Email
                                     </label>
                                     <p className="w-full px-4 py-3 bg-white rounded-lg border border-gray-100">{userData.email}</p>
-                                </div>
-
+                            </div>
+                            
                                 <div>
                                     <label className="block text-[#253D4E] text-sm font-medium mb-2">
                                         Mobile
@@ -335,8 +337,8 @@ const Profile = () => {
                                     ) : (
                                         <p className="w-full px-4 py-3 bg-white rounded-lg border border-gray-100">{userData.mobile}</p>
                                     )}
-                                </div>
-
+                            </div>
+                            
                                 <div>
                                     <label className="block text-[#253D4E] text-sm font-medium mb-2">
                                         Gender
@@ -355,8 +357,8 @@ const Profile = () => {
                                     ) : (
                                         <p className="w-full px-4 py-3 bg-white rounded-lg border border-gray-100">{userData.gender}</p>
                                     )}
-                                </div>
-
+                            </div>
+                            
                                 {isEditing && (
                                     <div>
                                         <button
@@ -365,12 +367,12 @@ const Profile = () => {
                                         >
                                             Save Changes
                                         </button>
-                                    </div>
+                            </div>
                                 )}
                             </div>
                         )
                     )}
-                </div>
+                    </div>
             </div>
         </div>
     );

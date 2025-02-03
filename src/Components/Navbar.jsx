@@ -10,6 +10,8 @@ import { FiSearch, FiShoppingCart, FiMenu, FiX, FiUser } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import MobileMenu from './MobileMenu';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import LogoutModal from './LogoutModal';
 
 const Navbar = () => {
     const location = useLocation();
@@ -23,6 +25,8 @@ const Navbar = () => {
     const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
     const dropdownRef = React.useRef(null);
     const [cartCount, setCartCount] = useState(0);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -103,8 +107,18 @@ const Navbar = () => {
     };
 
     const handleLogout = () => {
-        localStorage.clear();
-        navigate('/login');
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
+        localStorage.removeItem('token');
+        toast.success('Logged out successfully');
+        setShowLogoutModal(false);
+        navigate('/');
+    };
+
+    const cancelLogout = () => {
+        setShowLogoutModal(false);
     };
 
     const handleCategoryChange = (e) => {
@@ -130,6 +144,8 @@ const Navbar = () => {
         }
         setShowCategoryDropdown(false);
     };
+
+    const isLoggedIn = localStorage.getItem('token');
 
     return (
         <>
@@ -290,25 +306,41 @@ const Navbar = () => {
                                         </div>
                                         <span>Cart</span>
                                     </Link>
-                                    {token ? (
-                                        <div className="flex items-center space-x-4">
-                                            <Link 
-                                                to="/profile" 
-                                                className="text-gray-600 hover:text-[#3BB77E]"
-                                            >
-                                                Profile
-                                            </Link>
+                                    {isLoggedIn ? (
+                                        <div className="relative">
                                             <button
-                                                onClick={handleLogout}
-                                                className="text-gray-600 hover:text-[#3BB77E]"
+                                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                                className="text-gray-700 hover:text-[#3BB77E]"
                                             >
-                                                Logout
+                                                <FaUser />
                                             </button>
+                                            {isDropdownOpen && (
+                                                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                                                    <Link
+                                                        to="/profile"
+                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                    >
+                                                        Profile
+                                                    </Link>
+                                                    <Link
+                                                        to="/my-orders"
+                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                    >
+                                                        My Orders
+                                                    </Link>
+                                                    <button
+                                                        onClick={handleLogout}
+                                                        className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                                                    >
+                                                        Logout
+                                                    </button>
+                                                </div>
+                                            )}
                                         </div>
                                     ) : (
-                                        <Link 
-                                            to="/login" 
-                                            className="text-gray-600 hover:text-[#3BB77E]"
+                                        <Link
+                                            to="/login"
+                                            className="bg-[#3BB77E] text-white px-4 py-2 rounded-full hover:bg-[#2a9c66] transition-colors"
                                         >
                                             Login/Signup
                                         </Link>
@@ -421,6 +453,13 @@ const Navbar = () => {
             <MobileMenu 
                 isOpen={isMobileMenuOpen} 
                 onClose={() => setIsMobileMenuOpen(false)} 
+            />
+
+            {/* Logout Confirmation Modal */}
+            <LogoutModal
+                isOpen={showLogoutModal}
+                onClose={cancelLogout}
+                onConfirm={confirmLogout}
             />
         </>
     );

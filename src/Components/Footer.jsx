@@ -80,8 +80,8 @@ const Footer = () => {
                                     From App Store or Google Play
                                 </p>
                                 <div className="flex gap-2 mb-3">
-                                    <img src="https://s3-alpha-sig.figma.com/img/dc4b/2ffc/a1101b9deff29af3a785dfba02788877?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=WilgcEA1bXihwQ5gHTuba3GbAJIvkjpMapQdPO7tDELT20aI~0P1-Rb9foTsFxRahn9mM5oNxKIV9coEBxNo6NhCT48T4W-q-z5z0xkyUMInrsmhDy4FP~VddF6VEyQbIhbfXKSZgaOjIzPEP1I0MJ6V8Yqw1cIql1MCUQVHH9M4x5Z8UGMlOK9lEKybOaGVwxurJQ5VUnTIt8tCHdAtPsTwN4ExRLki6hKk6zr5~PAcMum8V4Qy5xLNSCoRb4j5G63SvgXpMP90vYkbGgWqRBzYGg~2t-LBEKwcNfjWvaTSn2q9FTdJsW~uPPGkmzqHptiqJTGFZvQndoan0oZx4Q__" alt="App Store" className="h-7 cursor-pointer" />
-                                    <img src="https://s3-alpha-sig.figma.com/img/7844/144b/561e00edee01e736c431c7d8af4eb2f0?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=iqRMcGpKyfbKqia4kZgyiym~AcxYhN6dSrKPxn9stWJlAkI0x-uf9hzTcQLplGAjRsJLgeBdmJqDq6tto1mlHpN6HJmZh0NWzhPgdUELdIKwVG0iAaFBgL36ouGAa~FgRL8Zg~3QFXOdmaqmGz0sIeRRbE7agK9P~D-AncWCw~QS~49o4yomVV60TMyKkFPQGeMn61Pu5hXvmCXEYhGzmTsZwWcpuR5ikCO3w15bOUWyGPQ0qtsssH1s2am43T48C9abSXbkdjf89V-P9dkPzak0vZ55iZSi5BI3daFJstyOHqr5vVVvp8KVHErTVRC~Rs6eTXQ4PYMc2R62T3DvRA__" alt="Google Play" className="h-7 cursor-pointer" />
+                                    <img src="/assets/appstore.jpeg" alt="App Store" className="h-7 cursor-pointer" />
+                                    <img src="/assets/playstore.jpeg" alt="Google Play" className="h-7 cursor-pointer" />
                                 </div>
                                 <p className="text-xs text-gray-600 mb-2">
                                     Secured Payment Gateways

@@ -16,13 +16,13 @@ const BlogDetail_mobile = () => {
             author: "Angela Doe",
             date: "25 April 2023",
             content: "Excellent features! I love it. Highly recommend to everyone.",
-            avatar: "https://s3-alpha-sig.figma.com/img/b37f/7dc9/b1dfac7e13b19e79d12eda30784f7ab6?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cdgpkXzQQ8asOxvz08r8l-ssXWg-EvIrUt48jRNfsUPuMy1TIdhweB34u1V8DWwmKyVR0vl3rMnyzOc7XJiJWTAEmtRRuu~3msXNP3JJcDd9dslFN9~Xh-PoYpewxEKOB1MFjz7W~JD4LJl8f3xS3XJ~5D7tGUkiGPc-BiMoRQlv2DK~Mcauwzmsadake4z8KaB4wHm7sE4O-7efMPNJGv5er4886OY1KgY5TGQ9MypqhDd1X1rSBFKzSaXOt1LBD4IxlgDD2c4DBMzcG9IdO0nDRLBAP4ORcMX2R6b5Inb8NVgIxYCoVZBcrgR6Vx7UyZypSlUmgRIemfXk7famaA__"
+            avatar: "/assets/pfp2.png"
         },
         {
             author: "John Smith",
             date: "24 April 2023",
             content: "Great article! Very informative and well-written.",
-            avatar: "https://s3-alpha-sig.figma.com/img/3f9c/5138/5e21edc55024308448b973ce51ea409a?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MBGqRebszXRCLdSDsiXhx9coO243DVTnDVLCvpOQBcfvmyMku9Ap7CQbDOm14BCDUGCYLFdokytqbvr2hUFvWsnHJP4EqB~w1zo7AWyEYsSrC-jiXOzWE6u4fuN1M7X~vhiiPiksbECUPHEMjH9PYHDGYVXBxqJQ0ixKi-aE1oGWOMwoG-xHpqEXkLzNb2ibtBvgdKO9PCwck-M9wzusqXKBEG0Stx3Bqi557T9pbExRhnhE~22S5KFfxBjG4BHEyqWB3slony4Qg2QcWgZ4gJkZAoBNO3YW2SMNY4Tc3iEdWSQQxDnXJF4QneQQ-Pzkk5o9uLbtoZVDkWOWwx~ciw__"
+            avatar: "/assets/pfp.png"
         }
     ];
 
@@ -44,7 +44,7 @@ const BlogDetail_mobile = () => {
                 <div className="bg-white rounded-xl overflow-hidden shadow-sm">
                     {/* Featured Image */}
                     <img 
-                        src="https://s3-alpha-sig.figma.com/img/00a9/190d/dfa332514b43ba0822970ef1973003b7?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eXErtR3KU-tA1S-hmsY2m8BIlaOFjGmPzVunlE77YQT0g8CwSjVSehcKraojRP4cXNVw9RcpWGNWc4Lcggtha3TlBkxagBbdlbLpfWmvnl4nyEuuLH-OAhkSNXKNA8rRl4Bgkd-MevtATN6XgVCt~rsdRZ9owsKO974mt5lAzjeg3H4wRzSMPHYN22nsgWhNPv7oVisDBPbxjC0u~2Vr7UwJ2Xm7Y5DdIukqbdvlGmDQukUKRQHjBGmVMSDO0mIUsRUF9yocUvAI3ouANc18W4~pHpb-6LMJYD3J41rxO5Pmha1LIk3hdK0G2rwAmZ7z2Z7Vsg0fSaVcXXvxCOozgg__" 
+                        src="/assets/blog2.png" 
                         alt="Blog Post"
                         className="w-full h-48 object-cover"
                     />
@@ -56,7 +56,7 @@ const BlogDetail_mobile = () => {
                         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
                             <div className="flex items-center gap-2">
                                 <img 
-                                    src="https://s3-alpha-sig.figma.com/img/9f79/eb35/790bf748bb2ed29e628fc867299685b9?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QVPujp8PGaWLOKuU89dsR0a4BL9LhWJ0WnADk6FehjykzA2zkybPezP0JC088MCs6NM3OA2FZdXn-QTkaJVxyaiqGuY7SS4Zf~bW9M8G1XsDcaymsu2tcog-VS4qtogurrlucmSh-4AD6aePqB2THZSRDJcyyTu8C9x5gpYDSiLDFfIbKzLDDJv2JJfiDEBAMTwxH0s2KQQptGFVbR89cfyzNTy-7PIaH1pOvgg8vruxNImYOZkjJcUC7S4xL2QCEkmpNwoM3gylTZwtXGnJcR60obEsPY5tuNT1R8X5XblaHO7qY40Ot5h7~Z9J8H3JE8guejzMV4KPoZAmmIP6sw__" 
+                                    src="/assets/pfp3.png" 
                                     alt="Sugar Route" 
                                     className="w-8 h-8 rounded-full"
                                 />
@@ -88,12 +88,12 @@ const BlogDetail_mobile = () => {
                             {/* Two Column Images */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                                 <img
-                                    src="https://s3-alpha-sig.figma.com/img/e5da/07b0/9e59559c5805fc67657a7c0cf8fa25d9?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e2DSD9FImGxA6v~rVBs48Lg1JNPVp3XkFP3CYuJZKUiYnHVhylNlf6DZ6~30lZZ9~7yGBJDXvmrX6p1xcDjXR1V9VHZCZAxVsCSriz7ttnqBn0oO3B1mqB8~IfO6k3nFTHT1IH17t50r5W2MrivEM3goV~p5bPoloDmlzQBjET6BzSMq~qIM56zT1pyRK1M38-t0DCuf3zQ~h9IZYSU1YE8cmcuQdXVsXB8rqjaH3G4495kh9CvzW20GpGu6xDAR-CKuX5m4JNTnDqkPC-Tda9HrcPszAB26RVDgByMtlrMQGHAgx2Tk4IjNfvhLirb667rkcEw6aiqYB0WkTF9sug__"
+                                    src="/assets/blog4.png"
                                     alt="Blog Image 1"
                                     className="w-full rounded-lg"
                                 />
                                 <img
-                                    src="https://s3-alpha-sig.figma.com/img/6071/5da3/f2863278a563e9f53cc3dc65d7b57a4a?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jPm82Xi3qc0oFDfu~k14ksl~0QF4I0YeHjwW05v9g6u~GBP54H-vIGa3OUXQZzkVUVWFakIMHlb-epiMEThOsukDfLOa03lVeBbouSyxaOLYr9L16jK6Qbhz7msyR2CQweNdQnwycDAUiHQWlM48STn1jj42xR699fJAAfg9kF2SEGyaIsbnEUFOTp9z6JvZAWqec~TMvy65nTDsa~YMprqldX5GsKnNSYErMcIVkNnvqMrMewnODO9vRwgGOUf0rRLdKBcyANDCyJ9QCaC83Az8VGPZOGVVjqIA7ncgQ13s0dxG5cKov04oWBHtqa8lVjm1MqQOSY33DcVE5Z5jOw__"
+                                    src="/assets/blog5.png"
                                     alt="Blog Image 2"
                                     className="w-full rounded-lg"
                                 />

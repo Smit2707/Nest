@@ -27,7 +27,7 @@ const About = () => {
             {/* Left Side - Main Image */}
             <div className="w-1/2">
               <img
-                src="https://s3-alpha-sig.figma.com/img/5fb3/a611/e7fddfa36d124cb4c39db6b371966089?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a01JrPhMGy3ZdlN~I4iCWp0ocMonNwCjcpnYWhHSyn9J65OFr~9pfDhO-VqZGSoxAycvPi1Mr9uxmOCN3c2oVCzcrFUeS1tXNFYer6hs79vZMOjHxmfw2HOGHBNsXB-2he2vDoOL3MEhNZmXxgCWjhIgDL2w-INjglMTT5LGVMy4UmpEVJvB3OgcUf4LBui8I6saR1Aw86tAxtNQICTr48iWs~q4zUDc0p4JLT9LO9IlkDemY7yz9h8DqO13QtuVp0I3kyMzpS~AKGlV~vqxzOgZVNIQRIGAqiTpzHtUHzMg7MyaQFt-IOZarR74NSUAI7RaHqAQkltdYaVn4zZEgw__"
+                src="/assets/main_about.png"
                 alt="Chef preparing food"
                 className="w-full h-[72.7vh] rounded-3xl object-cover"
               />
@@ -52,14 +52,14 @@ const About = () => {
                     ←
                   </button>
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/b26b/b39d/2b9070f4e580b14c5b98b794e753d7f4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=tI2eUpEdDqs0YDybue0aVQrv3OgyQKskz2bBDAesTAuOo3kdcQ21Gi8dMMZjmkZXqaYSEwaT6iymSfgf0AaMxFCvAZGH63kWYeFvp6fJ92fh3G5n29l5v0l1Q~m7GdDSb2zJ8nIVEnFJQ7wfDenqM6PqeL39D60~aay6vt0l3FBGTUbKFkNubZ6jk~UufkAuXT5VO3M9EBonAmpPY5G-XGf3iVGTs1ysDJBW~XCZM~z0TI9-upQGIo~lZAYW8EM-7zHTMXJ4xxTdN8Ln3opzm-o43P4XvXDMOJ~PFtFSZ3-lct2KRmMLZZzd5iqyT-qdTNPf8bRr24IUZ6jpnQ3C~g__"
+                    src="/assets/side1.png"
                     alt="Food preparation"
                     className="w-full h-[240px] rounded-xl object-cover"
                   />
                 </div>
                 <div className="w-1/3">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/f8b0/5517/49f0ed77ef6cc51a37e9e03515434576?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=fubA2BzaVBaS22bXH~33fx-DnmxFlsFx6bNYFbDTqqqJYg7bauJ8PsznQ99WqEYJmgIe1NWCx6H4qNn8jupyCShuM-GNSODn0Pne1TW1q1yk5xraOnP0kSQ5tr6XKt~QKAIxj6rt00GU4SN2P2VTNgDxC9mMYYSjUP1nH6PiEDNHcrTmHugYIKqyzV5UyBlSholMMxym8BMTWROB4PdS2VBk72QrA-RjofzINxs7rBtmGAtW4eioSw9XhW57~kKs30oI~nBM1QHiUXhVl6eLCH0ZOYF9l6fGa30GVGOrfPaVDAjTkm081gu2XXII5Be5lVyhwZVeWmyn68hBTktVBw__"
+                    src="/assets/side2.png"
                     alt="Fresh vegetables"
                     className="w-full h-[240px] rounded-xl object-cover"
                   />
@@ -69,7 +69,7 @@ const About = () => {
                     →
                   </button>
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/c360/e0d2/61dddc7b7beff7d493aa47bac5b77484?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=iMnscZxMgTBkaDpglz6MAWFOLAMEK4w8LtqzfQVf6xbDWsirc4yWbk4hJdrTWgUnbrTTFv5GFdkNjQ~OAvmAqWlNJJbYsKnXzW99gIhu~gAa3vOpSccegKIi05VvWrvtHcr8t93rmRzyFFgTnycMS8StKU2A1W-WWGQWxhgKkkQ7AevoaAsfovD~XabFw9ZqaWuQbtRL34DjWaowy05Yj46mMQCRGRrFLhLbb-p6Hmugf5WEoNRo8dArnEzbzg~rDlRkvrcEu7pOEGKkVpsv9NIe4mw07w4fI2vscBigLHBNk~YvdVOgqushK1hYxsWUVbp7PZv2SUWWUWK3XO0uBA__"
+                    src="/assets/side3.png"
                     alt="Plated dish"
                     className="w-full h-[240px] rounded-xl object-cover"
                   />
@@ -85,7 +85,7 @@ const About = () => {
                   What We Provide?
                 </h2>
                 <img
-                  src="https://s3-alpha-sig.figma.com/img/7cd4/2ebe/20782f45534d14bb7e5723c4483086f5?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lg21ucCIMlg2d9heXw1OoJTmkft6xNPvcYWG4EyoztAvi7QgsQGBi0G96Vv8eMQLEzcP7-DE8OP5js-qDTBYQQ6r13IImmGibINvgOCl0jI07iyC0RnmsUf66Ihy3H~IrGcro-6BlK2rDxDNJDn7uKjeb4e-5sDuxk8N58mnQh-V1uBPLBJhc3fUA9LM-reGqdKlECvpTBFOip88tS18e69A1g4PCp-krKcWmbFFQA6EpkvL4xPaa8os0YhR3IlmsNCF4Hv-wn6maLMVSVqhD8TGyqxZB5bDJZRNaCP0JPa-bBeZY9yIqY0kKTHkTzmv-ksR48wK6ePHvn7qug0Uvw__"
+                  src="/assets/wave.png"
                   alt="wave"
                   className="mx-auto mt-2"
                 />
@@ -208,7 +208,7 @@ const About = () => {
 
               <div className="w-full h-[400px] flex justify-center items-center">
                 <img
-                  src="https://s3-alpha-sig.figma.com/img/b2c3/79bf/92038f828a2bf2ae708075d5f51de946?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lUEvSrghMlnd9upuwBREAlnI2vT960q1YvmXvqD34qc5nyLFZSHXRaQEOJ34O4xkVYBkZw5bRkREgYQ~QrY3BVho9ne5FZ3fIn2Uf1YV~4oTfWT4CfPawx7eYrasi98ogtcvkutznwHrt3o3rhCrA4q-ySQ0oRV93LV6fpsYuBd~QBeSOKafzeW7WMT9F4JMjYe5o2d2PSnPyyQQqPaJ-twGpjnnybDcBUdBF0maEWUY6k9d45HCftq2tantr~oVb3EDyW3SGfkAbFClf4sVCjxtZIFb-BK3ZME~v~5Q0Km~AF9Yzhmei6iLXkQTbe3-AzkiEqjhhNvGka-frpa7eA__"
+                  src="/assets/people3.png"
                   alt="Business Meeting"
                   className="rounded-2xl w-fit h-[400px] object-cover"
                 />
@@ -325,7 +325,7 @@ const About = () => {
                 Our Team
               </h2>
               <img
-                src="https://s3-alpha-sig.figma.com/img/7cd4/2ebe/20782f45534d14bb7e5723c4483086f5?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NfKpD-YDUlTWGeiintg3-VycvpIKZSIkCfnxWT-FCkEKJyE9cOjr9Fg4CHaiFUazXNTri~96LAnIN~s99U2vT64uJfbGGMIa09cHXur3Ce2fJbtdLHHtCM~eAQfyHWH4JiHM9lZjAwRg0X3d9-B7ExvG3NrRztyb98Yo4jcutVfWup9oQHAUw61Fozjd2PFa42XR10Fa2dD~~shFDIId~6a8aecX42qgvkdW2xfxuysrjbKsPx5v-77zDksAunplE42Lp1-6j2T7PWKQOsfrExZRLSbv2zUmAqjtAUrvHRnbAf0oA5Jf08PyMdXpOtVa1J3SkDGsFSz~NFWOxX~T2A__"
+                src="/assets/wave.png"
                 alt="wave"
                 className="mx-auto mt-2"
               />
@@ -356,7 +356,7 @@ const About = () => {
 
                 <div className="bg-white rounded-2xl overflow-hidden">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/affd/58bf/571556910fe6ef9c4f85379e59ba267e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MABO4hoqCU5rAMg-nlN1CqmMOD6GYZc2UC92vmMHxxRkUNMvBYVsKpTMrgfsse3EsPM24u29kumwLmckA6I1BcM1smKKA2J3ivP4rndLneQhB2VJoBeMZxVVvEZRQtj~K2qXe9RCyZkcyjGRBBy1dYpf27nsVrkaMR4XiNoNmuxAHTRUfhdPz6QV5v3ZrlIFRbv20HKgeoVS13conYdgNriiEjxh75p~CfP8zuxID4CZgmHLtMW1whPXrV~qnke-Es2hTJvjJpNlh0wdWBKr-OsRSPPiG-uwdY7DyxV~xMfDBeLCEa2mr-elGxBpnx~1KoKFrogWUbn6xBg2F2HdAQ__"
+                    src="/assets/people2.png"
                     alt="H. Merinda"
                     className="w-full h-[300px] object-cover object-top"
                   />
@@ -393,7 +393,7 @@ const About = () => {
 
                 <div className="bg-white rounded-2xl overflow-hidden">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/4ed7/432b/829fdf9e093f0e99b4ae2277883a9017?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=B5SDrOtsc6zgqrLeeRmHa-tYWJ2PVWQtPbbNmbfL6Qb0usG3xmNGs3hFGpEO2dYqOz4AJaf8FjvWnDSMhhlkxRf4yLKi8XnI6h~iJyZfotTkoYpz335cTqAoQcTLF84rKKDOwZma6DO8SrA8lrsfghkxQtHslj-6UAwv9EuiP1VY-5a~6HKIYIwZSSDAhFf~pX7~v9e1m7tu-M7vKUH8KX~F-xmmMLb5~46x0Z3xaSrdj0eCzJdT1Mq7LfS-FH0bXBlYKmLhFo6B9dQNTtod~lsu6rfj4rqKxBpwFq6G9fRFdI6i4r0KNPR4N09C3JdKyATIxpWkybVoxzQLFm~~lg__"
+                    src="/assets/people1.png"
                     alt="Dilan Specter"
                     className="w-full h-[300px] object-cover object-top"
                   />

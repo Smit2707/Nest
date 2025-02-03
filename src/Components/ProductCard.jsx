@@ -50,7 +50,7 @@ const ProductCard = ({ product, onClick }) => {
                 </div>
                 <div className="flex items-center justify-between mt-2">
                     <div className="flex items-center gap-1">
-                        <span className="text-[#3bb77e] font-medium text-xs">${currentPrice}</span>
+                        <span className="text-[#3bb77e] font-medium text-xs">{currentPrice} RS</span>
                         {originalPrice && (
                             <span className="text-gray-400 line-through text-[10px]">${originalPrice}</span>
                         )}

@@ -161,21 +161,21 @@ const dealsData = [
 const tabProductsData = {
     "Top Selling": [
         {
-            image: "https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MPKui7DRetvcKBxvFhO3giUhr0l3KAQca59jQkl4guWnLiMYDRVTBJ0RGDyBhe~Fxs1EZXgwNEL~XfN9fhGFjvegYkKde0kbpi~iAWzd2TTcaL0yd6ovydqXQsz4FVcITopxcDMO8GLKIoje01cEDTQOhvQ1oG0fbQDDJElyVVWjk4vM8PxXUC4mcOkOXUSQO0jnJxP0FDdm9EPX~88jx7XHMDOKyf-dMVH6aGm1gA06kYJ-DmX0Yki34XdJQJXPcUWJiRb~5C2u~sF-qB9dPeNNb5YJ2HFAIwGx85pIjmnFvZKsxD5EcFIhip8J0VQzWM6d3IbYhEmRmhsYSlQNfw__",
+            image: "/assets/Product Images/carrot.jpeg",
             title: "Nestle Original Coffee-Mate Coffee Creamer",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AKnINjAl3xpSHOQb51fa3vVCz2pNpFkx0bGxor9GaAABOsaicDLMJXQgHyfk4EQCf2DY~IWS6xxPXp1dwxfEBn0Q1LNfq1wB4p9yrz5IKMakBdFkaGKaMmwkkttOqjdMC69d56zQRldVQVLHc9SqGRRrVLvVr9ffkWevppQ3X5PEyxIdHSiypWw1s5TJQcVJwcNjd4xiUwGWbxxaXJDrBUU8C8MiNJSyajrpRZ4J4O6MhZ-16V6QCOIGRnh3d656Z8Gvv6TT609cQlgGZkFARjlsro3TkruGDcRUTaZ8M0xWcQ~LXXyB5AhKeiulzcNcPjt-n6UnLyJDqQe5NNZodw__",
+            image: "/assets/Product Images/capsicum.jpeg",
             title: "Nestle Original Coffee-Mate Coffee Creamer",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/c6e0/0d2a/20467838df1c528af63bb228455b48f6?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BqV~rmS6ELTH-KQ01ripPUo1gHfh3Y-OuQWwasPvcrzVdJ1lYGFyRLqltK27oDt41eI2stWHFwHlfaDWv~ZSXjYQOdJz09S6Ajs6flLuWRvWdJprjGABx4gBkTVfbR7m8S0g5sYSChTIDdF6FnhGmrTscJYyMQil22CMhzLHti4iorhMgvZjPdWfTiGLjFVD1sXRWQGHe-oYB0Rmo7WUnt49ybyTj53gtj0viB2aEzjSq0MwMIJeCYFQNj9zaCdqS0sGPwpJ75XI0ZK1FmDEGjlOh9lkofs1sTcuciOnRcF0vSUjKNzRlrW9Zv~V4eNNGDuvSfZQ17CNVBc1~TUvow__",
+            image: "/assets/Product Images/orangeju.jpeg",
             title: "Nestle Original Coffee-Mate Coffee Creamer",
             rating: "4.0",
             price: "32.85",
@@ -184,21 +184,21 @@ const tabProductsData = {
     ],
     "Trending Products": [
         {
-            image: "https://s3-alpha-sig.figma.com/img/0a45/78eb/a585fad4345109bba4bb7965b34bb93d?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rz1Axkxk34BL8V1cL0k~2hFSkxmvs1KXMfuHFjKtjESDFzdWT-~6NItAOgV7X0KTgDIKsvMyFWWZZy4FlYCLaJx-OXaTrTHS0~uJPEP5jyeO9-2hDfUDOsTIk~z44S0rQn7R5YgVjYhJ0KnCJYMkqCb~D8uB7DANTn2uS8M1sOaIKlRbY2ODLQ0xBJyvvPC5n3YCMbLpWiTVTZ3g9WbLilz83fxr~-JhySNsD14pTGcaB9BBxyFDUJWJcT9KblnomrikWJDUTXTFHp4ORvyOWk5u2V-S6xNxYvVhz1M2WAQuDOysogWWEi995FrzeZVUHBHD3ws8-fQN4H1kITfhIQ__",
+            image: "/assets/Product Images/banana.jpeg",
             title: "Organic Cage-Free Grade A Large Brown Eggs",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/db2e/e4d1/431152f37b8be8e26e7020df85c82e5b?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MyT50V8dYZqeI7ebeyOezjHq-6JE82Agr68D4Pn51m8bFwVrvK4keC8TtqaWTOiCPkffBmmhmT5MSLx8loLe9WP7bi4pkVrbfQ2A6uvKy~9mHM7DpPZn9BledudM8jdHLuqZ4mVbEUfIQyFgL0Ld2lzWmVwOI1z0JdcXPo8U5bS1HkqAhZLA~Cg3EAZbv-a0zhl3sSSBip-yBXJ59t2-uMEkS7q9HP5vu0VEcAs-GU2MSOIjWAtNnlAkDiq4Um82wxMXck8QJpU07YOxth9S8yqBLWF0ZlDhTMS9zcu2fPrH-DHB4jQzh60ZzbBEYbcWAEtwwjzFyz~U68NXPkx9cg__",
+            image: "/assets/Product Images/watermelon.jpeg",
             title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/08aa/84c6/43e52b6e90cb14a936e3dc2e4e4a6e9e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nVicDFlkHwq~MYOEUxw2eWxG8IrofSM9A~ncGpZz2k64BcW8LYkJOGlSIPZhGSxCdXULqljrnQDdIYA2aQ0m4~~3TmxEtEeiYTdPrn-VC3uF5eOlZR8Xk8rq~89fPCm8ROinvpgzguPqf7EexH5hHKy0bsQVbYNvDKT4lb6hinH~imzVEba8erZxpiM7yDuMhNPymhlGkfaLzAuwj~EK2IvtdS7Dv808DPhRJLsdvlfOsnDPllOUC8dDSQMuNXJSXv1hBLJMe3Io23QVMppDPN3Tp~JogT4k9gUU0kc04MI4RE-h~vGAr~vnxuHVcoQ~z2QOnw8Zmxp5sD~SztoMIg__",
+            image: "/assets/Product Images/mystrey.jpeg",
             title: "Naturally Flavored Cinnamon Vanilla Light Roast Coffee",
             rating: "4.0",
             price: "32.85",
@@ -207,21 +207,21 @@ const tabProductsData = {
     ],
     "Recently added": [
         {
-            image: "https://s3-alpha-sig.figma.com/img/586a/ac10/2e81764899be66fe52968af922b988f0?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EAHXtJJs-OXmQvRRujkKoUGOdaxzsNyKkPGJW1L28nfCSFBA8va20dOW-cn7odn5okJUojyXd5ThGzeKSAY2hFTzFUwQSNLjpbNzlGevPQjZODx1Hptxc1zfZXpUNxc1HJkZw5c3Tm5AvC4nO3OC74aUlUmBd3AETfVVqSLNx3i7tPHtVfVidjUo2aHXZtI-jihud-jiZQCgEcEWRvRDQb2gHP3mhTFSh7NQGhVXcjDuZ5YIQ8THlChBpj~3np5bKNlIm4qg2OKpiKKYxtOCw6yMWCXjHL3iGDZ4U7nD6jxW7WzCxEC3uViHgmL~1tN3-pJ~e0LDc4Ctkyxjy4uUFA__",
+            image: "/assets/Product Images/mango.jpeg",
             title: "Pepperidge Farm Farmhouse Hearty White Bread",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/0cae/8132/71992813bd4990330476a615e6a49f19?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bvTD8Yp61glY7oDkgjkk8-d1AG2TzxES1mxat--uXqoG2Wqt0Pe~8K9ZmUNkz50RRvGigX~liP6K0BwpynIMorSyEc-EX4oYAiucGdt6ySATjHgSPrF49vKzDNoKGr4N6bUrtrq6dAqZHVfnX0V0pBUZB98RSgrSRuQpOxn3j1mq9BU~dR5Gw9CNYBeRE0MZZySgTS3577MPlpFspveIeSFPrrVzn4QHDh2y20XuzMklVx8IGTiL2BhOH5zZ016TJRsFM7gu~IM-t2ToKxvThnVjImNW4kP5OHLbsQRLFWLVB8qfAzQ8SpfDzaEeNKtJDB1kt~Gai-A9~~zAGKo1bA__",
+            image: "/assets/Product Images/mango2.jpeg",
             title: "Organic Frozen Triple Berry Blend",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/8e92/9504/d07491400bda8ae10048b91c9818629a?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eyIK~IeKLkk9UmCFDuILLNWz7mJdAO9khz1CesiDwsksdkrR4WyfCayNqVyqo504apWO9FGAbyCAwI5gKzKQ2ePyCn0lTlrA-ornxT-AwmeErMyOwXgPwl5k9iKlgYE2i5TEZwLP9w6HyNHfFPNJ7Wx8GGjOLeoD1YsFA5shq0w45W8tQIDrl8gEUY1uPV35F-WZLmyDPVVcG70MmdQuJvXLN5dsV54Wb6gjglTa0rWwtRNPHH23SqJH9cwyD1KGsDOqPjaxPE28WXtWf3msoNM6yLs9SdoQ1XIKwaWAhK60tf28IEhXor3QffsG4ughvFZplxTv1vsrnw9EsFQbyw__",
+            image: "/assets/Product Images/corn.jpeg",
             title: "Oroweat Country Buttermilk Bread",
             rating: "4.0",
             price: "32.85",
@@ -230,21 +230,21 @@ const tabProductsData = {
     ],
     "Top Rated": [
         {
-            image: "https://s3-alpha-sig.figma.com/img/c637/3eca/d6bf80c5b4a8c51d6635397f3af8e729?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OL9AKoDN~BzPeC3wFsb6yDExTmhL4vv3hvgdLZqIS~zGFY9KZHQnmzFnyjo8dM-SKZB3QBXHILKvULzxyLPO4-n8F30q0bEr7XqXvpwWF-y7E-~d4KrTwZBt0TB1t60nKQGHDeW2VmdcxWjfSw9saM7VMKiOGQ3rKLLHrvACoZ1Ma1iTJtp5xUPW~uDBVST--VNfB2NQqt10KOVlClkvhZKDCpUCPuHt7pvC2PCOkmMaWb389jr32aqVzdCQt0uzsySlKvbA1Cy80FXQ850OaBkWWvNtnZnDV8U9FcsGECY8ub6bVqxmxfXEv20nYxm6p5WtB-v~-IrkDOae0Dgljw__",
+            image: "/assets/Product Images/pomegranate.jpeg",
             title: "Foster Farms Takeout Crispy Classic Buffalo Wings",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/f15d/2115/2e333cdd0b6ec51a0b49b9b4dd3af3b9?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Owq0hWJakoPo3lmyCFczxVZgH9hPYDPO9XyYZw9odGWxK43rO2zHNhfgkviEgDI5ITpRuufm51vDY5Ur~rNI6-kQePKUpRUBrsQnQJRHTB1EDxNHqBr0j6k5C~uZO-hs9uOHJ6ooFhQs11ETHQjISWidzQtvNBpQJ8-cPecJW2ECKlM13bQ32KivoeY0~9l~pyG1FcIPctLk7euhWLPkU2Z0uYtTvfq-dAsyLZXe9JXZ7GU6aCMMmRoHUqsIoQXWP8TyTuuP8cw9CgxV7~LrJOsTJpvOZq4dlYIDiTiAi0xISfvmzrRe8UJ3R7asjb2nHWtskc5olMRQ7-gy58quaQ__",
+            image: "/assets/Product Images/aavocado.jpeg",
             title: "Angie's Boomchickapop Sweet & Salty Kettle Corn",
             rating: "4.0",
             price: "32.85",
             originalPrice: "33.8"
         },
         {
-            image: "https://s3-alpha-sig.figma.com/img/c6ec/3db0/ef4c5f2196cc332692e6f6d16361e7f1?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pEgPa8VFJf3vXAXOyFMMwYV2l~cjlqOurdgBu3H51YYh95Zjfq15yJnV9RIQYGACleoh0Gy4LF30kDLYESSNefZbj-HCdZofn8-xGYGN8GJQenuseM9-k-DinXPXqcCL1vPCk55xDE5SXhuXYs-IWZeoVWkrt7pVlOj7Lt~y0LNWVsvGV083dK-NXOJCbNmDS0xFh-rtbR2cGZ~876Ln2VIa3T0jHH4qps9vPrrsqdAkZTxcAK4gQfRnQbgZZldoxDmgGdyUvCGwQPU-Hm7A6~ls92avLKR~C1HY13ZcwFwilF~dq6jJyVIm0md-egvgCMN-79sEpCZ00zCiwrbwPg__",
+            image: "/assets/Product Images/orange.jpeg",
             title: "All Natural Italian-Style Chicken Meatballs",
             rating: "4.0",
             price: "32.85",
@@ -368,7 +368,7 @@ const Home = () => {
                                 </button>
                             </div>
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/04f7/16d9/9245eacb0ea40bec876d1f6fef0f7a37?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U9u-mBdSuEz9x8PnBQhb5ItOT-1VDA3XHtmSxeSgH19kZyJLenWxfJ02nPzewEjzcQqjYvyeupU-3HiT2y6P4P~lDF5s1Qce1rfz1p-p3aEIKKAMaRkjnD~CsOJByKp0Dfc9ml-vBGK4xNJIO-6nKhgkR39fmMH1Glolt4ppv9xORmKXLRmYNHfWQHtCkLZULQTfbzUUDC8Ozvtp~Xz-ge9XpCpgKVORBqhNNVY6dcBH-eOD5caWCz-Nu-NcbpoLAxFwAqefWd3GfcLz~ZNxO-1WCxKtn2znm8pk7lkcCZ2vvvadr2tF~9WsTjod2HqATMlOo-zJdzdjiv-aNXwcmg__"
+                                src="/assets/ban1.png"
                                 alt="Fresh Products"
                                 className="absolute right-0 bottom-0 h-full w-full object-cover"
                             />
@@ -385,7 +385,7 @@ const Home = () => {
                                 </button>
                             </div>
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/81e2/d2da/b3a741ea7f4d7cecc6d5315cb77be123?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UFIsekokKwFX-IGDQd5YgP3U1~zNqq4WtjeQtZshV8o1bsFFMvzWQP0eJxSrWdaNqkfzxtnFdFwrSgGFPu11kQ03VF1~WWp1JF-1kwGqBPSjCb-W~Bjh777BexQYvPfV2FGxU5Iv28JtOtGzmdS~ybcm9trShsBj54G7G69N~xR~Z5fdQoMFFwTx53BnYKt7EURyzxQuZW09Q9~-peQ~vxys7qs7Xjj52QRFG7-2TUU4qBsrhfdE5jd0CO9fYgAvBESmElB9HGsTG86t2AncqMpJmTZt6N6Dwg-l9LUfflrs2m6VV5L3c167OlHCO-~Odh03I6GC5zzVQKB7idK0Rw__"
+                                src="/assets/ban2.png"
                                 alt="Breakfast Products"
                                 className="absolute right-0 bottom-0 h-full w-full object-cover"
                             />
@@ -402,7 +402,7 @@ const Home = () => {
                                 </button>
                             </div>
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/61b4/9bd5/b7fa6aea055c1b1a720c6a697bd7298a?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mzSwNblt9WcvA0hbmcADytfzSPQ4KdGu0ENyo5ciyXUMUsxcyzFsX0TYE0uIzHisb6jGo8faEiD6xm0K0G2~Vh-b2fHTrl9mBgfT8WI3mGmC7D~RJ7UOZX6eOw6R4n5W32sqGnm0raVOXRBNeWa34exvLftZE9U~g28rqya0RkP9sWD~yvAavd9I7DBBms8ySicN9R3L4BH5zzDFIJln-b1fDt-H4wJ6cli5q7jyrdBgEufjqONqnmbba-OVSNZMRxU~XsnK65Uo7yx5kWMESK6AEqHv0FA4AzPF60gS2HMsm3rH-1JBxCu5mKZQHmSR20eduTYkhBOSYF9ION9n9g__"
+                                src="/assets/ban3.png"
                                 alt="Organic Products"
                                 className="absolute right-0 bottom-0 h-full w-full object-cover"
                             />
@@ -460,7 +460,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/21e4/4269/1440039ef19376cc9cd55fb67282b984?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=sXbCBwwyMdVPFVZdPAQVXA~9~aHKfWvQ43mMs6gXEOe-p8txQuwftuufp8ZaSZKZYvNwO2F2Anmx1hyqmcl1JZpTbjVqY7bY1iudoSlA2KF6xhvvGu9kf2VDpxeify6QMT2SnlG35IoOkrQiK1WFCAw-HqT3Iix~wq9PU9z5voTaRO-2EH5An4pAyv8m5gWMWcI75cK~42n3Zlla6t9FYtJcoRWRsEw8O45e~hZlWvTt1S67btS8FB142RPV2SRS0BG8UJ8uNvjBuo0beDIqhqX~2ObmgYxzr3T-V0VINFdZ7mJjv~qsNASccyZ-X5T5ZG5CUwOuT6BLUpnTVVhhnQ__"
+                                            src="/assets/Product Images/carrot.jpeg"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -480,7 +480,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=t4B7jPhKeYwhUaAUVfdlQhrMV3kKqFbVkFp1wARLwiJEdnmKoXV6MGqE5wQFbeIdE3w3I~i2Oygh74pSJieP0OF3NCrJYNhTwCYdWxEag4Ahi29cHro8LehyIfzUKHWnXtZTcvJ6e~6ECkb2QtEflPDg0XEkWRTFt7cbn~2eO6LSd3uaTriBmc04ZgbYiyIoVqSmpQtBNFIPJkQP-MLQxbne10jESOI0pe24f9vVS5wb5HMf7JT0txoShFnarzYYSLCXiXHlhR0SsKdhB4ZwSuXl0lb4Q9oKF9YfmEkxwdjl15jsTbKdPVHffA7mXKQG~Mk9y335HDMap16~BGI6MQ__"
+                                            src="/assets/Product Images/capsicum.jpeg"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -500,7 +500,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/c6e0/0d2a/20467838df1c528af63bb228455b48f6?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=PLTgwu9lsr72aFWeSUdF~OG3b~vsBI7bksUaWSRjSh6ExLkY2E-Igk~STS2tGrcPlTFkjslytMGZfYvLxWPn9HeNDdCeblpg87j3f4jH-fFDXZ5w2ZFT96AeHg9~XWi6swOP5EHQq1sFjjc~RQYzpO2X69Owr4sM2B8jGcRUclu4s8-svmSUTguYiVkE2tcJk-dgiFyJj1R~4IP2T5-mr5eWpTn4D181467AVzGBXlLTA5IajFc3VC-NBlvYTBmXVhYhEp5-Y7cbGAtrr1KlrlVO4PoHlGkWAetFQofAFmF~kQm~kfQ~dsw0I1~lNzs1Va29yhSgdZnaS2PtNdylFg__"
+                                            src="/assets/Product Images/orange.jpeg"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -532,7 +532,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/0a45/78eb/a585fad4345109bba4bb7965b34bb93d?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=WsRgnJ6eYfeWi7ZNbb2f-QFrH2UuppkAJu1EB8ML0mIsuVIPDzGQvv~WqGyZkegpkVmqsSB5TXUjLxls8dzKwNJjsYcnqvV9p~HBmvnKSKmUjY6qpP1I5Rs48AlCrJEuShbpP4At65~3t7MIMfOA514Q58dxSEX-SmLb-Ze5TXEB2qyps1DeeZleX~2diPeG1au3f4Ma8ZZiBTGW7UR9AA0Tl54v3oUUa3zxozAkfmB27IGXt0OpWl-6gOZSGNrJiY~WMosE5jdqdNco9IwiijhKqrW23bgBfwPe1bPcgjqGb0MBfFTUjH0l1AAlAmsm0rQ9xaJJYLfj2rE6RuCXfg__"
+                                            src="/assets/Product Images/banana.jpeg"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -552,7 +552,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/2ca0/1f91/1e18a8b5efec3854e09469721767910e?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AKnINjAl3xpSHOQb51fa3vVCz2pNpFkx0bGxor9GaAABOsaicDLMJXQgHyfk4EQCf2DY~IWS6xxPXp1dwxfEBn0Q1LNfq1wB4p9yrz5IKMakBdFkaGKaMmwkkttOqjdMC69d56zQRldVQVLHc9SqGRRrVLvVr9ffkWevppQ3X5PEyxIdHSiypWw1s5TJQcVJwcNjd4xiUwGWbxxaXJDrBUU8C8MiNJSyajrpRZ4J4O6MhZ-16V6QCOIGRnh3d656Z8Gvv6TT609cQlgGZkFARjlsro3TkruGDcRUTaZ8M0xWcQ~LXXyB5AhKeiulzcNcPjt-n6UnLyJDqQe5NNZodw__"
+                                            src="/assets/Product Images/mango.jpeg"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />
@@ -572,7 +572,7 @@ const Home = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/db2e/e4d1/431152f37b8be8e26e7020df85c82e5b?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=OeqjQeMnJR9DFMhQGBjTQc2zegwRHmDirQzj2-8dOsuvzq6tuNArOHIhi54V9Dw8grH5ywtR2Yi4t8V8E3KtkTjOfa07Q7MoWpCn3KXRg4MoiSe9NQlKcakWkBqajMiBGDwXF8qmxH~P694-mQJZ2knLg8d3rVq3-qiYROHeGM-k69jDy9Ikpj67YD8AS5KUf~fetfiATrRxDZZT~459rJH7aCCjaeQ~IwDtaSL8qbIIVzj8tb~sw~LPXQCyfSI4ZBYq73V88VFZL5gXxw5wB7iiY8F5GkNSl8TbV4OnTbpNd013B~pIyCMfV9tBjTeNj1h86Kf7OCpTDKyrrAxcwg__"
+                                            src="/assets/Product Images/orangeju.jpeg"
                                             alt="Product"
                                             className="w-12 h-12 object-cover"
                                         />

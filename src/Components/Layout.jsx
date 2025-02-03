@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
                 hideNavbar 
                     ? '' // No margin or padding for login/signup
                     : isAboutOrShop 
-                        ? 'md:mt-[80px] mt-[50px]' 
-                        : 'md:mt-[80px] mt-[50px]'
+                        ? 'md:mt-[85px] mt-[50px]' 
+                        : 'md:mt-[85px] mt-[50px]'
             } max-w-[100vw]`}>
                 {children}
             </main>

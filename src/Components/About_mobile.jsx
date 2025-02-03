@@ -21,7 +21,7 @@ const About_mobile = () => {
             <div className="px-4 mb-2">
                 <div className="relative">
                     <img 
-                        src="https://s3-alpha-sig.figma.com/img/5fb3/a611/e7fddfa36d124cb4c39db6b371966089?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WgmDhsy7wJEkO0aEM~N48r10od2BSrpl1G13RoLj93A4Od7qKDS2VXQFrKl-gJG3m0TBK0l0jDxBTZ0ER9vcLJEguX7qFjjxcqtCs0No25W0weN--r~M8PVETaN8y-LhaY~FEZeuHNr6qk5V1kAlA-obaVeqCl4vO6sN7cNYJ2-PuV3eksBIlixILJ2wSipzn~O4RuO5yVfwokZhpeDyhj3lKT2fvHYhG876KVvNiro0CzXfv4eMV-MDb7BY898FEs2hpqT~Z9E10OLM04YpwPxnMkNE43iodaW0W5kWn0Dup0SrvMPArpmOLAditwpFCN9QooRt2c8pTVCzg2rDFw__"
+                        src="/assets/main_about.png"
                         alt="About Hero"
                         className="w-full h-[300px] md:h-[400px] rounded-2xl object-cover"
                     />

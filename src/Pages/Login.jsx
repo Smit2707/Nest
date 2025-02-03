@@ -40,7 +40,7 @@ const Login = () => {
       const response = await axios.post(
         'https://ecommerce-shop-qg3y.onrender.com/api/user/login',
         {
-          email: formData.email.trim(),
+          email: formData.email.trim().toLowerCase(),
           password: formData.password
         }
       );

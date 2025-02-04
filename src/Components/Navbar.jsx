@@ -12,6 +12,10 @@ import MobileMenu from './MobileMenu';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import LogoutModal from './LogoutModal';
+import { IoSearch } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
+
+
 
 const Navbar = () => {
     const location = useLocation();
@@ -118,7 +122,7 @@ const Navbar = () => {
     };
 
     const cancelLogout = () => {
-        setShowLogoutModal(false);
+        setShowLogoutModal(false);image.png
     };
 
     const handleCategoryChange = (e) => {
@@ -206,11 +210,14 @@ const Navbar = () => {
                             <div className="flex items-center gap-4">
 
                                 {/* Wishlist Icon with Badge */}
-                                <Link to="/wishlist" className="text-gray-600 relative">
+                                <Link to="" className="text-gray-600 relative hidden lg:block xl:hidden">
+                                    <FaSearch size={24}/>
+                                </Link>
+                                <Link to="/" className="text-gray-600 relative">
                                     <FaHeart size={24} />
-                                    <span className="absolute -top-2 -right-2 bg-[#3BB77E] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                                    {/* <span className="absolute -top-2 -right-2 bg-[#3BB77E] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                                         4
-                                    </span>
+                                    </span> */}
                                 </Link>
 
                                 {/* Cart Icon with Badge */}

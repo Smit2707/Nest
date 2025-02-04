@@ -5,6 +5,8 @@ import DealCard from '../Components/DealCard';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Footer from '../Components/Footer';
 import Section from '../Components/Section';
+import { FaSearch } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const productsData = [
     {
@@ -289,7 +291,7 @@ const categories = [
 ];
 
 const Home = () => {
-  return (
+    return (
         <div className="relative min-h-screen mt-24 md:mt-32 lg:mt-24 xl:mt-48">
             <div className="container mx-auto px-8">
                 <div className=" flex gap-8">
@@ -299,7 +301,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex-col w-full">
-                        <div className="bg-[url('https://s3-alpha-sig.figma.com/img/2e69/30ac/0a65b777d032b66cf2c7632ee9190511?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a1w0~yNNj-0omADQfB7FqPVCEgQa-v44cLeT~2YD~nbpfmLzUqVor4QugSeQkL-TlxEauDSJYuqO7MCJt2j52NHXFOytddD302lD2jutJMZZgepRoko8OlxefmtdjK2fPhqyJyuhuUHHgIzYuWtOF6mBetdbNQlwA4PtsfFQPYSv0VdGRyyvTOS-xr7Rgk78BkrBH9H-PYjeEPYXOZSoHVNLa3H7j4nmj3-OW0mqjO7MYtn7EzH7aGCbZb5Jd-VlAxPfrs6UmFbQJEihdVVF2X5jbZAs9bTh9dnA2bfb9A~ipkLuO9Z~vtcOyy8vGjun~SE6OZA-OW9IKhEVN1oafg__')] bg-cover bg-start bg-[55%] rounded-xl pt-12 px-8 h-[250px] md:h-[400px]">
+                        <div className="bg-[url('/assets/mainbg.png')] bg-cover bg-start bg-[55%] rounded-xl pt-12 px-8 h-[250px] md:h-[400px]">
                             <h1 className="text-xl md:text-[42px] font-bold text-[#253D4E] leading-tight">
                                 Don't miss amazing<br />grocery deals.
                             </h1>
@@ -317,8 +319,18 @@ const Home = () => {
                         </div>
                         <div className='mt-6'>
                             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4 lg:mb-8">
-                                <h2 className="text-xl lg:text-2xl font-bold text-[#253D4E] mb-4 lg:mb-0">Popular Products</h2>
-                                <div className="flex flex-wrap gap-2 lg:gap-8 text-[13px] lg:text-[15px]">
+                                <h2 className="text-xl lg:text-2xl font-bold text-[#253D4E] mb- lg:mb-0">Popular Products</h2>
+                                <div className='flex justify-between items-center w-[70%] h-fit'>
+                                    <input
+                                        type="text"
+                                        placeholder="Search for items..."
+                                        className="w-[70%] mt-4 px-4 py-2 text-sm border lg:hidden mb-4 border-gray-200 focus:outline-none"
+                                    />
+                                    <Link to="" className="text-slate-600 relative lg:hidden xl:hidden">
+                                        <FaSearch size={24} />
+                                    </Link>
+                                </div>
+                                <div className="flex flex-wrap gap-2 lg:gap-8 text-[13px] lg:text-[15px] w-full">
                                     <button className="text-[#3bb77e] font-medium">All</button>
                                     <button className="text-gray-600 hover:text-[#3bb77e]">Milks & Dairies</button>
                                     <button className="text-gray-600 hover:text-[#3bb77e]">Coffee & Teas</button>
@@ -429,7 +441,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-8 grid-cols-4 gap-4">
+                    <div className="grid md:grid-cols-5 lg:grid-cols-8 grid-cols-4 gap-4">
                         {categories.map((category, index) => (
                             <div key={index} className="bg-[#F4F6FA] rounded-xl md:p-6 p-2 hover:shadow-md cursor-pointer group">
                                 <div className="flex flex-col items-center text-center gap-3">

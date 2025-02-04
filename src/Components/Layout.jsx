@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { useLocation } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 const Layout = ({ children }) => {
     const location = useLocation();
@@ -11,8 +12,8 @@ const Layout = ({ children }) => {
 
     return (
         <div className="w-full overflow-x-hidden">
+            <ScrollToTop />
             {/* Only show Navbar if not on login/signup pages */}
-            
             {!hideNavbar && <Navbar />}
             
             {/* Remove all margins for login/signup pages */}
@@ -21,7 +22,7 @@ const Layout = ({ children }) => {
                     ? '' // No margin or padding for login/signup
                     : isAboutOrShop 
                         ? 'md:mt-[85px] mt-[50px]' 
-                        : 'md:mt-[85px] mt-[50px]'
+                        : 'md:mt-[145px] mt-[50px]'
             } max-w-[100vw]`}>
                 {children}
             </main>

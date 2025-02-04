@@ -22,7 +22,7 @@ const BlogDetail = () => {
             <BlogDetail_mobile />
 
             {/* Desktop Version */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:block mt-44">
                 <div className="container mx-auto px-4">
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-sm mb-8">
@@ -46,7 +46,7 @@ const BlogDetail = () => {
                                     </h1>
                                     <div className="flex items-center gap-4 mt-4">
                                         <div className="flex items-center gap-2">
-                                            <img src="https://s3-alpha-sig.figma.com/img/9f79/eb35/790bf748bb2ed29e628fc867299685b9?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hUA4z~unVy3QBIx609FTJOeHBLxbQFGHgjkiNcydfMB9jeqqqdpae-X~tvtprZ8jRXEqCj4ms6sRC004jaMtG4HAYOnbOjDTcLQ099AJ1aQIuw8X6-ulmI9otzNU0M9qGbMKhrABTqas2qWGI3XWxmN5nkS-Lo5dOLhXevo1zNbwAleOjRwC6pLIO7wzmlmC7zQKBnz0Ubsotg7~56B-D6YAaWPfC1RO9wNwcikzsOKLr4NHxo9nYKPtABXxTbtoiGC5zyFpj8qz-Ss9qcd6izEnO6CS8Am3UqdXG~rQoDVjc8A23OQSSbGCwN-2J2iTd9IcNgYdk5Yli0w~gIPJQA__"
+                                            <img src="/assets/people2.png"
                                                 alt="Author"
                                                 className="w-10 h-10 rounded-full"
                                             />
@@ -59,7 +59,7 @@ const BlogDetail = () => {
 
                                 {/* Blog Image */}
                                 <img
-                                    src="https://s3-alpha-sig.figma.com/img/b1e5/2be5/9a57884a1b9c44b922d17fcd1206bf06?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=St77NYRz8F97HbyYDWIz0gRnKHgEF3CfELotJ4MZXjSnDwtRGkZEf7LtPLGIpRdht2eH1TNf2Ipby37p0StjJawUKhy33rcTLvBGiGbVhE2cOfZ~GQrcDnpMUw9ZKO2Cl3N2B3WOMCzC0lYDjNNs6OUEbe4Y3U0BPOTJq9zE-E19YTg-RUu1nHmtthpiYBC0okd~CuNPTeBn~zq4~C9iCVuyr2CaaObCpK8LVTKisSanwz3kNlaMgDTV-igCe3E1~qde2LX9lw2EbrOLDmCWNWLcOHjJ5Ojbiauode1k93S9DkUEEsSDCVE3Zff~VIc4mOckPSWYJA3Qq-E4CNFz9Q__"
+                                    src="/assets/blog2.png"
                                     alt="Blog Cover"
                                     className="w-full h-[400px] object-cover rounded-xl"
                                 />
@@ -85,7 +85,7 @@ const BlogDetail = () => {
                                     {/* Two Column Images */}
                                     <div className="grid grid-cols-1 gap-8 mb-8">
                                         <img
-                                            src="https://s3-alpha-sig.figma.com/img/daff/60cf/e1a72a111440440494f96802fcecc268?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=I4bKXK8IBAfnbzHvbV9po2wEXSrbrdZZQC5NH0bEKrhjCuBb17iAD~2s5kRTpwM2jd-adjQ-QmcxAPXAqxRTUvckZmKqJfcf~7GQG3rE77YWp25vZuETJfVYZveRmPR69cRr3nOoMR5C1yeZ2UvfIeVR1S~dxtt6vMkJ8U04drS-bwbBcrRYR5G~gKWC8uTTDo6azJ8Un9D5cf9cwwoxlHvwh2XwMqcOzINJFYlheKfPDdg1eDyT7UqVT60pDi90xklt-9h-1-e08u40XqyDlqesXx8VcbF3vRJ-HZA~MOdekP~muSUJJae~tITEhGBz27PoxN13HSJt084Qp1exzw__"
+                                            src="/assets/blog_de1.png"
                                             alt="Food Image 1"
                                             className="w-full h-[300px] object-cover rounded-xl"
                                         />

@@ -58,12 +58,12 @@ const Footer_mobile = () => {
                 <h3 className="text-[15px] font-medium text-[#253D4E] mb-3">Install App</h3>
                 <p className="text-[13px] text-gray-600 mb-3">From App Store or Google Play</p>
                 <div className="flex justify-center gap-2 mb-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/dc4b/2ffc/a1101b9deff29af3a785dfba02788877?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=J8gdg37hcTe6mjESAwgcpB31fZZcu2nNhE1O6qqjseWNDrd9qW2nG2EoRT2anf6MVh~CSzRSMlXuFAoCntM-ddtaLT3~vG-LHa-HijiQ-8STS1k189mp1zfghD0sAfkxeTxsWoLnF-EIliX4i0P8911gANYDEhm8koVbeVbxbQKkqeBnVUVyhzJNECoKq0WxqsXaaf12ZZTUMUqpUcX8wxiHfXrAsQaKeXlwpxZymimiGUw~b3TR8Xa--55pDX-20vBmZcYS3UinExKysvKUvMkC3hf~X9GcsZXBT3Pp3ZNDfhZp1oZkhfnTpKuJWP7hLmmSYcHGzvLpY88yOezYGg__" alt="App Store" className="h-8" />
-                    <img src="https://s3-alpha-sig.figma.com/img/7844/144b/561e00edee01e736c431c7d8af4eb2f0?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T4i61TGO09VJMaATecBYlmMpfO5EH5FLVi9G5m9fhuOeiT2XAS~s-zWRhVqh6nDn-Ts12l5Yta1Jpl1SsdYi9~Qfk6IX2CE5b9JXjhdtpH8cSJUabPuqPd-bR4dXBNfzQVrWigBJ2wl7yhVRBRwSy3ZcCmgP5FxwQy91PBnlBrInsGvEhppRwv0~ATL~O-du9UDd-lsryhVww5NRu4ElaoWtcQblllEDKCr2lNLIms6LRr9j5oL6yhdZCv5wqcQRBwaJkX9HVLpa-d637PTaIMAGuo5uEEl4OfNmISV0alm9aLmk52Vb9aus0gKMI4VaGYd6lqsLyBbxm797ub00xw__" alt="Google Play" className="h-8" />
+                    <img src="/assets/appstore.jpeg" alt="App Store" className="h-8" />
+                    <img src="/assets/playstore.jpeg" alt="Google Play" className="h-8" />
                 </div>
                 <p className="text-[13px] text-gray-600 mb-2">Secured Payment Gateways</p>
                 <div className="flex justify-center">
-                    <img src="https://s3-alpha-sig.figma.com/img/abfd/e206/9df20d065d424eb84b76f8b62e604c51?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e0420eK1FgzohVjGvv4jhGPgC8nmgGjLls1EyV6O-TJTofaHZ34teACI0vFklFS0Cj7CJMjhD0KB-NEyP~9ANnvb6q-LPfo2jFUD6MYQyK0Dg5NNmTEJ890gjtsLwFq77xjBbVLZQjmWWNE-OyKOKOW1zYdwz13Hmfq50~lgQn0upcrM7jtXUmXur8KlvcCub82VUXkXUB3NUXZrnXL59UpZ30zyj8OQ~ifdKVNqjvLaMKQtTr9HXqVQQB-YchOoj89JhHpOERVBGOgTcZG6LBhKjmcS5BJYzOUjygjNhIdwtHDFxyCESPEvqOaH44b2O5HwLPDDdcGer-nD7Wh3nA__" alt="Payment Methods" className="h-4" />
+                    <img src="/assets/payment.png" alt="Payment Methods" className="h-4" />
                 </div>
             </div>
 
